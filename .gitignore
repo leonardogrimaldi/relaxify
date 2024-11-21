@@ -1,5 +1,5 @@
-*.exe
 *
 !/**/
 !*.*
 ./src/css/output.css
+*.exe
