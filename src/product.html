@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Relaxify - Il tuo negozio online di prodotti antistress per ritrovare la calma e il relax.">
+    <title>Relaxify - Product</title>
+    <link rel="stylesheet" href="./css/output.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-pink-300 text-white py-6 text-center">
+        <a href="test.html"><h1 class="text-4xl font-bold">Relaxify</h1></a>
+    </header>
+    <nav class="w-full">
+        <ul class="flex justify-center space-x-8 bg-gray-50 px-12 py-6 shadow-md">
+            <li><a href="#" class="text-pink-400 hover:text-pink-700 font-semibold border-8 p-4 border-pink-200">Fidget</a></li>
+            <li><a href="#" class="text-pink-400 hover:text-pink-700 font-semibold border-8 p-4 border-pink-200">Cubi</a></li>
+            <li><a href="#" class="text-pink-400 hover:text-pink-700 font-semibold border-8 p-4 border-pink-200">Gommosi</a></li>
+        </ul>
+    </nav>
+    <!-- Prodotto -->
+     <div class="max-w-4xl mx-auto p-6 flex flex-col md:flex-row bg-white shadow-lg rounded-lg mt-3">
+        <div class="md:w-1/2">
+            <section id="prodotto" class="box-content">
+                <article itemscope itemtype="https://schema.org/Product" class="bg-white shadow-lg rounded-lg flex flex-col">
+                    <img itemprop="image" src="resources/img/cube.jpg" alt="Fidget Cube" class="">
+                </article>
+            </section>
+        </div>
+        <div class="md:w-1/2 md:pl-6 flex flex-col justify-center">
+            <!-- ASIDE -->
+             <aside class="bg-white border p-4 mb-4">
+                <section class="p-1 text-center h-full flex flex-col">
+                    <h2 itemprop="name" class="text-xl font-semibold text-gray-700">Fidget Cube</h2>
+                    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="flex flex-row justify-center items-center gap-x-2 py-5">
+                        <button class="w-1/4 bg-teal-500 text-white py-2 rounded hover:bg-teal-600">Like</button>
+                        <div>
+                            <data itemprop="price" value="15.00">15.00</data><meta itemprop="priceCurrency" content="EUR"/>€
+                        </div>
+                        <button class="w-1/4 bg-teal-500 text-white py-2 rounded hover:bg-teal-600">Cart</button>
+                    </div>
+                    <p itemprop="description" class="text-gray-600 mt-2 grow">Il <b>Cubo Antistress</b> è un dispositivo compatto progettato per alleviare lo stress e migliorare la concentrazione. È adatto a persone di tutte le età, ideale per chi cerca un modo discreto ed efficace per canalizzare l'energia nervosa, calmarsi o rimanere focalizzato in ambienti impegnativi.</p>
+                </section>
+             </aside>
+        </div>
+     </div>
+    
+    
+    <footer class="bg-pink-400 text-white text-center py-6">
+        <ul class="flex justify-center space-x-8">
+            <li><a href="#seguici" class="text-white hover:text-gray-500 font-semibold">Seguici</a></li>
+            <li><a href="#chi-siamo" class="text-white hover:text-gray-500 font-semibold">Chi Siamo</a></li>
+            <li><a href="#contattaci" class="text-white hover:text-gray-500 font-semibold">Contattaci</a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>
