@@ -18,3 +18,7 @@ Dovrà essere eseguita solo una volta quando si vuole modificare il codice tailw
 ## Scaricare questa estensione VS per vedere i cambiamenti del codice in tempo reale
 
 https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+
+## Icone utilizzate
+
+https://heroicons.com/outline
