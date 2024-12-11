@@ -48,9 +48,9 @@
         <h1 class="text-2xl font-bold text-gray-700 mb-6">Carrello</h1>
         <div id="item-1" class="cart-item flex items-center justify-between py-4 border-b" data-price="15.00">
             <div class="flex items-center">
-                <img src="resources/img/cube.jpg" alt="Palla Antistress" class="w-16 h-16 rounded-lg">
+                <img src="resources/img/cube.jpg" alt="Cubo Antistress" class="w-16 h-16 rounded-lg">
                 <div class="ml-4">
-                    <h2 class="text-lg font-semibold text-gray-700">Palla Antistress</h2>
+                    <h2 class="text-lg font-semibold text-gray-700">Cubo Antistress</h2>
                     <p class="text-gray-500">15,00€</p>
                 </div>
             </div>
@@ -67,9 +67,9 @@
         </div>
         <div id="item-2" class="cart-item flex items-center justify-between py-4 border-b" data-price="18.00">
             <div class="flex items-center">
-                <img src="resources/img/cube.jpg" alt="Palla Antistress" class="w-16 h-16 rounded-lg">
+                <img src="resources/img/spinner.jpg" alt="Fidget Spinner" class="w-16 h-16 rounded-lg">
                 <div class="ml-4">
-                    <h2 class="text-lg font-semibold text-gray-700">Cubo Antistress</h2>
+                    <h2 class="text-lg font-semibold text-gray-700">Fidget Spinner</h2>
                     <p class="text-gray-500">18,00€</p>
                 </div>
             </div>
@@ -112,43 +112,6 @@
         </ul>
     </footer>
 </body>
-
-<script>
-    function updateTotal() {
-        let total = 0;
-        const items = document.querySelectorAll(".cart-item");
-        items.forEach(item => {
-            const price = parseFloat(item.getAttribute("data-price"));
-            const id = item.id.split("-")[1];
-            const quantity = parseInt(document.getElementById(`quantity-${id}`).textContent, 10);
-            total += price * quantity;
-        });
-        document.getElementById("totale-prodotti").textContent = total.toFixed(2) + "€";
-    }
-
-    function incrementQuantity(id) {
-        const quantityElement = document.getElementById(`quantity-${id}`);
-        let quantity = parseInt(quantityElement.textContent, 10);
-        quantityElement.textContent = quantity + 1;
-        updateTotal();
-    }
-
-    function decreaseQuantity(id) {
-        const quantityElement = document.getElementById(`quantity-${id}`);
-        let quantity = parseInt(quantityElement.textContent, 10);
-        if (quantity > 1) {
-            quantityElement.textContent = quantity - 1;
-            updateTotal();
-        }
-    }
-
-    function removeItem(id) {
-        const itemElement = document.getElementById(`item-${id}`);
-        itemElement.remove();
-        updateTotal();
-    }
-
-    window.onload = updateTotal;
+<script src="js/cart.js">
 </script>
-
 </html>
