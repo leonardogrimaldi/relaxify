@@ -3,6 +3,7 @@
 !*.*
 src/css/output.css
 *.exe
+./schema_er/.~lock.*
 
 # Ignore Mac DS_Store files
 .DS_Store
