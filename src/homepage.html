@@ -10,14 +10,17 @@
 </head>
 <body class="bg-gray-100 text-gray-800 flex items-center flex-col justify-between min-h-screen">
     <header class="bg-pink-300 text-white flex justify-between items-center w-full py-5 px-4">
+        <!-- Button sidebar -->
         <button aria-label="Barra laterale" onclick="toggleBarra()" class="px-3 mx-2 flex items-center text-white hover:bg-teal-600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>              
         </button>
 
+        <!-- Title -->
         <a class="block w-full text-4xl py-5 font-bold pr-10 text-center flex-1" href="homepage.html"><h1>Relaxify</h1></a>
 
+        <!-- Icone preferiti login carrello -->
         <div class="flex space-x-4">
             <button onclick="window.location.href='preferiti.html'" aria-label="Preferiti" class="flex items-center text-white hover:bg-teal-600 after:bg-gray-100 after:h-1/2 after:w-0.5 after:rounded-xl">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full size-8">
@@ -36,11 +39,13 @@
             </button> 
         </div>
 
+        <!-- Sidebar -->
         <div id="barra" class="absolute top-0 left-0 w-64 h-auto bg-white shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-50">
             <div class="p-6 flex flex-col space-y-4">
                 <button onclick="toggleBarra()" class="self-end text-gray-500 hover:text-gray-800">
                 </button>
 
+                <!-- Sezione home preferiti login carrello -->
                 <div class="space-y-4">
                     <a href="homepage.html" class="flex items-center text-gray-800 hover:text-teal-600">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
@@ -88,6 +93,7 @@
     
                 <hr class="border-gray-300">
     
+                <!-- Sezione finale -->
                 <div class="space-y-4">
                     <a href="info.html" class="flex items-center text-gray-800 hover:text-teal-600">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
@@ -99,6 +105,7 @@
             </div>
         </div>
     </header>
+    <!-- Categorie -->
     <nav class="w-full">
         <ul class="flex justify-center space-x-8 bg-gray-50 px-12 py-6 shadow-md">
             <li><a href="#" class="text-pink-400 hover:text-pink-700 font-semibold border-8 p-4 border-pink-200">Fidget</a></li>
@@ -107,6 +114,7 @@
         </ul>
     </nav>
     <section id="prodotti" class="grid grid-cols-2 gap-x-1 mx-3 my-2 grow content-start">
+        <!-- Prodotto 1 -->
         <article itemscope itemtype="https://schema.org/Product" class="bg-white rounded-lg flex flex-col overflow-hidden">
             <img onclick="window.location.href='product.html'" itemprop="image" src="resources/img/cube.jpg" alt="Cubo Antistress" class="w-full">
             <section onclick="window.location.href='product.html'" class="text-center h-full flex flex-col">
@@ -129,8 +137,8 @@
                 </div>
             </section>
         </article>
+        <!-- Prodotto 2 -->
         <article itemscope itemtype="https://schema.org/Product" class="bg-white rounded-lg flex flex-col overflow-hidden">
-            <!-- Le immagini vanno wrappate in un tag HTML? Chiedere alla prof -->
             <img itemprop="image" src="resources/img/squishy_heart.jpg" alt="Cuore Gommoso" class="w-full">
             <section class="text-center h-full flex flex-col">
                 <h2 itemprop="name" class="text-xl font-semibold text-gray-700">Cuore Gommoso</h2>
@@ -153,6 +161,7 @@
             </section>
         </article>
     </section>
+    <!-- Footer -->
     <footer class="bg-pink-400 text-white text-center py-6 w-full">
         <ul class="flex justify-center space-x-8">
             <li><a href="#seguici" class="text-white hover:text-gray-500 font-semibold">Seguici</a></li>
