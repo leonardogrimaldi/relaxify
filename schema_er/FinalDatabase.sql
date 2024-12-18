@@ -96,8 +96,8 @@ CREATE TABLE IF NOT EXISTS `prodotto_ordine` (
 
 -- Dumping structure for table relaxify.prodotto_preferito
 CREATE TABLE IF NOT EXISTS `prodotto_preferito` (
-  `prodottoID` int(11) NOT NULL,
-  `utenteID` int(11) NOT NULL,
+  `prodottoID` int(2) NOT NULL,
+  `utenteID` int(2) NOT NULL,
   PRIMARY KEY (`utenteID`,`prodottoID`),
   KEY `FK_prodotto_prodotto_preferito` (`prodottoID`),
   CONSTRAINT `FK_prodotto_prodotto_preferito` FOREIGN KEY (`prodottoID`) REFERENCES `prodotto` (`prodottoID`),
