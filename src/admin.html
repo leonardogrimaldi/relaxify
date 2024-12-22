@@ -51,7 +51,7 @@
                 <button id="prodotti" class="w-1/2 text-center py-3 font-semibold text-pink-500 border-4 border-pink-200">Prodotti</button>
                 <button id="ordini" class="w-1/2 text-center py-3 font-semibold text-gray-500">Ordini</button>
             </menu>
-            <dialog class="w-full h-2/3 p-6">
+            <dialog class="w-full h-min p-6">
                 <h3 class="text-center text-xl font-bold mb-4">Crea un nuovo prodotto</h3>
                 <form action="" method="dialog" class="flex flex-col">
                     <div class="mb-1">
@@ -147,11 +147,11 @@
             <li><a href="#contattaci" class="text-white hover:text-gray-500 font-semibold">Contattaci</a></li>
         </ul>
     </footer>
-    
+
     <script>
         const show = document.querySelector("dialog + div > button:first-child");
         const close = document.querySelector("dialog button");
-        const dialog = document.querySelector("dialog");    
+        const dialog = document.querySelector("dialog");
         show.addEventListener("click", () => {
             dialog.showModal();
         });
