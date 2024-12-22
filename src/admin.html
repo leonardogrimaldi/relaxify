@@ -51,9 +51,39 @@
                 <button id="login" class="w-1/2 text-center py-3 font-semibold text-pink-500 border-4 border-pink-200">Prodotti</button>
                 <button id="registrazione" class="w-1/2 text-center py-3 font-semibold text-gray-500">Ordini</button>
             </menu>
-            <section class="p-6">
-                <button type="button">Nuovo prodotto</button>
-            </section>
+            <dialog id="new" class="w-full h-2/3 p-6">
+                <h3 class="text-center text-xl font-bold mb-4">Crea un nuovo prodotto</h3>
+                <form action="" method="dialog" class="flex flex-col">
+                    <div class="mb-1">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" class="w-full border border-gray-300 rounded p-2" autofocus/>
+                    </div>
+                    <div class="mb-1">
+                        <label for="categoria">Categoria</label>
+                        <select name="categoria" id="categoria" class="w-full border border-gray-300 rounded p-2">
+                            <option value="cubi">Cubi</option>
+                            <option value="test">Test</option>
+                        </select>
+                    </div>
+                    <div class="mb-1">
+                        <label for="prezzo">Prezzo</label>
+                        <input type="number" name="prezzo" id="prezzo" class="w-full border border-gray-300 rounded p-2"/>
+                    </div>
+                    <div class="mb-1">
+                        <label for="descrizione">Descrizione</label>
+                        <textarea name="descrizione" id="descrizione" class="w-full border border-gray-300 rounded p-2"></textarea>
+                    </div>
+                    <div class="mb-1">
+                        <label for="immagine">Immagine</label>
+                        <input type="file" id="immagine" name="immagine" class="w-full border border-gray-300 rounded p-2"/>
+                    </div>
+                    <input class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" type="submit" value="Invia"/>
+                </form>
+                <button type="button" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4">Esci</button>
+            </dialog>
+            <div class="text-center mt-3">
+                <button type="button" class="p-3 bg-red-400 w-3/4">Nuovo prodotto</button>
+            </div>
             <section>
                 <details class="p-6 [&>summary>div>svg]:open:-rotate-180"> 
                     <summary class="list-none">
@@ -118,6 +148,19 @@
         </ul>
     </footer>
     
+    <script>
+        const show = document.querySelector("dialog + div > button:first-child");
+        const close = document.querySelector("dialog button");
+        const dialog = document.querySelector("dialog");    
+        show.addEventListener("click", () => {
+            dialog.showModal();
+        });
+        close.addEventListener("click", () => {
+            dialog.close();
+        })
+        
+        
+    </script>
     <script src="js/login.js"></script>
 </body>
 </html>
