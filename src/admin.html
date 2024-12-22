@@ -48,10 +48,10 @@
         <h2>Dashboard</h2>
         <div class="bg-white shadow-md rounded-md w-full max-w-lg">
             <menu class="flex border-b">
-                <button id="login" class="w-1/2 text-center py-3 font-semibold text-pink-500 border-4 border-pink-200">Prodotti</button>
-                <button id="registrazione" class="w-1/2 text-center py-3 font-semibold text-gray-500">Ordini</button>
+                <button id="prodotti" class="w-1/2 text-center py-3 font-semibold text-pink-500 border-4 border-pink-200">Prodotti</button>
+                <button id="ordini" class="w-1/2 text-center py-3 font-semibold text-gray-500">Ordini</button>
             </menu>
-            <dialog id="new" class="w-full h-2/3 p-6">
+            <dialog class="w-full h-2/3 p-6">
                 <h3 class="text-center text-xl font-bold mb-4">Crea un nuovo prodotto</h3>
                 <form action="" method="dialog" class="flex flex-col">
                     <div class="mb-1">
@@ -158,8 +158,6 @@
         close.addEventListener("click", () => {
             dialog.close();
         })
-        
-        
     </script>
     <script src="js/login.js"></script>
 </body>
