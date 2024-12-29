@@ -48,10 +48,11 @@
         <h2>Pagina personale</h2>
         <div class="bg-white shadow-md rounded-md w-full max-w-lg">
             <menu class="flex">
-                <li class="w-full text-center font-semibold text-pink-500 border-4 border-pink-200"><button id="login" class="w-full h-full py-3">Dati personali</button></li>
-                <li class="w-full text-center font-semibold text-gray-500"><button id="registrazione" class="w-full h-full py-3">Ordini</button></li>
+                <li class="w-full"><button class="w-full h-full py-3 text-center font-semibold text-gray-500" tab-name="dati">Dati personali</button></li>
+                <li class="w-full"><button class="w-full h-full py-3 text-center font-semibold text-gray-500" tab-name="ordini">Ordini</button></li>
             </menu>
-            <section class="p-6">
+            <section class="hidden p-6" tab-name="dati">
+                <h3 class="hidden">Dati personali</h3>
                 <dl>
                     <dt class="block text-gray-700">Nome:</dt>
                     <dd class="w-full border border-gray-300 rounded p-2 mb-4">Mario</dd>
@@ -59,8 +60,9 @@
                     <dd class="w-full border border-gray-300 rounded p-2">Mario</dd>
                 </dl>
             </section>
-            <section>
-                <details class="p-6 [&>summary>div>svg]:open:-rotate-180"> 
+            <section class="hidden p-6" tab-name="ordini">
+                <h3 class="hidden">Ordini</h3>
+                <details class="[&>summary>div>svg]:open:-rotate-180"> 
                     <summary class="list-none">
                         <div class="float-right">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 rotate-0 transform transition-all duration-300">
@@ -122,7 +124,37 @@
             <li><a href="#contattaci" class="text-white hover:text-gray-500 font-semibold">Contattaci</a></li>
         </ul>
     </footer>
-    
-    <script src="js/login.js"></script>
+    <script>
+        
+        const addClass = (e, classes) => {
+            if (e instanceof HTMLElement) {
+                classes.trim().split(" ").forEach(c => e.classList.add(c));
+            }
+        }
+        const removeClass = (e, classes) => {
+            if (e instanceof HTMLElement) {
+                classes.trim().split(" ").forEach(c => e.classList.remove(c));
+            }
+        }
+        
+        const menu = document.querySelector("main menu");
+        const buttons = menu.querySelectorAll("li button");
+        const activeStyle = "border-4 border-pink-200 text-pink-500";
+        let active = 0;
+        addClass(buttons[0], activeStyle);
+        document.querySelector(`menu ~ *[tab-name="${buttons[active].getAttribute("tab-name")}"]`).classList.remove("hidden");
+
+        buttons.forEach((b, i) => {
+            if (b instanceof HTMLButtonElement) {
+                b.addEventListener("click", () => {
+                    removeClass(buttons[active], activeStyle);
+                    document.querySelector(`menu ~ section[tab-name="${buttons[active].getAttribute("tab-name")}"]`).classList.add("hidden");
+                    active = i;
+                    addClass(b, activeStyle);
+                    document.querySelector(`menu ~ section[tab-name="${buttons[active].getAttribute("tab-name")}"]`).classList.remove("hidden");
+                });
+            }
+        });
+    </script>
 </body>
 </html>
