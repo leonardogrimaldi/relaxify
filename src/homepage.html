@@ -8,8 +8,8 @@
     <title>Relaxify - Antistress Online</title>
     <link rel="stylesheet" href="./css/output.css">
 </head>
-<body class="bg-gray-100 text-gray-800 flex items-center flex-col justify-between min-h-screen">
-    <header class="bg-pink-300 text-white flex justify-between items-center w-full py-5 px-4">
+<body class="bg-gray-100 text-gray-800 flex items-center flex-col min-h-screen">
+    <header class="bg-pink-300 text-white flex items-center w-full">
         <!-- Button sidebar -->
         <button aria-label="Barra laterale" onclick="toggleBarra()" class="px-3 mx-2 flex items-center text-white hover:bg-teal-600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -22,24 +22,24 @@
 
         <!-- Icone preferiti login carrello -->
         <nav class="w-full">
-            <ul class="w-full flex flex-row justify-center">
+            <ul class="w-full flex flex-row ">
                 <li class="after:bg-black after:h-1/2 after:w-0.5 after:rounded-xl flex items-center w-full">
                     <a href="preferiti.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full size-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                         </svg>
                     </a>
                 </li>
                 <li class="after:bg-black after:h-1/2 after:w-0.5 after:rounded-xl flex items-center w-full">
                     <a href="login.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full size-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                         </svg>
                     </a>
                 </li>
                 <li class="w-full">
                     <a href="cart.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full size-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                         </svg>
                     </a>
@@ -121,53 +121,55 @@
         <li class="py-2 flex-none"><button type="button" class="w-32 text-pink-400 hover:text-pink-700 font-semibold border-8 border-pink-200 py-1 rounded-full">Gommosi</button></li>
         <li class="py-2 flex-none mr-auto"><button type="button" class="w-32 text-pink-400 hover:text-pink-700 font-semibold border-8 border-pink-200 py-1 rounded-full">Gommosi</button></li>
     </menu>
-    <section id="prodotti" class="grid grid-cols-2 gap-x-1 mx-3 my-2 grow content-start">
-        <!-- Prodotto 1 -->
-        <article itemscope itemtype="https://schema.org/Product" class="bg-white rounded-lg flex flex-col overflow-hidden">
-            <img onclick="window.location.href='product.html'" itemprop="image" src="resources/img/cube.jpg" alt="Cubo Antistress" class="w-full">
-            <section onclick="window.location.href='product.html'" class="text-center h-full flex flex-col">
-                <h2 itemprop="name" class="text-xl font-semibold text-gray-700">Cubo Antistress</h2>
-                <p itemprop="description" class="mx-2 truncate text-gray-600 my-2 grow">Perfetto per alleviare lo stress con semplici comandi.</p>
-                <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="flex flex-row justify-center items-center gap-x-2 py-2">
-                    <button aria-label="Aggiungi ai preferiti" class="w-1/4 flex justify-center bg-teal-500 text-white py-2 rounded hover:bg-teal-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                        </svg>
-                    </button>
-                    <div>
-                        <data itemprop="price" value="15.00">15.00</data><meta itemprop="priceCurrency" content="EUR"/>€
+    <section id="prodotti" class="grow">
+        <h2 class="text-center font-normal my-2">I nostri prodotti più venduti</h2>
+        <div class="grid grid-cols-2 gap-x-1 mx-3 my-2">
+            <article itemscope itemtype="https://schema.org/Product" class="bg-white rounded-lg flex flex-col overflow-hidden">
+                <img onclick="window.location.href='product.html'" itemprop="image" src="resources/img/cube.jpg" alt="Cubo Antistress" class="w-full">
+                <section onclick="window.location.href='product.html'" class="text-center h-full flex flex-col">
+                    <h3 itemprop="name" class="text-xl font-semibold text-gray-700">Cubo Antistress</h3>
+                    <p itemprop="description" class="mx-2 truncate text-gray-600 my-2 grow">Perfetto per alleviare lo stress con semplici comandi.</p>
+                    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="flex flex-row justify-center items-center gap-x-2 py-2">
+                        <button aria-label="Aggiungi ai preferiti" class="w-1/4 flex justify-center bg-teal-500 text-white py-2 rounded hover:bg-teal-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                            </svg>
+                        </button>
+                        <div>
+                            <data itemprop="price" value="15.00">15.00</data><meta itemprop="priceCurrency" content="EUR"/>€
+                        </div>
+                        <button aria-label="Aggiungi al carrello" class="w-1/4 flex justify-center bg-teal-500 text-white py-2 rounded hover:bg-teal-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                            </svg>  
+                        </button>
                     </div>
-                    <button aria-label="Aggiungi al carrello" class="w-1/4 flex justify-center bg-teal-500 text-white py-2 rounded hover:bg-teal-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                        </svg>  
-                    </button>
-                </div>
-            </section>
-        </article>
-        <!-- Prodotto 2 -->
-        <article itemscope itemtype="https://schema.org/Product" class="bg-white rounded-lg flex flex-col overflow-hidden">
-            <img itemprop="image" src="resources/img/squishy_heart.jpg" alt="Cuore Gommoso" class="w-full">
-            <section class="text-center h-full flex flex-col">
-                <h2 itemprop="name" class="text-xl font-semibold text-gray-700">Cuore Gommoso</h2>
-                <p itemprop="description" class="mx-2 truncate text-gray-600 my-2 grow">Oggetto morbido, elastico e piacevole al tatto, progettato per alleviare la tensione e favorire il rilassamento. Ha la forma di un cuore stilizzato, simmetrico, con linee morbide e arrotondate</p>               
-                <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="flex flex-row justify-center items-center gap-x-2 py-2">
-                    <button class="w-1/4 flex justify-center bg-teal-500 text-white py-2 rounded hover:bg-teal-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                        </svg>
-                    </button>
-                    <div>
-                        <data itemprop="price" value="15.00">15.00</data><meta itemprop="priceCurrency" content="EUR"/>€
+                </section>
+            </article>
+            <!-- Prodotto 2 -->
+            <article itemscope itemtype="https://schema.org/Product" class="bg-white rounded-lg flex flex-col overflow-hidden">
+                <img itemprop="image" src="resources/img/squishy_heart.jpg" alt="Cuore Gommoso" class="w-full">
+                <section class="text-center h-full flex flex-col">
+                    <h2 itemprop="name" class="text-xl font-semibold text-gray-700">Cuore Gommoso</h2>
+                    <p itemprop="description" class="mx-2 truncate text-gray-600 my-2 grow">Oggetto morbido, elastico e piacevole al tatto, progettato per alleviare la tensione e favorire il rilassamento. Ha la forma di un cuore stilizzato, simmetrico, con linee morbide e arrotondate</p>               
+                    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="flex flex-row justify-center items-center gap-x-2 py-2">
+                        <button class="w-1/4 flex justify-center bg-teal-500 text-white py-2 rounded hover:bg-teal-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                            </svg>
+                        </button>
+                        <div>
+                            <data itemprop="price" value="15.00">15.00</data><meta itemprop="priceCurrency" content="EUR"/>€
+                        </div>
+                        <button class="w-1/4 flex justify-center bg-teal-500 text-white py-2 rounded hover:bg-teal-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                            </svg>  
+                        </button>
                     </div>
-                    <button class="w-1/4 flex justify-center bg-teal-500 text-white py-2 rounded hover:bg-teal-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                        </svg>  
-                    </button>
-                </div>
-            </section>
-        </article>
+                </section>
+            </article>
+        </div>
     </section>
     <!-- Footer -->
     <footer class="bg-pink-400 text-white text-center py-6 w-full">
