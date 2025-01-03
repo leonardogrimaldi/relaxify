@@ -1,9 +1,9 @@
-const addClass = (e, classes) => {
+export const addClass = (e, classes) => {
     if (e instanceof HTMLElement) {
         classes.trim().split(" ").forEach(c => e.classList.add(c));
     }
 }
-const removeClass = (e, classes) => {
+export const removeClass = (e, classes) => {
     if (e instanceof HTMLElement) {
         classes.trim().split(" ").forEach(c => e.classList.remove(c));
     }
