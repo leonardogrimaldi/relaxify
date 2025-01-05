@@ -14,16 +14,16 @@ const buttons = menu.querySelectorAll("li button");
 const activeStyle = "border-4 border-pink-200 text-pink-500";
 let active = 0;
 addClass(buttons[0], activeStyle);
-document.querySelector(`menu ~ *[tab-name="${buttons[active].getAttribute("tab-name")}"]`).classList.remove("hidden");
+document.querySelector(`menu ~ *[data-tab-name="${buttons[active].getAttribute("data-tab-name")}"]`).classList.remove("hidden");
 
 buttons.forEach((b, i) => {
     if (b instanceof HTMLButtonElement) {
         b.addEventListener("click", () => {
             removeClass(buttons[active], activeStyle);
-            document.querySelector(`menu ~ section[tab-name="${buttons[active].getAttribute("tab-name")}"]`).classList.add("hidden");
+            document.querySelector(`menu ~ section[data-tab-name="${buttons[active].getAttribute("data-tab-name")}"]`).classList.add("hidden");
             active = i;
             addClass(b, activeStyle);
-            document.querySelector(`menu ~ section[tab-name="${buttons[active].getAttribute("tab-name")}"]`).classList.remove("hidden");
+            document.querySelector(`menu ~ section[data-tab-name="${buttons[active].getAttribute("data-tab-name")}"]`).classList.remove("hidden");
         });
     }
 });

@@ -40,10 +40,10 @@
         <h2 class="py-4 text-lg">Effettua l'accesso al tuo account</h2>
         <div class="bg-white shadow-md rounded-md w-full max-w-lg">
             <menu class="flex border-b">
-                <li class="w-full"><button class="w-full h-full py-3 text-center font-semibold text-gray-500 rounded-t-md" tab-name="accedi">Accedi</button></li>
-                <li class="w-full"><button class="w-full h-full py-3 text-center font-semibold text-gray-500 rounded-t-md" tab-name="registrati">Registrati</button></li>
+                <li class="w-full"><button class="w-full h-full py-3 text-center font-semibold text-gray-500 rounded-t-md" data-tab-name="accedi">Accedi</button></li>
+                <li class="w-full"><button class="w-full h-full py-3 text-center font-semibold text-gray-500 rounded-t-md" data-tab-name="registrati">Registrati</button></li>
             </menu>
-            <section class="hidden p-6" tab-name="accedi">
+            <section class="hidden p-6" data-tab-name="accedi">
                 <h3 class="hidden">Accedi</h3>
                 <form action="#" method="POST">
                     <div class="mb-4">
@@ -57,7 +57,7 @@
                     <button type="submit" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600">Accedi</button>
                 </form>
             </section>
-            <section class="hidden p-6" tab-name="registrati">
+            <section class="hidden p-6" data-tab-name="registrati">
                 <h3 class="hidden">Registrati</h3>
                 <form action="#" method="POST" id="form-registrazione">
                     <div class="mb-4">
