@@ -19,92 +19,6 @@
 CREATE DATABASE IF NOT EXISTS `relaxify` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `relaxify`;
 
--- Dumping structure for table relaxify.admin
-CREATE TABLE IF NOT EXISTS `admin` (
-  `adminID` int(1) NOT NULL AUTO_INCREMENT,
-  `email` varchar(100) NOT NULL,
-  `password` binary(41) NOT NULL DEFAULT '0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
-  PRIMARY KEY (`adminID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
-
--- Data exporting was unselected.
-
--- Dumping structure for table relaxify.categoria
-CREATE TABLE IF NOT EXISTS `categoria` (
-  `categoriaID` int(1) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) NOT NULL,
-  `descrizione` varchar(255) NOT NULL,
-  PRIMARY KEY (`categoriaID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- Data exporting was unselected.
-
--- Dumping structure for table relaxify.ordine
-CREATE TABLE IF NOT EXISTS `ordine` (
-  `utenteID` int(2) NOT NULL,
-  `ordineID` int(4) NOT NULL,
-  `data` date NOT NULL,
-  `stato` char(1) NOT NULL,
-  `totale` decimal(4,2) NOT NULL,
-  PRIMARY KEY (`ordineID`,`utenteID`),
-  KEY `FK_utente_ordine` (`utenteID`),
-  CONSTRAINT `FK_utente_ordine` FOREIGN KEY (`utenteID`) REFERENCES `utente` (`utenteID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- Data exporting was unselected.
-
--- Dumping structure for table relaxify.prodotto
-CREATE TABLE IF NOT EXISTS `prodotto` (
-  `prodottoID` int(2) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(100) NOT NULL,
-  `descrizione` varchar(255) NOT NULL,
-  `prezzo` decimal(3,2) NOT NULL,
-  `categoriaID` int(1) NOT NULL DEFAULT 0,
-  `immagine` varchar(100) NOT NULL DEFAULT '',
-  PRIMARY KEY (`prodottoID`),
-  KEY `FK_categoria_prodotto` (`categoriaID`),
-  CONSTRAINT `FK_categoria_prodotto` FOREIGN KEY (`categoriaID`) REFERENCES `categoria` (`categoriaID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- Data exporting was unselected.
-
--- Dumping structure for table relaxify.prodotto_carrello
-CREATE TABLE IF NOT EXISTS `prodotto_carrello` (
-  `prodottoID` int(2) NOT NULL,
-  `utenteID` int(2) NOT NULL,
-  `quantita` int(2) NOT NULL,
-  PRIMARY KEY (`prodottoID`,`utenteID`),
-  KEY `FK_utente_prodotto_carrello` (`utenteID`),
-  CONSTRAINT `FK_prodotto_prodotto_carrello` FOREIGN KEY (`prodottoID`) REFERENCES `prodotto` (`prodottoID`),
-  CONSTRAINT `FK_utente_prodotto_carrello` FOREIGN KEY (`utenteID`) REFERENCES `utente` (`utenteID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- Data exporting was unselected.
-
--- Dumping structure for table relaxify.prodotto_ordine
-CREATE TABLE IF NOT EXISTS `prodotto_ordine` (
-  `ordineID` int(4) NOT NULL,
-  `utenteID` int(2) NOT NULL,
-  `prodottoID` int(2) NOT NULL,
-  `quantita` int(2) NOT NULL,
-  PRIMARY KEY (`ordineID`,`utenteID`,`prodottoID`),
-  KEY `FK_prodotto_prodotto_ordine` (`prodottoID`),
-  CONSTRAINT `FK_ordine_prodotto_ordine` FOREIGN KEY (`ordineID`, `utenteID`) REFERENCES `ordine` (`ordineID`, `utenteID`),
-  CONSTRAINT `FK_prodotto_prodotto_ordine` FOREIGN KEY (`prodottoID`) REFERENCES `prodotto` (`prodottoID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- Data exporting was unselected.
-
--- Dumping structure for table relaxify.prodotto_preferito
-CREATE TABLE IF NOT EXISTS `prodotto_preferito` (
-  `prodottoID` int(2) NOT NULL,
-  `utenteID` int(2) NOT NULL,
-  PRIMARY KEY (`utenteID`,`prodottoID`),
-  KEY `FK_prodotto_prodotto_preferito` (`prodottoID`),
-  CONSTRAINT `FK_prodotto_prodotto_preferito` FOREIGN KEY (`prodottoID`) REFERENCES `prodotto` (`prodottoID`),
-  CONSTRAINT `FK_utente_prodotto_preferito` FOREIGN KEY (`utenteID`) REFERENCES `utente` (`utenteID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 -- Data exporting was unselected.
 
 -- Dumping structure for table relaxify.utente
@@ -117,6 +31,86 @@ CREATE TABLE IF NOT EXISTS `utente` (
   `tipo` int(2) NOT NULL DEFAULT 0,
   PRIMARY KEY (`utenteID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Data exporting was unselected.
+
+-- Dumping structure for table relaxify.categoria
+CREATE TABLE IF NOT EXISTS `categoria` (
+  `categoriaID` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) NOT NULL,
+  `descrizione` varchar(255) NOT NULL,
+  PRIMARY KEY (`categoriaID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Data exporting was unselected.
+
+CREATE TABLE IF NOT EXISTS `ordine` (
+  `ordineID` int NOT NULL AUTO_INCREMENT,
+  `utenteID` int(2) NOT NULL,
+  `data` date NOT NULL,
+  `stato` char(1) NOT NULL,
+  `totale` decimal(4,2) NOT NULL,
+  PRIMARY KEY (`ordineID`),
+  FOREIGN KEY (`utenteID`) REFERENCES `utente` (`utenteID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- Data exporting was unselected.
+
+-- Dumping structure for table relaxify.prodotto
+CREATE TABLE IF NOT EXISTS `prodotto` (
+  `prodottoID` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `descrizione` varchar(255) NOT NULL,
+  `prezzo` float(10) NOT NULL,
+  `immagine` varchar(100) NOT NULL DEFAULT '',
+  `categoriaID` int(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`prodottoID`),
+  FOREIGN KEY (`categoriaID`) REFERENCES `categoria` (`categoriaID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Data exporting was unselected.
+
+-- Dumping structure for table relaxify.prodotto_carrello
+CREATE TABLE IF NOT EXISTS `prodotto_carrello` (
+  `carrelloID` int NOT NULL AUTO_INCREMENT,
+  `prodottoID` int(2) NOT NULL,
+  `utenteID` int(2) NOT NULL,
+  `quantita` int(2) NOT NULL,
+  PRIMARY KEY (`carrelloID`),
+  FOREIGN KEY (`prodottoID`) REFERENCES `prodotto` (`prodottoID`),
+  FOREIGN KEY (`utenteID`) REFERENCES `utente` (`utenteID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Data exporting was unselected.
+
+-- Dumping structure for table relaxify.prodotto_ordine
+CREATE TABLE IF NOT EXISTS `prodotto_ordine` (
+  `prodottoOrdineID` int NOT NULL AUTO_INCREMENT,
+  `ordineID` int(4) NOT NULL,
+  `utenteID` int(2) NOT NULL,
+  `prodottoID` int(2) NOT NULL,
+  `quantita` int(2) NOT NULL,
+  PRIMARY KEY (`prodottoOrdineID`),
+  FOREIGN KEY (`ordineID`) REFERENCES `ordine` (`ordineID`),
+  FOREIGN KEY (`prodottoID`) REFERENCES `prodotto` (`prodottoID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- Data exporting was unselected.
+
+-- Dumping structure for table relaxify.prodotto_preferito
+CREATE TABLE IF NOT EXISTS `prodotto_preferito` (
+  `preferitoID` int NOT NULL AUTO_INCREMENT,
+  `prodottoID` int(2) NOT NULL,
+  `utenteID` int(2) NOT NULL,
+  PRIMARY KEY (`preferitoID`),
+  FOREIGN KEY (`prodottoID`) REFERENCES `prodotto` (`prodottoID`),
+  FOREIGN KEY (`utenteID`) REFERENCES `utente` (`utenteID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
 
 -- Data exporting was unselected.
 
