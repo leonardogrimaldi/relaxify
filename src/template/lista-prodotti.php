@@ -1,6 +1,6 @@
 <h2 class="text-center font-normal my-2 text-xl">I nostri prodotti</h2>
-        <?php foreach($templateParams["prodotti"] as $prodotto): ?>
         <div class="grid grid-cols-2 gap-x-1 gap-y-1 mx-3 my-2 max-w-prose md:max-w-3xl">
+        <?php foreach($templateParams["prodotti"] as $prodotto): ?>
             <article itemscope itemtype="https://schema.org/Product" class="bg-white rounded-lg flex flex-col overflow-hidden  md:flex-row">
                 <img class="w-full aspect-square md:w-1/2" itemprop="image" src="<?php echo IMG_ROOT . $prodotto["immagine"]; ?>" alt="<?php echo $prodotto["nome"]; ?>">
                 <div class="text-center h-full flex flex-col md:w-1/2">
@@ -31,5 +31,6 @@
                     </div>
                 </div>
             </article>
-        </div>
         <?php endforeach; ?>
+        </div>
+        
