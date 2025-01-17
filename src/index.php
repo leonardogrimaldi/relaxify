@@ -1,6 +1,5 @@
 <?php
 require_once("bootstrap.php");
-echo "Prova prova";
 
 $templateParams["titolo"] = "Relaxify - Home";
 $templateParams["nome"] = "lista-prodotti.php";
