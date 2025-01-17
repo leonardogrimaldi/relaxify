@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/output.css">
 
     <?php if (isset($templateParams["js"])) : ?>
-        <script type="<?php echo $templateParams["module"]; ?>" src="<?php echo $templateParams["js"]; ?>"></script>
+        <script <?php echo $templateParams["module"]; ?> src="<?php echo $templateParams["js"]; ?>"></script>
     <?php endif; ?>
 
 </head>
