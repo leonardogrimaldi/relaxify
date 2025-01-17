@@ -7,6 +7,11 @@
         content="Relaxify - Il tuo negozio online di prodotti antistress per ritrovare la calma e il relax.">
     <title><?php echo $templateParams["titolo"] ?> </title>
     <link rel="stylesheet" href="./css/output.css">
+
+    <?php if (isset($templateParams["js"])) : ?>
+        <script type="<?php echo $templateParams["module"]; ?>" src="<?php echo $templateParams["js"]; ?>"></script>
+    <?php endif; ?>
+
 </head>
 <body class="bg-gray-100 text-gray-800 flex items-center flex-col min-h-screen">
     <header class="bg-pink-300 text-white flex items-center w-full">
@@ -139,7 +144,6 @@
             <li><a href="contatti.php" class="text-white hover:text-gray-500 font-semibold">Contattaci</a></li>
         </ul>
     </footer>
-    <script src="js/barra.js"></script>
     <script>
         const buttons = document.querySelectorAll("main article section div button");
         buttons.forEach(b => {

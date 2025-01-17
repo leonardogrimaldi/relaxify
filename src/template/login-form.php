@@ -41,5 +41,3 @@
                 </form>
             </section>
         </div>
-
-        <script type="module" src="js/tabs.js"></script>
