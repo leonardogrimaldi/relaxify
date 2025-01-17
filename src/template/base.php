@@ -108,7 +108,7 @@
     
                 <!-- Sezione Contatti e Informazioni -->
                 <div class="space-y-4">
-                    <a href="contatti.html" class="flex items-center text-gray-800 hover:text-teal-600">
+                    <a href="contatti.php" class="flex items-center text-gray-800 hover:text-teal-600">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25c0 1.622-1.378 2.925-3.125 2.925-1.746 0-3.125-1.303-3.125-2.925S16.129 8.325 17.875 8.325c1.746 0 3.125 1.303 3.125 2.925zM15.5 18.75v-1.125c0-.59-.076-1.153-.225-1.675-.229-.975-.669-1.825-1.25-2.475-.582-.65-1.287-1.175-2.075-1.5-.789-.326-1.623-.494-2.475-.494s-1.686.168-2.475.494c-.788.325-1.492.85-2.075 1.5-.581.65-1.021 1.5-1.25 2.475-.149.522-.225 1.085-.225 1.675v1.125c0 1.058.932 1.875 2.075 1.875h7.25c1.142 0 2.075-.817 2.075-1.875z" />
                         </svg>
