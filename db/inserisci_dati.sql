@@ -20,5 +20,5 @@ INSERT INTO `prodotto` (`prodottoID`, `nome`, `descrizione`, `prezzo`, `immagine
 (9, 'Squishy Bread', 'Una soffice riproduzione di una fetta di pane o panino. Il suo aspetto realistico e la consistenza irresistibile la rendono un prodotto molto popolare.', 9.0, 'squishy_bread.jpg', 2),
 (10, 'Cube', 'Un cubo semplice ma stimolante, progettato per essere manipolato e ruotato in vari modi. Ideale per scaricare lo stress in modo intuitivo.', 15.0, 'cube.jpg', 3),
 (11, 'Cube Rubik', ' Il classico rompicapo a colori. Sfida la tua mente risolvendo questo celebre puzzle, mentre tieni le mani occupate.', 18.0, 'cube_rubik.jpg', 3),
-(12, 'Cube Buzz', 'Un cubo con luci e suoni interattivi. Perfetto per chi ama gli stimoli multisensoriali e vuole un’esperienza più vivace.', 20.0, 'squishy_ball.jpg', 3),
+(12, 'Cube Buzz', 'Un cubo con luci e suoni interattivi. Perfetto per chi ama gli stimoli multisensoriali e vuole un’esperienza più vivace.', 20.0, 'cube_buzz.jpg', 3),
 (13, 'Cube Infinity', 'Un cubo pieghevole che si trasforma continuamente in diverse forme. Un oggetto affascinante che cattura l’attenzione e rilassa la mente.', 25.0, 'cube_infinity.jpg', 3);
