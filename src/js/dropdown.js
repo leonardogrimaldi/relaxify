@@ -20,10 +20,13 @@ class DropDown extends HTMLElement {
                 open = !open;
             });
         });
-        showButton
-        
+        const tickButton = template.querySelector("div button")
+        if (tickButton && tickButton instanceof HTMLButtonElement) {
+            tickButton.addEventListener("click", () => {
+                // chiama server aggiorna a inviato
+            });
+        }
         this.appendChild(template);
     }
 }
-
 customElements.define('drop-down', DropDown)

@@ -135,7 +135,7 @@
                         </div>
                         <div class="mb-1">
                             <label for="immagine">Immagine</label>
-                            <input type="file" id="immagine" name="immagine" class="w-full border border-gray-300 rounded p-2"/>
+                            <input type="file" id="immagine" name="immagine" class="w-full border border-gray-300 rounded p-2" accept="image/*"/>
                         </div>
                         <div class="mb-1">
                             <label for="alt">Alt immagine</label>
@@ -147,8 +147,12 @@
                 </dialog>
                 <!-- Elemento dialog per la modifica prodotto -->
                 <dialog id="modifyDialog" class="h-min p-6 max-w-md rounded-lg m-auto">
-                    <h2 class="text-center text-xl font-bold mb-4">Modifica il prodotto</h2>
+                    <h2 class="text-center text-xl font-bold mb-4">Modifica o elimina il prodotto</h2>
                     <form action="" method="dialog" class="flex flex-col">
+                        <div class="mb-1">
+                            <label for="modify-codice">Codice articolo</label>
+                            <input type="text" name="modify-codice" id="modify-codice" class="w-full border border-gray-300 rounded p-2" disabled/>
+                        </div>
                         <div class="mb-1">
                             <label for="modify-nome">Nome</label>
                             <input type="text" name="modify-nome" id="modify-nome" class="w-full border border-gray-300 rounded p-2"/>
@@ -174,15 +178,15 @@
                         </div>
                         <div class="mb-1">
                             <label for="modify-immagine">Immagine</label>
-                            <input type="file" id="modify-immagine" name="modify-immagine" class="w-full border border-gray-300 rounded p-2"/>
+                            <input type="file" id="modify-immagine" name="modify-immagine" class="w-full border border-gray-300 rounded p-2" accept="image/*"/>
                         </div>
                         <div class="mb-1">
                             <label for="modify-alt">Alt immagine</label>
                             <input type="text" id="modify-alt" name="modify-alt" class="w-full border border-gray-300 rounded p-2"/>
                         </div>
                     <input class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" type="submit" value="Salva"/>
-                    <button type="button" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4">Esci</button>
-                    <button type="button" class="w-full bg-red-500 text-white py-2 rounded hover:bg-pink-600 mt-4">Elimina</button>
+                    <button type="button" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" onclick="closeModifyDialog()">Esci</button>
+                    <button type="button" class="w-full bg-red-500 text-white py-2 rounded hover:bg-pink-600 mt-10" onclick="deleteProduct()">Elimina</button>
                 </form> 
                 </dialog>
                 <div class="text-center">
@@ -259,10 +263,13 @@
             });
             modifyDialog.showModal();
         }
-
+        const closeModifyDialog = () => {modifyDialog.close();};
+        const deleteProduct = () => {
+            const codiceArticolo = document.getElementById("modify-codice").value;
+            // call function to delete product;
+        }
         const retrieveItemData = function(codiceArticolo) {
-            const obj = {nome: "Bro", categoria: "test", prezzo: 30, quantita: 20, descrizione: "lorem ipsum", immagine: "./test-path.jpg", alt: "un cane"};
-
+            const obj = {codice: 1234, nome: "Bro", categoria: "test", prezzo: 30, quantita: 20, descrizione: "lorem ipsum", immagine: "./test-path.jpg", alt: "un cane"};
             return obj;
         }
     </script>
