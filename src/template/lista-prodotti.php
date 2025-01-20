@@ -1,5 +1,5 @@
-<h2 class="text-center font-normal my-2 text-xl">I nostri prodotti</h2>
-<div class="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10 mx-3 my-4 max-w-screen-lg">
+<h2 class="text-center font-normal my-2 text-xl">I NOSTRI PRODOTTI</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-10 mx-2 my-4 max-w-screen-lg">
     <?php foreach($templateParams["prodotti"] as $prodotto): ?>
         <article itemscope itemtype="https://schema.org/Product" class="bg-white rounded-lg flex flex-col overflow-hidden shadow-md">
             <div class="w-full flex justify-center items-center">
