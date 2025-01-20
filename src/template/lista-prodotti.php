@@ -2,12 +2,17 @@
         <div class="grid grid-cols-2 gap-x-1 gap-y-1 mx-3 my-2 max-w-prose md:max-w-3xl">
         <?php foreach($templateParams["prodotti"] as $prodotto): ?>
             <article itemscope itemtype="https://schema.org/Product" class="bg-white rounded-lg flex flex-col overflow-hidden  md:flex-row">
-                <div class="w-full md:w-1/2 flex justify-center items-center aspect-square bg-gray-100">
-                    <img class="w-full h-full object-cover" itemprop="image" src="<?php echo IMG_ROOT . $prodotto["immagine"]; ?>" alt="<?php echo $prodotto["nome"]; ?>">
+                <div class="w-full md:w-1/2 flex justify-center items-center">
+                    <div class="w-full aspect-square relative overflow-hidden">
+                        <img class="absolute top-0 left-0 w-full h-full object-cover" 
+                        itemprop="image" 
+                        src="<?php echo IMG_ROOT . $prodotto["immagine"]; ?>" 
+                        alt="<?php echo $prodotto["nome"]; ?>">
+                    </div>
                 </div>
                 <div class="text-center h-full flex flex-col md:w-1/2">
                     <header>
-                        <h3 itemprop="name" class="text-lg font-medium text-gray-700 mt-2"><?php echo $prodotto["nome"] ?></h3>
+                        <h3 itemprop="name" class="text-lg font-medium  text-gray-700 mt-2"><?php echo $prodotto["nome"] ?></h3>
                         <a class="sr-only" href="product.html">Vai alla pagina del prodotto</a>
                     </header>
                     <p itemprop="description" class="mx-2 line-clamp-2 md:line-clamp-none text-gray-600 my-2 grow"><?php echo $prodotto["descrizione"]; ?></p>
