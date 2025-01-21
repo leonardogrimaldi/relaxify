@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `utente` (
   `nome` varchar(50) NOT NULL,
   `cognome` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` binary(41) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
+  `password` varchar(80) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
   `tipo` int(2) NOT NULL DEFAULT 0,
   PRIMARY KEY (`utenteID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

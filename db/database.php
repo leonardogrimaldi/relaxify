@@ -48,7 +48,7 @@ class DatabaseHelper{
 
     public function registerNewUser($nome, $cognome, $email, $password)
     {
-        $stmt = $this->db->prepare("INSERT INTO `utenti`(`nome`, `cognome`, `email`, `password`) VALUES (?,?,?,?)");
+        $stmt = $this->db->prepare("INSERT INTO `utente`(`nome`, `cognome`, `email`, `password`) VALUES (?,?,?,?)");
         $stmt->bind_param('ssss', $nome, $cognome, $email, $password);
         $stmt->execute();
     }
