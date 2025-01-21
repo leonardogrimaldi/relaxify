@@ -27,7 +27,7 @@
         }
     ?>
 
-    <main class="grow">
+    <main class="w-full flex flex-col items-center grow px-2 pb-6">
         <?php require($templateParams["nome"]); ?>
     </main>
 

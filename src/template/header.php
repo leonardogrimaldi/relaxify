@@ -15,9 +15,9 @@
     </a>
 
     <!-- Icone preferiti login carrello -->
-    <nav class="py-5 min-w-max">
-        <ul class="flex flex-row items-center justify-end gap-x-2">
-            <li class="">
+    <nav class="py-5 w-full">
+        <ul class="flex flex-row items-center justify-end">
+            <li>
                 <a href="./preferiti.php">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-1/2 h-9">
                         <title>Preferiti</title>
