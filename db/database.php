@@ -33,6 +33,73 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function checkLogin($email, $input_pwd){
+        $stmt = $this->db->prepare("SELECT * FROM utente WHERE email = ? ");
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        if(password_verify($input_pwd, $result[0]["password"])){
+            return $result[0];
+        } else {
+            return -1;
+        }
+    }
+
+    public function registerNewUser($nome, $cognome, $email, $password)
+    {
+        $stmt = $this->db->prepare("INSERT INTO `utenti`(`nome`, `cognome`, `email`, `password`) VALUES (?,?,?,?)");
+        $stmt->bind_param('ssss', $nome, $cognome, $email, $password);
+        $stmt->execute();
+    }
+
+    public function getAllEmails(){
+        $stmt = $this->db->prepare("SELECT email FROM utente");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getEmailById($id){
+        $stmt = $this->db->prepare("SELECT email FROM utente WHERE id = ? ");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        return $result[0]["email"];
+    }
+
+    public function getCartProducts($idutente){
+        $stmt = $this->db->prepare("SELECT *, prodotto_carrello.carrelloID as idprodotto FROM prodotto_carrello, prodotto WHERE prodotto_carrello.idprodotto=prodotto.prodottoID AND utenteID = ? ");
+        $stmt->bind_param('i', $idutente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    private function isProductInCart($idprodotto, $idutente){
+        $stmt = $this->db->prepare("SELECT * FROM prodotto_carrello WHERE prodottoID = ? && utenteID = ?");
+        $stmt->bind_param('ii', $idprodotto, $idutente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return mysqli_num_rows($result) > 0;
+    }
+
+    public function insertProductInCart($idutente, $idprodotto)
+    {
+        if ($this->isProductInCart($idprodotto, $idutente)) {
+            $stmt = $this->db->prepare("UPDATE `prodotto_carrello` SET `quantita` = `quantita` + 1 WHERE `prodottoID` = ? && `utenteID` = ?");
+            $stmt->bind_param('ii', $idProdotto, $idUtente);
+            $stmt->execute();
+            return true;
+        } else {
+            $stmt = $this->db->prepare("INSERT INTO `prodotto_carrello`(`utenteID`, `prodottoID`) VALUES (?, ?)");
+            $stmt->bind_param('ii', $idutente, $idprodotto);
+            $stmt->execute();
+            return true;
+        }
+        return false;
+    }
 }
 
 ?>
