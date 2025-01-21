@@ -107,13 +107,12 @@
         </div>
     </div>
 </header>
-
-    <menu class="w-screen flex gap-x-3 px-3 overflow-x-auto whitespace-nowrap justify-center">
-        <?php foreach ($templateParams["categorie"] as $categoria): ?>
-            <li class="py-2 flex-none">
-                <button type="button" class="w-32 text-pink-400 hover:text-pink-700 font-semibold border-4 border-pink-200 py-1 rounded-full">
-                    <?php echo $categoria["nome"]; ?>
-                </button>
-            </li>
-        <?php endforeach; ?>
-    </menu>
+<menu class="w-screen flex gap-x-3 px-3 overflow-x-auto whitespace-nowrap">
+    <?php foreach ($templateParams["categorie"] as $key=>$categoria): ?>
+        <li class="py-2 flex-none">
+            <button type="button" class="w-32 text-pink-400 hover:text-pink-700 font-semibold border-4 border-pink-200 py-1 rounded-full">
+                <?php echo $categoria["nome"]; ?>
+            </button>
+        </li>
+    <?php endforeach; ?>
+</menu>
