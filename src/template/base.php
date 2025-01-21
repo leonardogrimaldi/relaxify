@@ -42,6 +42,10 @@
     ?>
 
     <script>
+        // Center categories
+        document.querySelector("menu li:first-child").classList.add("ml-auto");
+        document.querySelector("menu li:last-child").classList.add("mr-auto");
+        
         const buttons = document.querySelectorAll("main article section div button");
         buttons.forEach(b => {
             b.addEventListener('click', (event) => {
