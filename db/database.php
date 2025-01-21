@@ -61,7 +61,7 @@ class DatabaseHelper{
     }
 
     public function getEmailById($id){
-        $stmt = $this->db->prepare("SELECT email FROM utente WHERE id = ? ");
+        $stmt = $this->db->prepare("SELECT email FROM utente WHERE utenteID = ? ");
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
