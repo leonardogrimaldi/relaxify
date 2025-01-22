@@ -8,9 +8,11 @@
         <h3 class="sr-only">Dati personali</h3>
         <dl>
             <dt class="block text-gray-700">Nome:</dt>
-            <dd class="w-full border border-gray-300 rounded p-2 mb-4">Mario</dd>
-            <dt class="block text-gray-700">Nome:</dt>
-            <dd class="w-full border border-gray-300 rounded p-2">Mario</dd>
+            <dd class="w-full border border-gray-300 rounded p-2 mb-4">nome</dd>
+            <dt class="block text-gray-700">Cognome:</dt>
+            <dd class="w-full border border-gray-300 rounded p-2 mb-4">cognome</dd>
+            <dt class="block text-gray-700">Email:</dt>
+            <dd class="w-full border border-gray-300 rounded p-2">email</dd>
         </dl>
     </section>
     <section class="hidden p-3" data-tab-name="ordini">
@@ -83,4 +85,4 @@
 
     
 </div>
-<button type="submit" class="p-4 bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-5">Log-out</button>
+<button onclick="window.location.href='logout.php';" type="submit" class="p-4 bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-5">Log-out</button>
