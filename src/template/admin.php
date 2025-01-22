@@ -194,3 +194,4 @@
         </article>
     </section>
 </div>
+<button onclick="window.location.href='logout.php';" type="submit" class="p-4 bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-5">Log-out</button>

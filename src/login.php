@@ -39,7 +39,7 @@ if(isUserLoggedIn()){
     if ($_SESSION["tipo"] == 0) {
         header("location: profilo.php");
     } elseif ($_SESSION["tipo"] == 1) {
-        header("location: admin.php");
+        header("location: dashboard.php");
     } else {
         header("location: login.php");
     }
