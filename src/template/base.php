@@ -7,27 +7,12 @@
         content="Relaxify - Il tuo negozio online di prodotti antistress per ritrovare la calma e il relax.">
     <title><?php echo $templateParams["titolo"] ?> </title>
     <link rel="stylesheet" href="./css/output.css">
-
-    <?php 
-        if (isset($templateParams["js"]) && is_array($templateParams["js"])) {
-            foreach($templateParams["js"] as $script) {
-                if ($script instanceof JSImport) : ?>
-                    <script <?php if ($script->module) : ?> 
-                        type="<?php echo "module"; ?>" 
-                        <?php endif; ?> 
-                        src="<?php echo $script->fileName(); ?>"></script>
-                <?php endif;
-            }
-        }
-    ?>
-
     <?php if (isset($templateParams["js"])) : ?>
         <script <?php if (isset($templateParams["module"])) : ?> 
             type="<?php echo $templateParams["module"]; ?>" 
             <?php endif; ?> 
             src="<?php echo $templateParams["js"]; ?>"></script>
     <?php endif; ?>
-
 </head>
 <body class="bg-gray-100 text-gray-800 flex items-center flex-col min-h-screen">
     
@@ -53,7 +38,18 @@
             require("footer.php");
         }
     ?>
-
+    <?php 
+        if (isset($templateParams["js"]) && is_array($templateParams["js"])) {
+            foreach($templateParams["js"] as $script) {
+                if ($script instanceof JSImport && $script->bottom) : ?>
+                    <script <?php if ($script->module) : ?> 
+                        type="<?php echo "module"; ?>" 
+                        <?php endif; ?> 
+                        src="<?php echo $script->fileName(); ?>"></script>
+                <?php endif;
+            }
+        }
+    ?>
     <script>
         // Center categories
         document.querySelector("menu li:first-child").classList.add("ml-auto");

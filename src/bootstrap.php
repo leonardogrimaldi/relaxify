@@ -10,11 +10,13 @@ $dbh = new DatabaseHelper("localhost", "root", "", "relaxify", 3306);
 class JSImport {
     private readonly string $file_name;
     public readonly bool $module;
+    public readonly bool $bottom; /* If true, script should be placed at bottom of page */
 
-    function __construct(string $file_name, bool $module)
+    function __construct(string $file_name, bool $module, bool $bottom = true)
     {
         $this->file_name = $file_name;
         $this->module = $module;
+        $this->bottom = $bottom;
     }
 
     public function fileName()
