@@ -8,6 +8,19 @@
     <title><?php echo $templateParams["titolo"] ?> </title>
     <link rel="stylesheet" href="./css/output.css">
 
+    <?php 
+        if (isset($templateParams["js"]) && is_array($templateParams["js"])) {
+            foreach($templateParams["js"] as $script) {
+                if ($script instanceof JSImport) : ?>
+                    <script <?php if ($script->module) : ?> 
+                        type="<?php echo "module"; ?>" 
+                        <?php endif; ?> 
+                        src="<?php echo $script->fileName(); ?>"></script>
+                <?php endif;
+            }
+        }
+    ?>
+
     <?php if (isset($templateParams["js"])) : ?>
         <script <?php if (isset($templateParams["module"])) : ?> 
             type="<?php echo $templateParams["module"]; ?>" 
