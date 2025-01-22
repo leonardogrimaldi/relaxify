@@ -37,7 +37,7 @@ if(isset($_GET["action"])) {
 
 if(isUserLoggedIn()){
     if ($_SESSION["tipo"] == 0) {
-        header("location: index.php");
+        header("location: profilo.php");
     } elseif ($_SESSION["tipo"] == 1) {
         header("location: admin.php");
     } else {
