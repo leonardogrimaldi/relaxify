@@ -80,7 +80,7 @@
             </div>
         </article>
     </section>
+
+    
 </div>
-
-
-<!-- Bottone logout -->
+<button type="submit" class="p-4 bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-5">Log-out</button>
