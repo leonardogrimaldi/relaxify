@@ -3,7 +3,7 @@ require_once("bootstrap.php");
 
 $templateParams["titolo"] = "Relaxify - Login";
 $templateParams["nome"] = "product.php";
-$templateParams["js"] = JS_ROOT.'tabs.js';
+$templateParams["js"] = [new JSImport('tabs.js', true), new JSImport('product.js', false)];
 $templateParams["module"] = "module";
 
 $templateParams["categorie"] = $dbh->getCategories();
