@@ -100,6 +100,17 @@ class DatabaseHelper{
         }
         return false;
     }
+
+    public function getProductsByCategory($id){
+        $query = "SELECT prodotto.prodottoID, prodotto.nome as prodottonome, prodotto.descrizione as prodottodescrizione, prodotto.prezzo, prodotto.immagine, prodotto.categoriaID, categoria.nome as categorianome, categoria.descrizione as categoriadescrizione FROM prodotto, categoria WHERE prodotto.categoriaID=categoria.categoriaID AND prodotto.categoriaID=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i",$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 }
 
 ?>
