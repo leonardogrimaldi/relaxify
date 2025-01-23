@@ -1,35 +1,50 @@
-function updateTotal() {
+const updateTotal = () => {
     let total = 0;
-    const items = document.querySelectorAll(".cart-item");
+    const items = document.querySelectorAll("article");
     items.forEach(item => {
-        const price = parseFloat(item.getAttribute("data-price"));
-        const id = item.id.split("-")[1];
-        const quantity = parseInt(document.getElementById(`quantity-${id}`).textContent, 10);
+        const price = parseFloat(item.querySelector("div p").textContent, 10);
+        const quantity = parseInt(item.querySelector("div div span").textContent, 10);
         total += price * quantity;
     });
-    document.getElementById("totale-prodotti").textContent = total.toFixed(2) + "€";
+    document.getElementById("totale").textContent = total.toFixed(2) + "€";
 }
 
-function incrementQuantity(id) {
-    const quantityElement = document.getElementById(`quantity-${id}`);
-    let quantity = parseInt(quantityElement.textContent, 10);
-    quantityElement.textContent = quantity + 1;
-    updateTotal();
-}
-
-function decreaseQuantity(id) {
-    const quantityElement = document.getElementById(`quantity-${id}`);
-    let quantity = parseInt(quantityElement.textContent, 10);
-    if (quantity > 1) {
-        quantityElement.textContent = quantity - 1;
+const incrementQuantity = (item) => {
+    if (item instanceof HTMLButtonElement) {
+        quantityElement = item.parentNode.querySelector("span");
+        const quantity = parseInt(quantityElement.textContent, 10);
+        quantityElement.textContent = quantity + 1;
         updateTotal();
     }
 }
 
-function removeItem(id) {
-    const itemElement = document.getElementById(`item-${id}`);
-    itemElement.remove();
-    updateTotal();
+const decreaseQuantity = (item) => {
+    if (item instanceof HTMLButtonElement) {
+        quantityElement = item.parentNode.querySelector("span");
+        const quantity = parseInt(quantityElement.textContent, 10);
+        if (quantity > 1) {
+            quantityElement.textContent = quantity - 1;
+            updateTotal();
+        }
+    }
 }
 
-window.onload = updateTotal;
+const removeItem = (item) => {
+    if (item instanceof HTMLButtonElement) {
+        const codiceArticolo = item.dataset.codiceArticolo;
+        document.querySelector(`article[data-codice-articolo='${codiceArticolo}']`)?.remove();
+        updateTotal();
+        checkEmptyCart();
+    }
+}
+
+const checkEmptyCart = () => {
+    if (document.querySelectorAll("article").length == 0) {
+        document.querySelectorAll("section").forEach(element => {
+            element.remove();
+        });
+        document.getElementById("emptyText").classList.remove("hidden");
+    } 
+}
+
+updateTotal();
