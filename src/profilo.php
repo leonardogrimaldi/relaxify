@@ -1,6 +1,10 @@
 <?php
 require_once("bootstrap.php");
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $templateParams["titolo"] = "Relaxify - Login";
 $templateParams["nome"] = "profile.php";
 $templateParams["js"] = JS_ROOT.'tabs.js';

@@ -21,11 +21,11 @@
                         <form action="#" method="POST" id="form-acquisto">
                             <div class="mb-4 ml-2">
                                 <label for="nome" class="text-gray-700">Nome:</label>
-                                <input type="text" id="nome" name="nome" disabled class="w-full border border-gray-300 rounded p-2" />
+                                <input type="text" id="nome" name="nome" disabled class="w-full border border-gray-300 rounded p-2" value="<?php echo $_SESSION["nome"] ?>"/>
                             </div>
                             <div class="mb-4 ml-2">
                                 <label for="cognome" class="text-gray-700">Cognome:</label>
-                                <input type="text" id="cognome" name="cognome" disabled class="w-full border border-gray-300 rounded p-2" />
+                                <input type="text" id="cognome" name="cognome" disabled class="w-full border border-gray-300 rounded p-2" value="<?php echo $_SESSION["cognome"] ?>"/>
                                 <p> </p>
                             </div>
                             <div class="mb-4 ml-2">
@@ -38,7 +38,7 @@
                             </div>
                             <div class="mb-4 ml-2">
                                 <label for="email" class="text-gray-700">Email:</label>
-                                <input type="email" id="email" name="email" disabled class="w-full border border-gray-300 rounded p-2" />
+                                <input type="email" id="email" name="email" disabled class="w-full border border-gray-300 rounded p-2" value="<?php echo $_SESSION["email"] ?>"/>
                             </div>
                         </form>
                     </article>
@@ -50,7 +50,7 @@
                         <form action="#" method="POST" id="form-pagamento">
                             <div class="mb-4 ml-2">
                                 <label for="nometitolare" class="text-gray-700">Nome titolare</label>
-                                <input type="text" id="nometitolare" name="nometitolare" class="w-full border border-gray-300 rounded p-2" />
+                                <input type="text" id="nometitolare" name="nometitolare" class="w-full border border-gray-300 rounded p-2" value="<?php echo $_SESSION["nome"] . ' ' . $_SESSION["cognome"] ?>"/>
                             </div>
                             <div class="mb-4 ml-2">
                                 <label for="numerocarta" class="text-gray-700">Numero</label>
