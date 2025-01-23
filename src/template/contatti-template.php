@@ -6,7 +6,7 @@
             <h3 class="text-2xl font-semibold text-pink-400 mt-6 mb-4">Github</h3>
             <a href="https://github.com/leonardogrimaldi/relaxify"> <b>Repository Github</b></a>
             <h3 class="text-2xl font-semibold text-pink-400 mt-6 mb-4">Creato Da</h3>
-            <p class="text-gray-700 mb-4"> Azael Garcia Rufer, <a href="mailto:azael.garciarufer@studio.unibo.it">azael.garciarufer@studio.unibo.it </a><br> Leonardo Grimaldi, <a href="mailto:leonardo.grimaldi@studio.unibo.it">leonardo.grimaldi@studio.unibo.it </a></p>
+            <p class="text-gray-700 mb-4"> Azael Garcia Rufer, <a href="mailto:azael.garciarufer@studio.unibo.it">azael.garciarufer@studio.unibo.it </a><br> Leonardo Grimaldi, <a href="mailto:leonardo.grimaldi2@studio.unibo.it">leonardo.grimaldi2@studio.unibo.it </a></p>
         </section>
 
         <script type="module" src="js/contatti.js"></script>
