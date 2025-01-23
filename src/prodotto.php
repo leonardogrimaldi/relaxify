@@ -10,5 +10,6 @@ $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["prodotti"] = $dbh->getProducts();
 $templateParams["prodottoid"] = $dbh->getProductById($_GET["id"]);
 $prodotto = $templateParams["prodotti"][0];
+$templateParams["prodottisuggeriti"] = $dbh->getRandomProducts(2);
 require("template/base.php")
 ?>
