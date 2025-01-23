@@ -108,6 +108,7 @@
             </div>
         </div>
     </div>
+    <script src="./js/barra.js"></script>
 </header>
 <menu class="w-screen flex gap-x-3 px-3 overflow-x-auto whitespace-nowrap">
     <?php foreach ($templateParams["categorie"] as $key=>$categoria): ?>
