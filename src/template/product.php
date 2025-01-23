@@ -1,21 +1,21 @@
 <div class="grow flex flex-col sm:flex-row w-full justify-center  items-center">
-    <article class="flex flex-col sm:flex-row items-center justify-center w-full rounded-md p-5 shadow-md bg-white h-min sm:w-3/4">
-        <img width="200" height="200"
-            itemprop="image"
-            src="<?php echo IMG_ROOT . $prodotto["immagine"]; ?>"
-            alt="<?php echo $prodotto["nome"]; ?>">
-        <div class="text-center">
-            <header class="mt-2 flex flex-row justify-center gap-x-2">
-                <h3 class="text-lg font-semibold"><?php echo $prodotto["nome"]; ?></h3>
-                <p class="text-lg font-semibold"><?php echo $prodotto["prezzo"]; ?>€</p>
+    <!-- Prodotto -->
+    <article class="flex flex-col items-center justify-center w-full rounded-md p-5 mx-4 shadow-md bg-white">
+        <?php foreach ($templateParams["prodottoid"] as $prodottoid): ?>
+            <img class="w-3/4"
+                itemprop="image"
+                src="<?php echo IMG_ROOT . $prodottoid["immagine"]; ?>"
+                alt="<?php echo $prodottoid["nome"]; ?>">
+            <header class="mt-2">
+                <h3 class="text-lg font-semibold"><?php echo $prodottoid["nome"]; ?></h3>
             </header>
-            <p class="text-center"><?php echo $prodotto["descrizione"]; ?></p>
-            <div id="fixed-div" class="flex flex-row w-full fixed bottom-0 left-0 sm:left-auto sm:bottom-auto sm:static">
-                <button type="button" class="w-3/4 p-4 bg-red-500">Aggiungi al carrello</button>
-                <button type="button" class="w-1/4 bg-blue-500">Preferiti</button>
-            </div>
-        </div>
+            <p class="text-center"><?php echo $prodottoid["descrizione"]; ?></p>
     </article>
+    <div id="fixed-div" class="flex flex-row w-full fixed bottom-0 z-10000">
+        <button type="button" class="w-3/4 p-4 bg-red-500">Aggiungi al carrello</button>
+        <button type="button" class="w-1/4 bg-blue-500">Preferiti</button>
+    <?php endforeach; ?>
+    </div>
     <aside class="flex flex-col items-center ">
         <h2 class="text-center text-lg py-3">Suggerimenti</h2>
         <div id="prodotti" class="grid grid-cols-2 sm:grid-cols-1 gap-x-3 gap-y-3 my-2 mx-2 grow content-start">
@@ -49,8 +49,8 @@
                 </section>
             </article>
             <article class="bg-white rounded-lg flex flex-col overflow-hidden lg:flex-row">
-            <img height="150" width="150" onclick="window.location.href='product.html'" src="resources/img/cube.jpg"
-            alt="Cubo Antistress">
+                <img height="150" width="150" onclick="window.location.href='product.html'" src="resources/img/cube.jpg"
+                    alt="Cubo Antistress">
                 <section onclick="window.location.href='product.html'" class="text-center h-full flex flex-col">
                     <h2 class="text-lg font-medium text-gray-700">Cubo Antistress</h2>
                     <div class="flex flex-row justify-center items-center gap-x-2 py-2">
