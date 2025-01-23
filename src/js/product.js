@@ -1,4 +1,14 @@
 // Handle fixed div overlapping footer
 const footer = document.querySelector("footer");
 const fixedDiv = document.getElementById('fixed-div');
-footer.style.marginBottom = `${fixedDiv.clientHeight}px`;
+const setFooterMargin = () => {
+    if (this.document.body.clientWidth >= 640) {
+        footer.style.marginBottom = '0px';
+    } else {
+        footer.style.marginBottom = `${fixedDiv.clientHeight}px`;
+    }
+}
+setFooterMargin();
+window.addEventListener("resize", function(event) {
+    setFooterMargin();
+})
