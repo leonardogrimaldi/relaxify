@@ -8,11 +8,11 @@
         <h3 class="sr-only">Dati personali</h3>
         <dl>
             <dt class="block text-gray-700">Nome:</dt>
-            <dd class="w-full border border-gray-300 rounded p-2 mb-4">nome</dd>
+            <dd class="w-full border border-gray-300 rounded p-2 mb-4"><?php echo $_SESSION["nome"] ?></dd>
             <dt class="block text-gray-700">Cognome:</dt>
-            <dd class="w-full border border-gray-300 rounded p-2 mb-4">cognome</dd>
+            <dd class="w-full border border-gray-300 rounded p-2 mb-4"><?php echo $_SESSION["cognome"] ?></dd>
             <dt class="block text-gray-700">Email:</dt>
-            <dd class="w-full border border-gray-300 rounded p-2">email</dd>
+            <dd class="w-full border border-gray-300 rounded p-2"><?php echo $_SESSION["email"] ?></dd>
         </dl>
     </section>
     <section class="hidden p-3" data-tab-name="ordini">
