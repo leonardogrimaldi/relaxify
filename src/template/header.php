@@ -110,7 +110,7 @@
     </div>
     <script src="./js/barra.js"></script>
 </header>
-<menu class="w-screen flex gap-x-3 px-3 overflow-x-auto whitespace-nowrap">
+<menu class="w-full flex gap-x-3 overflow-x-auto whitespace-nowrap">
     <?php foreach ($templateParams["categorie"] as $key=>$categoria): ?>
         <li class="py-2 flex-none">
             <button onclick="window.location.href='prodotti.php?id=<?php echo $categoria['categoriaID'] ?>'" type="button" class="w-32 text-pink-400 hover:text-pink-700 font-semibold border-4 border-pink-200 py-1 rounded-full">
