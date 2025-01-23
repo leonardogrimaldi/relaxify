@@ -39,7 +39,7 @@
                 <dt class="font-bold">TOTALE PRODOTTI:</dt>
                 <dd id="totale" class="font-semibold">0.00€</dd>
             </dl>
-            <button onclick="window.location.href='checkout.html'" type="button" class="mt-4 w-full bg-teal-500 text-white py-3 rounded-lg hover:bg-teal-600">
+            <button onclick="window.location.href='checkout.php'" type="button" class="mt-4 w-full bg-teal-500 text-white py-3 rounded-lg hover:bg-teal-600">
                 Procedi all'ordine
             </button>
         </section>
