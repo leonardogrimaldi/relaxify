@@ -14,7 +14,7 @@
             <div class="text-center h-full flex flex-col">
                 <header>
                     <h3 itemprop="name" class="text-lg font-medium text-gray-700 mt-2"><?php echo $prodotto["nome"]; ?></h3>
-                    <a class="sr-only" href="product.html">Vai alla pagina del prodotto</a>
+                    <a class="sr-only" href="prodotto.php">Vai alla pagina del prodotto</a>
                 </header>
                 <p itemprop="description" class="mx-2 line-clamp-2 text-gray-600 my-2 grow"><?php echo $prodotto["descrizione"]; ?></p>
                 <span class="sr-only">Prezzo: <?php echo $prodotto["prezzo"]; ?> €</span>
