@@ -11,8 +11,8 @@ INSERT INTO `categoria` (`categoriaID`, `nome`, `descrizione`) VALUES
 INSERT INTO `prodotto` (`prodottoID`, `nome`, `descrizione`, `prezzo`, `immagine`, `categoriaID`) VALUES
 (1, 'Fidget Pad', 'Un piccolo dispositivo con pulsanti, leve e rotelle, progettato per fornire un’esperienza tattile coinvolgente. Perfetto per alleviare lo stress durante lunghe sessioni di lavoro o studio.', 8.0, 'fidget_pad.jpg', 1),
 (2, 'Fidget Pen', 'Una penna funzionale che include meccanismi fidget integrati, come interruttori, clicker e rotelle. Ideale per studenti e professionisti multitasking.', 6.0, 'fidget_pen.jpg', 1),
-(3, 'Fidget Ring', 'Un piccolo dispositivo con pulsanti, leve e rotelle, progettato per fornire un esperienza tattile coinvolgente. Perfetto per alleviare lo stress durante lunghe sessioni di lavoro o studio.', 19.0, 'fidget_ring.jpg', 1),
-(4, 'Fidget Pop It', 'Un piccolo dispositivo con pulsanti, leve e rotelle, progettato per fornire un esperienza tattile coinvolgente. Perfetto per alleviare lo stress durante lunghe sessioni di lavoro o studio.', 12.0, 'fidget_popit.jpg', 1),
+(3, 'Fidget Ring', 'Un elegante anello rotante che combina design e funzionalità. Indossalo per scaricare la tensione in modo discreto e stiloso.', 19.0, 'fidget_ring.jpg', 1),
+(4, 'Fidget Pop It', 'Una superficie in silicone con bolle da premere e far scoppiare ripetutamente. Perfetto per momenti di relax o per una attività sensoriale calmante.', 12.0, 'fidget_popit.jpg', 1),
 (5, 'Fidget Spinner', 'L’iconico oggetto rotante che aiuta a concentrare l’attenzione e ridurre l’ansia. Disponibile in diversi colori e stili.', 15.0, 'spinner.jpg', 1),
 (6, 'Squishy Ball', 'Una palla morbida e compressibile, perfetta per essere schiacciata e manipolata. Aiuta a migliorare la circolazione e a rilassare la mente.', 12.0, 'squishy_ball.jpg', 2),
 (7, 'Squishy Brain', 'Una replica in gomma morbida di un cervello. Divertente ed educativo, perfetto per chi cerca un antistress con un tocco di originalità', 10.0, 'squishy_brain.jpg', 2),
