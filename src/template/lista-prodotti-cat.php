@@ -2,6 +2,7 @@
 <div class="grid grid-cols-2 md:grid-cols-3 gap-x-1 gap-y-2 max-w-screen-lg">
     <?php foreach($templateParams["prodotticat"] as $prodottocat): ?>
         <article itemscope itemtype="https://schema.org/Product" class="bg-white rounded-lg flex flex-col overflow-hidden shadow-md">
+            <a href="prodotto.php?id=<?php echo $prodottocat['prodottoID'] ?>">    
             <div class="w-full flex justify-center items-center">
                 <div class="w-full aspect-square relative overflow-hidden">
                     <img class="absolute top-0 left-0 w-full h-full object-cover" 
@@ -37,6 +38,7 @@
                     </button>   
                 </div>
             </div>
+            </a>
         </article>
     <?php endforeach; ?>
 </div>

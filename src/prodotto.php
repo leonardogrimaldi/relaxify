@@ -8,6 +8,7 @@ $templateParams["module"] = "module";
 
 $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["prodotti"] = $dbh->getProducts();
+$templateParams["prodottoid"] = $dbh->getProductById($_GET["id"]);
 $prodotto = $templateParams["prodotti"][0];
 require("template/base.php")
 ?>
