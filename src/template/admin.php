@@ -94,7 +94,9 @@
         </div>
         <h3 class="text-center mt-4 mb-1">Prodotti presenti nello store</h3>
         <article class="flex flex-row pt-2 h-full border border-gray-300 rounded">
-        <img class="aspect-square overflow-hidden" height="150" width="150" src="resources/img/cube.jpg" alt="Palla Antistress">
+            <div class="flex items-center">
+            <img class="aspect-square overflow-hidden" height="100" width="100" src="resources/img/cube.jpg" alt="Palla Antistress">
+            </div>
             <div class="flex flex-col h-full grow ml-2">
                 <hgroup>
                     <h4 class="text-lg">Palla antistress</h4>
