@@ -19,7 +19,7 @@ class DatabaseHelper{
     }
 
     public function getProducts($n=-1){
-        $query = "SELECT * FROM prodotto";
+        $query = "SELECT prodotto.*, categoria.nome AS 'categoria' FROM prodotto, categoria WHERE prodotto.categoriaID = categoria.categoriaID";
         if($n>0){
             $query = $query . " LIMIT ?";
         }

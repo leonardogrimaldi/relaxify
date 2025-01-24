@@ -8,7 +8,7 @@
         <!-- Elemento dialog per la creazione di nuovi prodotti -->
         <dialog class="h-min p-6 max-w-md rounded-lg m-auto">
             <h2 class="text-center text-xl font-bold mb-4">Crea un nuovo prodotto</h2>
-            <form action="../dashboard.php" method="post" class="flex flex-col">
+            <form action="../dashboard.php" method="post" class="flex flex-col" enctype="multipart/form-data">
                 <div class="mb-1">
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome" class="w-full border border-gray-300 rounded p-2" />
@@ -93,39 +93,44 @@
             <button id="create" type="button" class="p-3 bg-pink-500 text-white rounded w-3/4">Crea un nuovo prodotto</button>
         </div>
         <h3 class="text-center mt-4 mb-1">Prodotti presenti nello store</h3>
-        <article class="flex flex-row pt-2 h-full border border-gray-300 rounded">
-            <div class="flex items-center">
-            <img class="aspect-square overflow-hidden" height="100" width="100" src="resources/img/cube.jpg" alt="Palla Antistress">
-            </div>
-            <div class="flex flex-col h-full grow ml-2">
-                <hgroup>
-                    <h4 class="text-lg">Palla antistress</h4>
-                    <p class="text-base">Categoria</p>
-                </hgroup>
-                <dl>
-                    <div class="flex flex-row gap-x-1">
-                        <dt><abbr class="no-underline" title="Codice articolo">Cod.</abbr></dt>
-                        <dd>123456</dd>
-                    </div>
-                    <div class="flex flex-row gap-x-1">
-                        <dt>Prezzo:</dt>
-                        <dd><data value="10.53">10.53</data></dd>
-                    </div>
-                    <div class="flex flex-row gap-x-1">
-                        <dt>Quantità:</dt>
-                        <dd><data value="11">11</data></dd>
-                    </div>
-                </dl>
-            </div>
-            <div class="flex items-center justify-center">
-                <button type="button" class="mx-2" onclick="openModifyDialog(this)" data-codice-articolo="1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-                    </svg>
-                    <span class="sr-only">Modifica o elimina prodotto</span>
-                </button>
-            </div>
-        </article>
+        <?php
+        foreach ($templateParams["prodotti"] as $prodotto):
+        ?>
+            <article class="flex flex-row pt-2 h-full border border-gray-300 rounded">
+                <div class="flex items-center">
+                    <img class="aspect-square overflow-hidden" height="100" width="100" src="<?php echo IMG_ROOT . $prodotto["immagine"]; ?>" alt="<?php echo $prodotto["nome"]; ?>">
+                </div>
+                <div class="flex flex-col h-full grow ml-2">
+                    <hgroup>
+                        <h4 class="text-lg"><?php echo $prodotto["nome"]; ?></h4>
+                        <p class="text-base"><?php echo $prodotto["categoria"]; ?></p>
+                    </hgroup>
+                    <dl>
+                        <div class="flex flex-row gap-x-1">
+                            <dt><abbr class="no-underline" title="Codice articolo">Cod.</abbr></dt>
+                            <dd><?php echo $prodotto["prodottoID"];?></dd>
+                        </div>
+                        <div class="flex flex-row gap-x-1">
+                            <dt>Prezzo:</dt>
+                            <dd><data value="<?php echo $prodotto["prezzo"];?>"><?php echo $prodotto["prezzo"];?></data>€</dd>
+                        </div>
+                        <div class="flex flex-row gap-x-1">
+                            <dt>Quantità:</dt>
+                            <dd><data value="11">11</data></dd>
+                        </div>
+                    </dl>
+                </div>
+                <div class="flex items-center justify-center">
+                    <button type="button" class="mx-2" onclick="openModifyDialog(this)" data-codice-articolo="1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                        </svg>
+                        <span class="sr-only">Modifica o elimina prodotto</span>
+                    </button>
+                </div>
+            </article>
+        <?php endforeach; ?>
+
     </section>
     <section class="hidden p-3" data-tab-name="ordini">
         <h3 class="text-center mb-1">Ordini ricevuti</h3>
