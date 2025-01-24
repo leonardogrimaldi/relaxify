@@ -8,7 +8,7 @@
         <!-- Elemento dialog per la creazione di nuovi prodotti -->
         <dialog class="h-min p-6 max-w-md rounded-lg m-auto">
             <h2 class="text-center text-xl font-bold mb-4">Crea un nuovo prodotto</h2>
-            <form action="" method="dialog" class="flex flex-col">
+            <form action="../dashboard.php" method="post" class="flex flex-col">
                 <div class="mb-1">
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome" class="w-full border border-gray-300 rounded p-2" />
@@ -16,6 +16,7 @@
                 <div class="mb-1">
                     <label for="categoria">Categoria</label>
                     <select name="categoria" id="categoria" class="w-full border border-gray-300 rounded p-2">
+                        <option label=" "></option>
                         <option value="cubi">Cubi</option>
                         <option value="test">Test</option>
                     </select>
@@ -41,13 +42,13 @@
                     <input type="text" id="alt" name="alt" class="w-full border border-gray-300 rounded p-2" />
                 </div>
                 <input class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" type="submit" value="Invia" />
-                <button type="button" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4">Esci</button>
+                <button type="reset" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4">Esci</button>
             </form>
         </dialog>
         <!-- Elemento dialog per la modifica prodotto -->
         <dialog id="modifyDialog" class="h-min p-6 max-w-md rounded-lg m-auto">
             <h2 class="text-center text-xl font-bold mb-4">Modifica o elimina il prodotto</h2>
-            <form action="" method="dialog" class="flex flex-col">
+            <form action="" method="post" class="flex flex-col">
                 <div class="mb-1">
                     <label for="modify-codice">Codice articolo</label>
                     <input type="text" name="modify-codice" id="modify-codice" class="w-full border border-gray-300 rounded p-2" disabled />
@@ -84,7 +85,7 @@
                     <input type="text" id="modify-alt" name="modify-alt" class="w-full border border-gray-300 rounded p-2" />
                 </div>
                 <input class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" type="submit" value="Salva" />
-                <button type="button" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" onclick="closeModifyDialog()">Esci</button>
+                <button type="reset" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" onclick="closeModifyDialog()">Esci</button>
                 <button type="button" class="w-full bg-red-500 text-white py-2 rounded hover:bg-pink-600 mt-10" onclick="deleteProduct()">Elimina</button>
             </form>
         </dialog>
@@ -93,9 +94,7 @@
         </div>
         <h3 class="text-center mt-4 mb-1">Prodotti presenti nello store</h3>
         <article class="flex flex-row pt-2 h-full border border-gray-300 rounded">
-            <div class="w-1/3">
-                <img class="aspect-square overflow-hidden" src="resources/img/cube.jpg" alt="Palla Antistress">
-            </div>
+        <img class="aspect-square overflow-hidden" height="150" width="150" src="resources/img/cube.jpg" alt="Palla Antistress">
             <div class="flex flex-col h-full grow ml-2">
                 <hgroup>
                     <h4 class="text-lg">Palla antistress</h4>
