@@ -32,3 +32,9 @@ https://gist.github.com/HoussemNasri/c09e55e0e5f451aa10f8621a6680ba28
 - Intestazione pagina: 
 
 text-xl
+
+## Modifica php.ini per far funzionare dashboard e image upload:
+
+php --ini
+
+togli il punto e virgola su ;extension=fileinfo
