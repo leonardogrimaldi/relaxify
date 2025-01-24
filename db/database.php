@@ -140,6 +140,8 @@ class DatabaseHelper{
         // Add to database
         $stmt = $this->db->prepare("INSERT INTO prodotto(nome, categoriaID, prezzo, descrizione, immagine) VALUES (?, ?, ?, ?, ?);");
         $stmt->bind_param("sidss", $data["nome"], $data["categoria"], $data["prezzo"], $data["descrizione"], $nomeImmagine);
+        $stmt->execute();
+        $result = $stmt->get_result();
     }
 }
 

@@ -10,22 +10,22 @@ close.addEventListener("click", () => {
 
 const modifyDialog = document.getElementById("modifyDialog");
 const openModifyDialog = (item) => {
-    const obj = retrieveItemData(item.dataset.codiceArticolo)
-    Object.keys(obj).forEach((k, i) => {
-        const input = document.getElementById("modify-" + k);
-        if (!(input instanceof HTMLInputElement && input.type == "file")) {
-            input.value = obj[k];
-        }
-    });
-    modifyDialog.showModal();
+    fetch(`/prodotto.php?id=${item.dataset.codiceArticolo}&fetch=true`)
+            .then(response => response.json())
+            .then(data => {
+                const obj = data[0];
+                Object.keys(obj).forEach((k, i) => {
+                    const input = document.getElementById("modify-" + k);
+                    if (!(input instanceof HTMLInputElement && input.type == "file")) {
+                        input.value = obj[k];
+                    }
+                });
+                modifyDialog.showModal();
+            })
+            .catch(error => console.error('Error fetching product data:', error));
 }
 const closeModifyDialog = () => { modifyDialog.close(); modifyDialog.querySelector("form").reset();};
 const deleteProduct = () => {
     const codiceArticolo = document.getElementById("modify-codice").value;
     // call function to delete product;
-}
-const retrieveItemData = function (codiceArticolo) {
-    // get data from server
-    const obj = { codice: 1234, nome: "Bro", categoria: "test", prezzo: 30, quantita: 20, descrizione: "lorem ipsum", immagine: "./test-path.jpg", alt: "un cane" };
-    return obj;
 }

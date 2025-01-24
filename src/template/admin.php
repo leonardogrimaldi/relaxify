@@ -17,8 +17,10 @@
                     <label for="categoria">Categoria</label>
                     <select name="categoria" id="categoria" class="w-full border border-gray-300 rounded p-2">
                         <option label=" "></option>
-                        <option value="cubi">Cubi</option>
-                        <option value="test">Test</option>
+                        <?php foreach ($templateParams["categorie"] as $categoria):
+                        ?>
+                        <option value="<?php echo $categoria["categoriaID"];?>"><?php echo $categoria["nome"];?></option>
+                        <?php endforeach;?>
                     </select>
                 </div>
                 <div class="mb-1">
@@ -50,18 +52,21 @@
             <h2 class="text-center text-xl font-bold mb-4">Modifica o elimina il prodotto</h2>
             <form action="" method="post" class="flex flex-col">
                 <div class="mb-1">
-                    <label for="modify-codice">Codice articolo</label>
-                    <input type="text" name="modify-codice" id="modify-codice" class="w-full border border-gray-300 rounded p-2" disabled />
+                    <label for="modify-prodottoID">Codice articolo</label>
+                    <input type="text" name="modify-prodottoID" id="modify-prodottoID" class="w-full border border-gray-300 rounded p-2" disabled />
                 </div>
                 <div class="mb-1">
                     <label for="modify-nome">Nome</label>
                     <input type="text" name="modify-nome" id="modify-nome" class="w-full border border-gray-300 rounded p-2" />
                 </div>
                 <div class="mb-1">
-                    <label for="modify-categoria">Categoria</label>
-                    <select name="modify-categoria" id="modify-categoria" class="w-full border border-gray-300 rounded p-2">
-                        <option value="cubi">Cubi</option>
-                        <option value="test">Test</option>
+                    <label for="modify-categoriaID">Categoria</label>
+                    <select name="modify-categoriaID" id="modify-categoriaID" class="w-full border border-gray-300 rounded p-2">
+                        <option label=" "></option>
+                        <?php foreach ($templateParams["categorie"] as $categoria):
+                        ?>
+                        <option value="<?php echo $categoria["categoriaID"];?>"><?php echo $categoria["nome"];?></option>
+                        <?php endforeach;?>
                     </select>
                 </div>
                 <div class="mb-1">
@@ -130,7 +135,6 @@
                 </div>
             </article>
         <?php endforeach; ?>
-
     </section>
     <section class="hidden p-3" data-tab-name="ordini">
         <h3 class="text-center mb-1">Ordini ricevuti</h3>

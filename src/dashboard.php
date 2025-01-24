@@ -80,7 +80,7 @@ function saveImage($immagine) {
     $filename = basename($immagine['name']);
     $extension = $allowedTypes[$filetype];
 
-    $newFilepath = IMG_ROOT . "/" . $filename . "." . $extension;
+    $newFilepath = IMG_ROOT . "/" . $filename;
     if (file_exists(IMG_ROOT . "" . $filename)) {
         throw new Exception("File already exists");
     }
