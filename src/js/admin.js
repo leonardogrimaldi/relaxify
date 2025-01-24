@@ -19,7 +19,7 @@ const openModifyDialog = (item) => {
     });
     modifyDialog.showModal();
 }
-const closeModifyDialog = () => { modifyDialog.close(); };
+const closeModifyDialog = () => { modifyDialog.close(); modifyDialog.querySelector("form").reset();};
 const deleteProduct = () => {
     const codiceArticolo = document.getElementById("modify-codice").value;
     // call function to delete product;

@@ -126,6 +126,21 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function newProduct($data, $nomeImmagine) {
+        // Check file name already exists
+        $stmt = $this->db->prepare("SELECT immagine FROM prodotto WHERE immagine = ?");
+        $stmt->bind_param("s", $file_name);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result-> num_rows > 0) {
+            throw new Exception("Esiste già un prodotto con lo stesso nome immagine. Sceglierne un altro");
+        }
+
+        // Add to database
+        $stmt = $this->db->prepare("INSERT INTO prodotto(nome, categoriaID, prezzo, descrizione, immagine) VALUES (?, ?, ?, ?, ?);");
+        $stmt->bind_param("sidss", $data["nome"], $data["categoria"], $data["prezzo"], $data["descrizione"], $nomeImmagine);
+    }
 }
 
 ?>
