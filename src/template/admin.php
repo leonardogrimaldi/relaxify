@@ -14,8 +14,8 @@
                     <input type="text" name="nome" id="nome" class="w-full border border-gray-300 rounded p-2" />
                 </div>
                 <div class="mb-1">
-                    <label for="categoria">Categoria</label>
-                    <select name="categoria" id="categoria" class="w-full border border-gray-300 rounded p-2">
+                    <label for="categoriaID">Categoria</label>
+                    <select name="categoriaID" id="categoriaID" class="w-full border border-gray-300 rounded p-2">
                         <option label=" "></option>
                         <?php foreach ($templateParams["categorie"] as $categoria):
                         ?>
@@ -39,21 +39,17 @@
                     <label for="immagine">Immagine</label>
                     <input type="file" id="immagine" name="immagine" class="w-full border border-gray-300 rounded p-2" accept="image/*" />
                 </div>
-                <div class="mb-1">
-                    <label for="alt">Alt immagine</label>
-                    <input type="text" id="alt" name="alt" class="w-full border border-gray-300 rounded p-2" />
-                </div>
-                <input class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" type="submit" value="Invia" />
+                <input class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" type="submit" value="Invia" name="nuovoProdotto"/>
                 <button type="reset" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4">Esci</button>
             </form>
         </dialog>
         <!-- Elemento dialog per la modifica prodotto -->
         <dialog id="modifyDialog" class="h-min p-6 max-w-md rounded-lg m-auto">
             <h2 class="text-center text-xl font-bold mb-4">Modifica o elimina il prodotto</h2>
-            <form action="" method="post" class="flex flex-col">
+            <form action="../dashboard.php" method="post" class="flex flex-col" enctype="multipart/form-data">
                 <div class="mb-1">
                     <label for="modify-prodottoID">Codice articolo</label>
-                    <input type="text" name="modify-prodottoID" id="modify-prodottoID" class="w-full border border-gray-300 rounded p-2" disabled />
+                    <input type="text" name="modify-prodottoID" id="modify-prodottoID" class="w-full border border-gray-300 rounded p-2 bg-gray-100" readonly="readonly"/>
                 </div>
                 <div class="mb-1">
                     <label for="modify-nome">Nome</label>
@@ -83,13 +79,9 @@
                 </div>
                 <div class="mb-1">
                     <label for="modify-immagine">Immagine</label>
-                    <input type="file" id="modify-immagine" name="modify-immagine" class="w-full border border-gray-300 rounded p-2" accept="image/*" />
+                    <input type="file" id="modify-immagine" name="modify-immagine" class="w-full border border-gray-300 rounded p-2" accept="image/*"/>
                 </div>
-                <div class="mb-1">
-                    <label for="modify-alt">Alt immagine</label>
-                    <input type="text" id="modify-alt" name="modify-alt" class="w-full border border-gray-300 rounded p-2" />
-                </div>
-                <input class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" type="submit" value="Salva" />
+                <input class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" type="submit" value="Salva" name="salvaModifiche"/>
                 <button type="reset" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" onclick="closeModifyDialog()">Esci</button>
                 <button type="button" class="w-full bg-red-500 text-white py-2 rounded hover:bg-pink-600 mt-10" onclick="deleteProduct()">Elimina</button>
             </form>
@@ -126,7 +118,7 @@
                     </dl>
                 </div>
                 <div class="flex items-center justify-center">
-                    <button type="button" class="mx-2" onclick="openModifyDialog(this)" data-codice-articolo="1">
+                    <button type="button" class="mx-2" onclick="openModifyDialog(this)" data-codice-articolo="<?php echo $prodotto["prodottoID"]; ?>">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                         </svg>

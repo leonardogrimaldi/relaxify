@@ -143,6 +143,21 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
     }
+
+    public function editProduct($data, $image) {
+        print_r($data);
+        print_r($image);
+        foreach($data as $key=>$value) {
+            $query = "UPDATE prodotto SET $key = ? WHERE prodottoID = ?;";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("si", $value, $data["prodottoID"]);
+            $stmt->execute();
+        }
+    }
+
+    public function getOrders() {
+        
+    }
 }
 
 ?>
