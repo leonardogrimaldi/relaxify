@@ -1,7 +1,7 @@
 <?php
 require_once("bootstrap.php");
 
-$templateParams["titolo"] = "Relaxify - Login";
+$templateParams["titolo"] = "Relaxify - Checkout";
 $templateParams["nome"] = "checkout_template.php";
 $templateParams["js"] = JS_ROOT.'tabs.js';
 $templateParams["module"] = "module";

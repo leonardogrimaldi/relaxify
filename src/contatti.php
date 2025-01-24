@@ -1,7 +1,7 @@
 <?php
 require_once("bootstrap.php");
 
-$templateParams["titolo"] = "Relaxify - Login";
+$templateParams["titolo"] = "Relaxify - Contatti";
 $templateParams["nome"] = "contatti-template.php";
 
 $templateParams["categorie"] = $dbh->getCategories();

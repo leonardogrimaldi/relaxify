@@ -1,7 +1,7 @@
 <?php
 require_once("bootstrap.php");
 
-$templateParams["titolo"] = "Relaxify - Login";
+$templateParams["titolo"] = "Relaxify - Carrello";
 $templateParams["nome"] = "cart.php";
 $templateParams["js"] = [new JSImport('cart.js', false)];
 $templateParams["module"] = "module";
