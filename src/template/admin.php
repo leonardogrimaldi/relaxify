@@ -83,7 +83,7 @@
                 </div>
                 <input class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" type="submit" value="Salva" name="salvaModifiche"/>
                 <button type="reset" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" onclick="closeModifyDialog()">Esci</button>
-                <button type="button" class="w-full bg-red-500 text-white py-2 rounded hover:bg-pink-600 mt-10" onclick="deleteProduct()">Elimina</button>
+                <input type="submit" class="w-full bg-red-500 text-white py-2 rounded hover:bg-pink-600 mt-10" name="eliminaProdotto" value="Elimina"/>
             </form>
         </dialog>
         <div class="text-center">
@@ -95,7 +95,7 @@
         ?>
             <article class="flex flex-row pt-2 h-full border border-gray-300 rounded">
                 <div class="flex items-center">
-                    <img class="aspect-square overflow-hidden" height="100" width="100" src="<?php echo IMG_ROOT . $prodotto["immagine"]; ?>" alt="<?php echo $prodotto["nome"]; ?>">
+                    <img class="aspect-square overflow-hidden ml-1" height="100" width="100" src="<?php echo IMG_ROOT . $prodotto["immagine"]; ?>" alt="<?php echo $prodotto["nome"]; ?>">
                 </div>
                 <div class="flex flex-col h-full grow ml-2">
                     <hgroup>
