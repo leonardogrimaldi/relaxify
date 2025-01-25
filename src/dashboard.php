@@ -59,46 +59,6 @@ class FormValidator
         return $clean_data;
     }
 }
-
-function saveImage($immagine)
-{
-    $allowedTypes = [
-        'image/png' => 'png',
-        'image/jpeg' => 'jpg'
-    ];
-
-    if (!isset($immagine)) {
-        throw new Exception("There is no file to upload.");
-    }
-    $filepath = $immagine['tmp_name'];
-    $fileSize = filesize($filepath);
-    $fileinfo = finfo_open(FILEINFO_MIME_TYPE);
-    $filetype = finfo_file($fileinfo, $filepath);
-
-    if ($fileSize === 0) {
-        throw new Exception("The file is empty.");
-    }
-    if ($fileSize > 3145728) { // 3 MB (1 byte * 1024 * 1024 * 3 (for 3 MB))
-        throw new Exception("The file is too large");
-    }
-
-    if (!in_array($filetype, array_keys($allowedTypes))) {
-        throw new Exception("File not allowed.");
-    }
-    $filename = basename($immagine['name']);
-    $extension = $allowedTypes[$filetype];
-
-    $newFilepath = IMG_ROOT . "/" . $filename;
-    if (file_exists(IMG_ROOT . "" . $filename)) {
-        throw new Exception("File already exists");
-    }
-    if (!copy($filepath, $newFilepath)) { // Copy the file, returns false if failed
-        throw new Exception("Can't move file.");
-    }
-    unlink($filepath);
-
-    return $immagine['name'];
-}
 $requiredFields = ["nome", "categoriaID", "prezzo", "quantita", "descrizione"];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['nuovoProdotto'])) {
@@ -106,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             $validator->validate();
             $data = $validator->getCleanData();
-            $imageName = saveImage($_FILES['immagine']);
+            $imageName = DatabaseHelper::saveImage($_FILES['immagine']);
             $dbh->newProduct($data, $imageName);
         } catch (Exception $e) {
             echo $e->getMessage();
