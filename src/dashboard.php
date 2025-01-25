@@ -10,18 +10,22 @@ $templateParams["prodotti"] = $dbh->getProducts();
 $prodotto = $templateParams["prodotti"][0];
 
 // https://mailtrap.io/blog/php-form-validation/
-class FormValidator {
+class FormValidator
+{
     private $data;
     private $requiredFields = [];
-    public function __construct($postData, $requiredFields) {
+    public function __construct($postData, $requiredFields)
+    {
         $this->data = $postData;
         $this->requiredFields = $requiredFields;
     }
-    public function validate() {
+    public function validate()
+    {
         // Common validation rules
         $this->validateRequiredFields();
     }
-    private function validateRequiredFields() {
+    private function validateRequiredFields()
+    {
         // Check if required fields are present
         foreach ($this->requiredFields as $field) {
             if (empty($this->data[$field])) {
@@ -29,21 +33,24 @@ class FormValidator {
             }
         }
     }
-    private function validateEmailFormat() {
+    private function validateEmailFormat()
+    {
         // Check if email field is in a valid format
         if (!filter_var($this->data['email'], FILTER_VALIDATE_EMAIL)) {
             throw new Exception("Invalid email format.");
         }
     }
 
-    private function testInput($data) {
+    static function testInput($data)
+    {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
     }
 
-    public function getCleanData(): array {
+    public function getCleanData(): array
+    {
         $clean_data = array();
         foreach ($this->requiredFields as $field) {
             $clean_data[$field] = $this->testInput($this->data[$field]);
@@ -53,7 +60,8 @@ class FormValidator {
     }
 }
 
-function saveImage($immagine) {
+function saveImage($immagine)
+{
     $allowedTypes = [
         'image/png' => 'png',
         'image/jpeg' => 'jpg'
@@ -74,7 +82,7 @@ function saveImage($immagine) {
         throw new Exception("The file is too large");
     }
 
-    if(!in_array($filetype, array_keys($allowedTypes))) {
+    if (!in_array($filetype, array_keys($allowedTypes))) {
         throw new Exception("File not allowed.");
     }
     $filename = basename($immagine['name']);
@@ -91,21 +99,31 @@ function saveImage($immagine) {
 
     return $immagine['name'];
 }
-
+$requiredFields = ["nome", "categoriaID", "prezzo", "quantita", "descrizione"];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $requiredFields = ["nome", "categoria", "prezzo", "quantita", "descrizione", "alt"];
-    $validator = new FormValidator($_POST, $requiredFields);
-    try {
-        $validator->validate();
-        $data = $validator->getCleanData();
-        $imageName = saveImage($_FILES['immagine']);
-        $dbh->newProduct($data, $imageName);
-    } catch (Exception $e) {
-        echo $e->getMessage();
+    if (isset($_POST['nuovoProdotto'])) {
+        $validator = new FormValidator($_POST, $requiredFields);
+        try {
+            $validator->validate();
+            $data = $validator->getCleanData();
+            $imageName = saveImage($_FILES['immagine']);
+            $dbh->newProduct($data, $imageName);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    } else if (isset($_POST['salvaModifiche'])) {
+        $fields = ["prodottoID", "nome", "categoriaID", "prezzo", "quantita", "descrizione"];
+        $clean_data = array();
+        foreach($fields as $field) {
+            $field_name = "modify-".$field;
+            if (!empty($_POST[$field_name])) {
+               $clean_data[$field] = FormValidator::testInput($_POST[$field_name]);
+            }
+        }
+        $dbh->editProduct($clean_data, $_FILES['modify-immagine']);
     }
     // Redirect to the same page (or another page)
     header("Location: " . $_SERVER['PHP_SELF']);
     exit();
 }
-require("template/base.php")
-?>
+require("template/base.php");
