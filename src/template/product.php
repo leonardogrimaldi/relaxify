@@ -2,10 +2,9 @@
     <!-- Prodotto -->
     <article class="flex flex-col sm:flex-row items-center justify-center rounded-md p-5 shadow-md bg-white h-min w-full max-w-xs sm:max-w-xl">
         <?php foreach ($templateParams["prodottoid"] as $prodottoid): ?>
-            <img width="200" height="200"
-                itemprop="image"
-                src="<?php echo IMG_ROOT . $prodottoid["immagine"]; ?>"
-                alt="<?php echo $prodottoid["nome"]; ?>">
+            <img width="300" height="300"
+                itemprop="image" alt="<?php echo $prodottoid["nome"]; ?>"
+                src="<?php echo IMG_ROOT . $prodottoid["immagine"]; ?>">
             <div class="text-center">
                 <header class="mt-2">
                     <h3 class="text-lg font-semibold"><?php echo $prodottoid["nome"]; ?></h3>

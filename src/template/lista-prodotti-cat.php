@@ -1,4 +1,4 @@
-<h2 class="text-center font-normal my-2 text-xl"><b><?php echo $templateParams["prodotticat"][0]["categorianome"]; ?></b></h2>
+<h2 class="text-center font-normal my-2 text-xl"><strong><?php echo $templateParams["prodotticat"][0]["categorianome"]; ?></strong></h2>
 <div class="grid grid-cols-2 md:grid-cols-3 gap-x-1 gap-y-2 max-w-screen-lg">
     <?php foreach($templateParams["prodotticat"] as $prodottocat): ?>
         <article itemscope itemtype="https://schema.org/Product" class="bg-white rounded-lg flex flex-col overflow-hidden shadow-md">
@@ -6,9 +6,8 @@
             <div class="w-full flex justify-center items-center">
                 <div class="w-full aspect-square relative overflow-hidden">
                     <img class="absolute top-0 left-0 w-full h-full object-cover" 
-                        itemprop="image" 
-                        src="<?php echo IMG_ROOT . $prodottocat["immagine"]; ?>" 
-                        alt="<?php echo $prodottocat["prodottonome"]; ?>">
+                        itemprop="image" alt="<?php echo $prodottocat["prodottonome"]; ?>"
+                        src="<?php echo IMG_ROOT . $prodottocat["immagine"]; ?>">
                 </div>
             </div>
             <div class="text-center h-full flex flex-col">
