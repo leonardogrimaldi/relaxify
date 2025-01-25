@@ -3,7 +3,7 @@ module.exports = {
   content: ["./src/**/*.{html,js,php}"],
   theme: {
     extend: {
-      colors : {
+      colors: {
         //customcolors
         'darkBlue': '#112D4E',
         'blue': '#3F72AF',
