@@ -43,18 +43,17 @@ $(document).ready(function () {
 
     function addToCart(e) {
         e.preventDefault();
-        let itemToAdd = $(e.target).closest("button").data("prodotto-id");
+        let button = $(e.target).closest("button");
+        let itemToAdd = button.data("prodotto-id");
 
         $.ajax({
-            url: "gestioneCarrello.php",
+            url: "gestione_carrello.php",
             type: "POST",
-            cache: false,
             data: {
                 itemToAdd: itemToAdd
             },
             success: function () {
                 let button = $(e.target).closest("button");
-                button.find("svg").removeClass("text-pink-500");
             }
         });
     }
