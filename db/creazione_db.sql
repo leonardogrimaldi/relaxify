@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `prodotto_carrello` (
   `carrelloID` int NOT NULL AUTO_INCREMENT,
   `prodottoID` int(2) NOT NULL,
   `utenteID` int(2) NOT NULL,
-  `quantita` int(2) NOT NULL,
+  `quantita` int(2) NOT NULL DEFAULT 1,
   PRIMARY KEY (`carrelloID`),
   FOREIGN KEY (`prodottoID`) REFERENCES `prodotto` (`prodottoID`),
   FOREIGN KEY (`utenteID`) REFERENCES `utente` (`utenteID`)

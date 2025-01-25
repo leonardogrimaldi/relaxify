@@ -41,4 +41,27 @@ $(document).ready(function () {
         removeFromListapreferiti(e);
     })
 
+    function addToCart(e) {
+        e.preventDefault();
+        let itemToAdd = $(e.target).closest("button").data("prodotto-id");
+
+        $.ajax({
+            url: "gestioneCarrello.php",
+            type: "POST",
+            cache: false,
+            data: {
+                itemToAdd: itemToAdd
+            },
+            success: function () {
+                let button = $(e.target).closest("button");
+                button.find("svg").removeClass("text-pink-500");
+            }
+        });
+    }
+
+    $(document).on("click", ".addToCart", function(e){
+        addToCart(e);
+    });
+
+
 });
