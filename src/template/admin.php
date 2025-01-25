@@ -3,6 +3,12 @@
     <menu class="flex border-b">
         <li class="w-full"><button class="w-full h-full py-3 text-center font-semibold text-gray-500 rounded-t-md" data-tab-name="prodotti">Prodotti</button></li>
         <li class="w-full"><button class="w-full h-full py-3 text-center font-semibold text-gray-500 rounded-t-md" data-tab-name="ordini">Ordini</button></li>
+        <li class="w-2/5 border-l-2"><button class="w-full h-full py-3 text-center font-semibold text-gray-500 rounded-t-md flex justify-center items-center" data-tab-name="notifiche">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+                </svg>
+                <span class="sr-only">Notifiche</span>
+            </button></li>
     </menu>
     <section class="hidden p-3" data-tab-name="prodotti">
         <!-- Elemento dialog per la creazione di nuovi prodotti -->
@@ -19,8 +25,8 @@
                         <option label=" "></option>
                         <?php foreach ($templateParams["categorie"] as $categoria):
                         ?>
-                        <option value="<?php echo $categoria["categoriaID"];?>"><?php echo $categoria["nome"];?></option>
-                        <?php endforeach;?>
+                            <option value="<?php echo $categoria["categoriaID"]; ?>"><?php echo $categoria["nome"]; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="mb-1">
@@ -39,7 +45,7 @@
                     <label for="immagine">Immagine</label>
                     <input type="file" id="immagine" name="immagine" class="w-full border border-gray-300 rounded p-2" accept="image/*" />
                 </div>
-                <input class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" type="submit" value="Invia" name="nuovoProdotto"/>
+                <input class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" type="submit" value="Invia" name="nuovoProdotto" />
                 <button type="reset" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4">Esci</button>
             </form>
         </dialog>
@@ -49,7 +55,7 @@
             <form action="../dashboard.php" method="post" class="flex flex-col" enctype="multipart/form-data">
                 <div class="mb-1">
                     <label for="modify-prodottoID">Codice articolo</label>
-                    <input type="text" name="modify-prodottoID" id="modify-prodottoID" class="w-full border border-gray-300 rounded p-2 bg-gray-100" readonly="readonly"/>
+                    <input type="text" name="modify-prodottoID" id="modify-prodottoID" class="w-full border border-gray-300 rounded p-2 bg-gray-100" readonly="readonly" />
                 </div>
                 <div class="mb-1">
                     <label for="modify-nome">Nome</label>
@@ -61,8 +67,8 @@
                         <option label=" "></option>
                         <?php foreach ($templateParams["categorie"] as $categoria):
                         ?>
-                        <option value="<?php echo $categoria["categoriaID"];?>"><?php echo $categoria["nome"];?></option>
-                        <?php endforeach;?>
+                            <option value="<?php echo $categoria["categoriaID"]; ?>"><?php echo $categoria["nome"]; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="mb-1">
@@ -79,11 +85,11 @@
                 </div>
                 <div class="mb-1">
                     <label for="modify-immagine">Immagine</label>
-                    <input type="file" id="modify-immagine" name="modify-immagine" class="w-full border border-gray-300 rounded p-2" accept="image/*"/>
+                    <input type="file" id="modify-immagine" name="modify-immagine" class="w-full border border-gray-300 rounded p-2" accept="image/*" />
                 </div>
-                <input class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" type="submit" value="Salva" name="salvaModifiche"/>
+                <input class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" type="submit" value="Salva" name="salvaModifiche" />
                 <button type="reset" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" onclick="closeModifyDialog()">Esci</button>
-                <input type="submit" class="w-full bg-red-500 text-white py-2 rounded hover:bg-pink-600 mt-10" name="eliminaProdotto" value="Elimina"/>
+                <input type="submit" class="w-full bg-red-500 text-white py-2 rounded hover:bg-pink-600 mt-10" name="eliminaProdotto" value="Elimina" />
             </form>
         </dialog>
         <div class="text-center">
@@ -105,11 +111,11 @@
                     <dl>
                         <div class="flex flex-row gap-x-1">
                             <dt><abbr class="no-underline" title="Codice articolo">Cod.</abbr></dt>
-                            <dd><?php echo $prodotto["prodottoID"];?></dd>
+                            <dd><?php echo $prodotto["prodottoID"]; ?></dd>
                         </div>
                         <div class="flex flex-row gap-x-1">
                             <dt>Prezzo:</dt>
-                            <dd><data value="<?php echo $prodotto["prezzo"];?>"><?php echo $prodotto["prezzo"];?></data>€</dd>
+                            <dd><data value="<?php echo $prodotto["prezzo"]; ?>"><?php echo $prodotto["prezzo"]; ?></data>€</dd>
                         </div>
                         <div class="flex flex-row gap-x-1">
                             <dt>Quantità:</dt>
@@ -193,6 +199,18 @@
                     Segna come inviato
                 </button>
             </div>
+        </article>
+    </section>
+    <section class="hidden p-3" data-tab-name="notifiche">
+        <h3 class="text-center mb-1">Notifiche</h3>
+        <article class="border border-gray-300 p-2 rounded border-b-2">
+            <p>L'ordine 1234 è stato ricevuto dall'utente</p>
+            <button type="button" class="bg-teal-500 text-white py-2 rounded flex flex-row min-w-min px-3 h-10 text-lg items-center ml-auto mr-0 mt-2" data-codice-articolo="1" onclick="tickSent(this)">
+                    <svg class="h-full mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                    Segna come letto
+            </button>
         </article>
     </section>
 </div>
