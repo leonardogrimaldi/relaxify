@@ -9,9 +9,10 @@ $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["prodotti"] = $dbh->getProducts();
 $prodotto = $templateParams["prodotti"][0];
 
-if(!isset($_SESSION['utenteID'])){
-    header("Location: login.php");
-    exit;
+if(isUserLoggedIn()){
+    $templateParams["prodotticarrello"] = $dbh->getCartProducts($_SESSION["utenteID"]); 
+} else{
+    $templateParams["prodotticarrello"] = getCartProducts(); 
 }
 
 require("template/base.php")

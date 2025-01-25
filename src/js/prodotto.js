@@ -41,4 +41,26 @@ $(document).ready(function () {
         removeFromListapreferiti(e);
     })
 
+    function addToCart(e) {
+        e.preventDefault();
+        let button = $(e.target).closest("button");
+        let itemToAdd = button.data("prodotto-id");
+
+        $.ajax({
+            url: "gestione_carrello.php",
+            type: "POST",
+            data: {
+                itemToAdd: itemToAdd
+            },
+            success: function () {
+                let button = $(e.target).closest("button");
+            }
+        });
+    }
+
+    $(document).on("click", ".addToCart", function(e){
+        addToCart(e);
+    });
+
+
 });

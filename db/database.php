@@ -76,38 +76,47 @@ class DatabaseHelper
         return $result[0]["email"];
     }
 
-    public function getCartProducts($idutente)
+    public function getCartProducts($utenteID)
     {
-        $stmt = $this->db->prepare("SELECT *, prodotto_carrello.carrelloID as idprodotto FROM prodotto_carrello, prodotto WHERE prodotto_carrello.idprodotto=prodotto.prodottoID AND utenteID = ? ");
-        $stmt->bind_param('i', $idutente);
+        $stmt = $this->db->prepare("SELECT * FROM prodotto_carrello, prodotto WHERE prodotto_carrello.prodottoID=prodotto.prodottoID AND utenteID = ? ");
+        $stmt->bind_param('i', $utenteID);
         $stmt->execute();
         $result = $stmt->get_result();
-        $result = $result->fetch_all(MYSQLI_ASSOC);
+
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     private function isProductInCart($idprodotto, $idutente)
     {
-        $stmt = $this->db->prepare("SELECT * FROM prodotto_carrello WHERE prodottoID = ? && utenteID = ?");
-        $stmt->bind_param('ii', $idprodotto, $idutente);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return mysqli_num_rows($result) > 0;
+    $stmt = $this->db->prepare("SELECT * FROM prodotto_carrello WHERE prodottoID = ? AND utenteID = ?");
+    $stmt->bind_param('ii', $idprodotto, $idutente);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    return $result->num_rows > 0;
     }
 
-    public function insertProductInCart($idutente, $idprodotto)
+    
+    public function addCartProduct($prodottoID, $utenteID)
     {
-        if ($this->isProductInCart($idprodotto, $idutente)) {
+        if ($this->isProductInCart($prodottoID, $utenteID)) {
             $stmt = $this->db->prepare("UPDATE `prodotto_carrello` SET `quantita` = `quantita` + 1 WHERE `prodottoID` = ? && `utenteID` = ?");
-            $stmt->bind_param('ii', $idProdotto, $idUtente);
+            $stmt->bind_param('ii', $prodottoID, $utenteID);
             $stmt->execute();
             return true;
         } else {
-            $stmt = $this->db->prepare("INSERT INTO `prodotto_carrello`(`utenteID`, `prodottoID`) VALUES (?, ?)");
-            $stmt->bind_param('ii', $idutente, $idprodotto);
+            $stmt = $this->db->prepare("INSERT INTO `prodotto_carrello`(`prodottoID`, `utenteID`) VALUES (?, ?)");
+            $stmt->bind_param('ii', $prodottoID, $utenteID);
             $stmt->execute();
             return true;
         }
         return false;
+    }
+
+    public function removeCartProduct($prodottoID){
+        $stmt = $this->db->prepare("DELETE FROM `prodotto_carrello` WHERE carrelloID = ?");
+        $stmt->bind_param('i', $prodottoID);
+        $stmt->execute();
     }
 
     public function getProductsByCategory($id)
