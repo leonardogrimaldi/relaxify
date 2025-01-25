@@ -35,10 +35,10 @@ $(document).ready(function () {
         });
     }
 
-    $(document).on("submit", "click.addToPreferred", function(e){
+    $(document).on("click", ".addToPreferred", function(e){
         addToListapreferiti(e);
     })
-    $(document).on("submit", "click.removeFromPreferred", function(e){
+    $(document).on("click", ".removeFromPreferred", function(e){
         removeFromListapreferiti(e);
     })
 

@@ -7,6 +7,7 @@
         content="Relaxify - Il tuo negozio online di prodotti antistress per ritrovare la calma e il relax.">
     <title><?php echo $templateParams["titolo"] ?> </title>
     <link rel="stylesheet" href="./css/output.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <?php if (isset($templateParams["js"])) : ?>
         <script <?php if (isset($templateParams["module"])) : ?> 
             type="<?php echo $templateParams["module"]; ?>" 
