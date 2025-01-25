@@ -3,16 +3,17 @@
             <div class="flex flex-col sm:flex-row ">
                 <section class="sm:w-3/5 sm:border-r sm:pr-4">
                     <h3 class="text-center">Prodotti selezionati</h3>
-                    <article class="flex justify-between sm:justify-evenly">
-                        <div class="w-1/3 max-w-32">
-                            <img class="aspect-square rounded-lg" src="resources/img/cube.jpg" alt="Cubo Antistress">
-                        </div>
-                        <div class="flex flex-col justify-center items-center gap-y-2">
-                            <h2 class="text-lg font-semibold text-gray-700">Cubo Antistress</h2>
-                            <p class="text-gray-500">15,00€</p>
-                            <span id="quantity-1" class="text-lg font-semibold">1</span>
-                        </div>
-                    </article>
+                    <?php foreach($templateParams["prodotticarrello"] as $prodottocarrello): ?>
+                        <article data-codice-articolo="1" class="flex justify-between sm:justify-evenly border-2 p-1 rounded-md">
+                            <img class="aspect-square rounded-lg" width="100" height="100" src="<?php echo IMG_ROOT . $prodottocarrello["immagine"] ?>" alt="<?php echo $prodottocarrello["nome"]; ?>">
+                            <div class="flex flex-col justify-center items-center gap-y-2">
+                                <h2 class="text-lg font-semibold text-gray-700"><?php echo $prodottocarrello["nome"]; ?></h2>
+                                <p class="text-gray-500"><?php echo $prodottocarrello["prezzo"]; ?>€</p>
+                                <p class="sr-only">Quantità:</p><span id="quantity-1" class="text-lg font-semibold"><?php echo $prodottocarrello["quantita"]; ?></span>
+                            </div>
+                            
+                        </article>
+                    <?php endforeach; ?>
                 </section>
                 <section class="sm:w-3/5 sm:border-r sm:pr-4">
                     <!-- Dati estratti dal DB -->
