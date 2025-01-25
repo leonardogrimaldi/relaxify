@@ -2,7 +2,7 @@
     <div class="invisible w-1/4"></div>
     <section class="flex flex-col lg:w-2/4 lg:items-center">
         <h2 class="text-center text-xl py-3 w-full">Preferiti</h2>
-        <div class="grow flex flex-col bg-white rounded-lg lg:max-w-md">
+        <div class="grow flex flex-col bg-white rounded-lg lg:max-w-md shadow-md">
             <?php foreach ($templateParams["prodottipreferiti"] as $prodottopreferito): ?>
                 <article class="flex flex-row items-center m-2 mt-1 rounded-sm h-32">
                     <img class="aspect-square rounded" height="100" width="100" src="<?php echo IMG_ROOT . $prodottopreferito["immagine"] ?>" alt="<?php echo $prodottopreferito["nome"] ?>">
