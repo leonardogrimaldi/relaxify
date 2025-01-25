@@ -155,6 +155,10 @@ class DatabaseHelper{
         }
     }
 
+    public function deleteProduct($productID) {
+        
+    }
+
     public function getOrders() {
         
     }
