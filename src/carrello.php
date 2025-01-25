@@ -8,5 +8,11 @@ $templateParams["module"] = "module";
 $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["prodotti"] = $dbh->getProducts();
 $prodotto = $templateParams["prodotti"][0];
+
+if(!isset($_SESSION['utenteID'])){
+    header("Location: login.php");
+    exit;
+}
+
 require("template/base.php")
 ?>

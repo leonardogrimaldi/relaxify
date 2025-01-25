@@ -19,13 +19,36 @@
                 <p itemprop="description" class="mx-2 line-clamp-2 text-gray-600 my-2 grow"><?php echo $prodotto["descrizione"]; ?></p>
                 <span class="sr-only">Prezzo: <?php echo $prodotto["prezzo"]; ?> €</span>
                 <div class="flex flex-row justify-center items-center gap-x-2 py-2">
-                    <button type="button" class="w-10 flex justify-center bg-teal-500 text-white p-2 rounded hover:bg-teal-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <title>Cuore</title>
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                        </svg>
-                        <span class="sr-only">Aggiungi ai preferiti</span>
-                    </button>
+                    <?php if(isUserLoggedIn()): ?>
+                        <?php if(!in_array($prodotto["prodottoID"], $templateParams["lista_preferiti"])): ?>
+                            <button type="button" class="addToPreferred w-10 flex justify-center bg-teal-500 text-white p-2 rounded hover:bg-teal-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <title>Preferiti</title>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                </svg>
+                                <span class="sr-only">Aggiungi ai preferiti</span>
+                                <input type="hidden" class="prodottoID" value="<?php echo $prodotto["prodottoID"]; ?>" >
+                            </button>
+                        <?php else : ?>
+                            <button type="button" class="removeFromPreferred w-10 flex justify-center bg-teal-500 text-white p-2 rounded hover:bg-teal-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <title>Preferiti</title>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                </svg>
+                                <span class="sr-only">Rimuovi dai preferiti</span>
+                                <input type="hidden" class="prodottoID" value="<?php echo $prodotto["prodottoID"]; ?>" >
+                            </button>
+                        <?php endif; ?>
+                    <?php else : ?>
+                        <button onclick="window.location.href='./login.php'" type="button" class="w-10 flex justify-center bg-teal-500 text-white p-2 rounded hover:bg-teal-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <title>Preferiti</title>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                            </svg>
+                            <span class="sr-only">Effettua prima il Login</span>
+                            <input type="hidden" class="prodottoID" value="<?php echo $prodotto["prodottoID"]; ?>" >
+                        </button>
+                    <?php endif; ?>
                     <div aria-hidden="true" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
                         <data itemprop="price" value="<?php echo $prodotto["prezzo"]; ?>"><?php echo $prodotto["prezzo"]; ?></data><meta itemprop="priceCurrency" content="EUR"/>€
                     </div>
