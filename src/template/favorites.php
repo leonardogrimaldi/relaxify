@@ -1,14 +1,14 @@
 <div class="grow flex flex-col lg:flex-row">
+    <h2 class="text-center text-xl py-3">Preferiti</h2>
+    <?php foreach($templateParams["prodottipreferiti"] as $prodottopreferito): ?>
     <section class="w-full grow flex flex-col items-center bg-white rounded-lg">
-        <h2 class="text-center text-xl py-3">Preferiti</h2>
         <article class="flex flex-row items-center sm:w-2/3 sm:mx-0 h-32 w-full max-w-xs">
-            <img class="aspect-square rounded" height="100" width="100" src="resources/img/cube.jpg" alt="Palla Antistress">
+            <img class="aspect-square rounded" height="100" width="100" src="<?php echo IMG_ROOT . $prodottopreferito["immagine"] ?>" alt="<?php echo $prodottopreferito["nome"] ?>">
             <div class="flex flex-col h-full grow ml-2">
                 <hgroup>
-                    <h3 class="text-lg">Palla antistress</h3>
-                    <p class="">Categoria</p>
+                    <h3 class="text-lg"><?php echo $prodottopreferito["nome"] ?></h3>
                 </hgroup>
-                <p class="mt-2">Descrizione</p>
+                <p class="mt-2"><?php echo $prodottopreferito["descrizione"] ?></p>
             </div>
             <div class="flex flex-col h-full justify-around items-center mr-2">
                 <button type="button" class="h-full w-full flex justify-center items-center">
@@ -18,7 +18,7 @@
                     </svg>
                     <span class="sr-only">Aggiungi/Rimuovi dai preferiti</span>
                 </button>
-                <data value="15.00">15.00€</data>
+                <data value="<?php echo $prodottopreferito["prezzo"] ?>"><?php echo $prodottopreferito["prezzo"] ?></data>
                 <button type="button" class="h-full w-full flex justify-center items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
@@ -30,6 +30,7 @@
             </div>
         </article>
     </section>
+    <?php endforeach; ?>
     <?php require("suggestions.php"); ?>
 </div>
 

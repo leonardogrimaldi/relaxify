@@ -158,6 +158,34 @@ class DatabaseHelper{
     public function getOrders() {
         
     }
+
+    public function getAllUserPreferredProduct($utenteID){
+        $stmt = $this->db->prepare("SELECT * FROM prodotto_preferito, prodotto WHERE prodotto_preferito.prodottoID = prodotto.prodottoID && utenteID = ?");
+        $stmt->bind_param('s', $utenteID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getAllUserPreferredProductId($utenteID){
+        $stmt = $this->db->prepare("SELECT prodottoID FROM `prodotto_preferito` WHERE utenteID = ?");
+        $stmt->bind_param('s', $utenteID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function removePreferredProduct($prodottoID, $utenteID){
+        $stmt = $this->db->prepare("DELETE FROM `prodotto_preferito` WHERE prodottoID = ? && utenteID = ?");
+        $stmt->bind_param('ss', $prodottoID, $utenteID);
+        $stmt->execute();
+    }
+
+    public function addNewPreferredProduct($prodottoID, $utenteID){
+        $stmt = $this->db->prepare("INSERT INTO `prodotto_preferito`(`prodottoID`,`utenteID`) VALUES (?,?)");
+        $stmt->bind_param('ss', $prodottoID, $utenteID);
+        $stmt->execute();
+    }
 }
 
 ?>
