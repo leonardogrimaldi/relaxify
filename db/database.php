@@ -201,7 +201,12 @@ class DatabaseHelper
         }
     }
 
-    public function deleteProduct($productID) {}
+    public function deleteProduct($productID) {
+        $query = "UPDATE prodotto SET eliminato = TRUE WHERE prodottoID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $productID);
+        $stmt->execute();
+    }
 
     public function getOrders() {}
 
