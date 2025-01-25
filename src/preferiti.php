@@ -10,5 +10,11 @@ $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["prodotti"] = $dbh->getProducts();
 $prodotto = $templateParams["prodotti"][0];
 $templateParams["prodottisuggeriti"] = $dbh->getRandomProducts(2);
+
+if(!isset($_SESSION['utenteID'])){
+    header("Location: login.php");
+    exit;
+}
+
 require("template/base.php")
 ?>
