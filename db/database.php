@@ -96,7 +96,7 @@ class DatabaseHelper
     return $result->num_rows > 0;
     }
 
-
+    
     public function addCartProduct($prodottoID, $utenteID)
     {
         if ($this->isProductInCart($prodottoID, $utenteID)) {
