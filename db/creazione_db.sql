@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS `prodotto` (
   `prezzo` float(10) NOT NULL,
   `immagine` varchar(100) NOT NULL DEFAULT '',
   `categoriaID` int(1) NOT NULL DEFAULT 0,
+  `eliminato` BIT(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`prodottoID`),
   FOREIGN KEY (`categoriaID`) REFERENCES `categoria` (`categoriaID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -109,6 +110,16 @@ CREATE TABLE IF NOT EXISTS `prodotto_preferito` (
   FOREIGN KEY (`utenteID`) REFERENCES `utente` (`utenteID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE `notifica` (
+	`data` DATETIME NOT NULL,
+	`letta` BIT(1) NOT NULL DEFAULT b'0',
+	`ordineID` INT(11) NULL DEFAULT NULL,
+	`stato` CHAR(1) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`notificaID` INT(11) NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (`notificaID`) USING BTREE,
+	INDEX `ordineID` (`ordineID`) USING BTREE,
+	CONSTRAINT `FK_notifica_ordine` FOREIGN KEY (`ordineID`) REFERENCES `ordine` (`ordineID`) ON UPDATE NO ACTION ON DELETE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
