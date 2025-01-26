@@ -12,8 +12,8 @@ $(document).ready(function () {
             success: function () {
                 let button = $(e.target).closest("button");
                 button.removeClass("addToPreferred").addClass("removeFromPreferred");
-                button.find("svg").removeClass("text-white").removeClass("bg-blue");
-                button.find("svg").addClass("text-darkBlue").addClass("bg-yellow");
+                button.find("svg").removeClass("text-white");
+                button.find("svg").addClass("text-darkPink");
             },
         });
 
@@ -30,8 +30,8 @@ $(document).ready(function () {
             success: function () {
                 let button = $(e.target).closest("button");
                 button.removeClass("removeFromPreferred").addClass("addToPreferred");
-                button.find("svg").addClass("text-white").addClass("bg-blue");
-                button.find("svg").removeClass("text-darkBlue").removeClass("bg-yellow");
+                button.find("svg").addClass("text-white");
+                button.find("svg").removeClass("text-darkPink");
             },
         });
     }
@@ -56,6 +56,13 @@ $(document).ready(function () {
             },
             success: function () {
                 let button = $(e.target).closest("button");
+                console.log("Prodotto aggiunto con successo!");
+                alert("Prodotto aggiunto al carrello!");
+            },
+            error: function (xhr, status, error) {
+                // Mostra un messaggio in caso di errore
+                console.error("Errore nell'aggiunta al carrello:", error);
+                alert("Si è verificato un errore durante l'aggiunta al carrello.");
             }
         });
     }
