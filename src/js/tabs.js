@@ -11,7 +11,7 @@ export const removeClass = (e, classes) => {
 
 const menu = document.querySelector("main menu");
 const buttons = menu.querySelectorAll("li button");
-const activeStyle = "border-4 border-pink-200 text-pink-500";
+const activeStyle = "border-4 border-lightBlue text-blue";
 let active = 0;
 addClass(buttons[0], activeStyle);
 document.querySelector(`menu ~ *[data-tab-name="${buttons[active].getAttribute("data-tab-name")}"]`).classList.remove("hidden");

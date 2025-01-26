@@ -12,7 +12,8 @@ $(document).ready(function () {
             success: function () {
                 let button = $(e.target).closest("button");
                 button.removeClass("addToPreferred").addClass("removeFromPreferred");
-                button.find("svg").addClass("text-pink-500"); 
+                button.find("svg").removeClass("text-white").removeClass("bg-blue");
+                button.find("svg").addClass("text-darkBlue").addClass("bg-yellow");
             },
         });
 
@@ -29,7 +30,8 @@ $(document).ready(function () {
             success: function () {
                 let button = $(e.target).closest("button");
                 button.removeClass("removeFromPreferred").addClass("addToPreferred");
-                button.find("svg").removeClass("text-pink-500"); 
+                button.find("svg").addClass("text-white").addClass("bg-blue");
+                button.find("svg").removeClass("text-darkBlue").removeClass("bg-yellow");
             },
         });
     }

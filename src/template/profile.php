@@ -73,7 +73,7 @@
                         </div>
                     </article>
                 </section>
-                <button type="button" class="bg-teal-500 text-white py-2 rounded flex flex-row min-w-min px-3 h-10 text-lg items-center ml-auto mr-0 mt-2" data-codice-ordine="1" onclick="tickReceived(this)">
+                <button type="button" class="bg-blue text-white py-2 rounded flex flex-row min-w-min px-3 h-10 text-lg items-center ml-auto mr-0 mt-2" data-codice-ordine="1" onclick="tickReceived(this)">
                     <svg class="h-full mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
@@ -85,4 +85,4 @@
 
     
 </div>
-<button onclick="window.location.href='logout.php';" type="submit" class="p-4 bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-5">Log-out</button>
+<button onclick="window.location.href='logout.php';" type="submit" class="p-4 bg-blue text-white py-2 rounded hover:bg-darkBlue mt-5">Log-out</button>
