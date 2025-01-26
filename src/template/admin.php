@@ -203,15 +203,61 @@
     </section>
     <section class="hidden p-3" data-tab-name="notifiche">
         <h3 class="text-center mb-1">Notifiche</h3>
-        <article class="border border-gray-300 p-2 rounded border-b-2">
-            <p>L'ordine 1234 è stato ricevuto dall'utente</p>
-            <button type="button" class="bg-teal-500 text-white py-2 rounded flex flex-row min-w-min px-3 h-10 text-lg items-center ml-auto mr-0 mt-2" data-codice-articolo="1" onclick="tickSent(this)">
+        <template id="notification-template">
+            <article class="border border-gray-300 p-2 rounded border-b-2">
+                <p></p>
+                <button type="button" class="bg-teal-500 text-white py-2 rounded flex flex-row min-w-min px-3 h-10 text-lg items-center ml-auto mr-0 mt-2" data-codice-articolo="1" onclick="tickSent(this)">
                     <svg class="h-full mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
                     Segna come letto
-            </button>
-        </article>
+                </button>
+            </article>
+        </template>
     </section>
 </div>
 <button onclick="window.location.href='logout.php';" type="submit" class="p-4 bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-5">Log-out</button>
+
+
+<script>
+    const notificationText = (n) => {
+        stato = n.stato.toLowerCase();
+        switch (stato) {
+            case "p":
+                return `È stato ricevuto il pagamento dell'ordine ${n.numeroOrdine} dall'utente ${n.nomeUtente}`;
+            case "s":
+                return `L'ordine ${n.numeroOrdine} è stato spedito. Riceverai a breve gli articoli ordinati`;
+            case "r":
+                return `L'ordine ${n.numeroOrdine} è ricevuto dall'utente ${n.nomeUtente}`;
+            default:
+                return "Default text";
+        }
+    }
+    const displayNotifications = () => {
+        const n = fetchNotifications();
+        if (n.length == 0) {
+            console.log("No notification");
+        } else {
+            const template = document.getElementById("notification-template").content.cloneNode(true);
+            template.querySelector("p").textContent = n.text;
+            const notificationSection = document.querySelector("section[data-tab-name='notifiche']");
+            // Insert notification after heading
+            notificationSection.append(template);
+            console.log(template);
+            notificationSection.querySelector("h3").after(template);
+        }
+        
+    }
+    
+    const fetchNotifications = () => {
+        const notification = {
+            numeroOrdine: 1234,
+            nomeUtente: "Leonardo Grimaldi",
+            stato: "p"
+        }
+        notification.text = notificationText(notification);
+        return notification
+    }
+
+    displayNotifications();
+</script>
