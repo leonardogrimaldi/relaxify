@@ -119,6 +119,12 @@ class DatabaseHelper
         $stmt->execute();
     }
 
+    public function deleteCartProducts($utenteID){
+        $stmt = $this->db->prepare("DELETE FROM `prodotto_carrello` WHERE utenteID = ?");
+        $stmt->bind_param('i', $utenteID);
+        $stmt->execute();
+    }
+
     public function decreaseCartProduct($prodottoID){
         $stmt = $this->db->prepare("UPDATE `prodotto_carrello` SET `quantita` = `quantita` - 1 WHERE prodottoID = ?");
         $stmt->bind_param('i', $prodottoID);
@@ -356,4 +362,19 @@ class DatabaseHelper
         $stmt->bind_param('i', $notificaID);
         $stmt->execute();
     }
+
+    public function addNewOrder($utenteID, $data, $stato, $totale){
+        $stmt = $this->db->prepare("INSERT INTO `ordine`(`utenteID`,`data`, `stato`, `totale`) VALUES (?,?,?,?)");
+        $stmt->bind_param('issd', $utenteID, $data, $stato, $totale);
+        $stmt->execute();
+        return $this->db->insert_id;
+    }
+
+    public function addNewOrderedProduct($prodottoID, $ordineID, $utenteID, $quantita)
+    {
+        $stmt = $this->db->prepare("INSERT INTO `prodotto_ordine`(`ordineID`,`utenteID`, `prodottoID`, `quantita`) VALUES (?,?,?,?)");
+        $stmt->bind_param('ssss', $prodottoID, $ordineID, $utenteID, $quantita);
+        $stmt->execute();
+    }
+
 }
