@@ -62,6 +62,7 @@ $templateParams["module"] = "module";
 $templateParams["js"] = [new JSImport('tabs.js', true), new JSImport('dropdown.js', false), new JSImport('admin.js', false), new JSImport('notifications.js', false)];
 $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["prodotti"] = $dbh->getProducts();
+$templateParams["ordini"] = $dbh->getOrdersAdmin();
 $prodotto = $templateParams["prodotti"][0];
 
 $requiredFields = ["nome", "categoriaID", "prezzo", "quantita", "descrizione"];

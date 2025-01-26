@@ -223,7 +223,33 @@ class DatabaseHelper
         $stmt->execute();
     }
 
-    public function getOrders() {}
+    public function getOrders($utenteID) {
+        $query = "SELECT * FROM ordine WHERE utenteID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $utenteID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result;
+    }
+
+    public function getOrdersAdmin() {
+        $query = "SELECT * FROM ordine";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result;
+    }
+
+    public function getItemsInOrder($ordineID) {
+        $query = "SELECT prodotto.*, prodotto_ordine.quantita, categoria.nome AS 'categoria'  FROM prodotto_ordine, prodotto, categoria WHERE ordineID = ? AND prodotto_ordine.prodottoID = prodotto.prodottoID AND prodotto.categoriaID = categoria.categoriaID";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $ordineID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+    }
 
     public function getAllUserPreferredProduct($utenteID)
     {

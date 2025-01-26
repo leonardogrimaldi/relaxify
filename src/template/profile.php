@@ -23,24 +23,39 @@
     </section>
     <section class="hidden p-3" data-tab-name="ordini">
         <h3 class="sr-only">Ordini</h3>
+        <?php
+        foreach($templateParams["ordini"] as $ordine): ?>
         <article class="border border-gray-300 p-2 rounded border-b-2 relative">
             <dl>
                 <div class="flex flex-row gap-x-1">
                     <dt>Ordine:</dt>
                     <dd>
-                        <slot name="codice">Codice ordine</slot>
+                        <?php echo $ordine["ordineID"];?>
                     </dd>
                 </div>
                 <div class="flex flex-row gap-x-1">
                     <dt>Stato:</dt>
                     <dd>
-                        <slot name="stato">N/A</slot>
+                        <?php
+                        switch($ordine["stato"]) {
+                            case "s": 
+                                echo "Spedito";
+                                break;
+                            case "p": 
+                                echo "Pagato";
+                                break;
+                            case "r": 
+                                echo "Ricevuto";
+                                break;
+                            default: echo "N/A";
+                        }
+                        ?>
                     </dd>
                 </div>
                 <div class="flex flex-row gap-x-1">
                     <dt>Indirizzo:</dt>
                     <dd>
-                        <slot name="indirizzo">Via TEST</slot>
+                        Via dell'Università 50, Cesena
                     </dd>
                 </div>
             </dl>
@@ -53,40 +68,48 @@
             <div class="hidden">
                 <section>
                     <h4 class="sr-only">Articoli presenti nell'ordine</h4>
+                    <?php
+                     $items = $dbh->getItemsInOrder($ordine["ordineID"]);
+                     foreach($items as $item) :
+                    ?>
                     <article class="flex flex-row mt-4 pt-2 border-t-2">
                         <div class="w-1/3">
-                            <img class="aspect-square" src="resources/img/cube.jpg" alt="Palla Antistress">
+                            <img class="aspect-square" src="<?php echo IMG_ROOT. $item["immagine"];?>" alt="Palla Antistress">
                         </div>
                         <div class="flex flex-col h-full grow ml-2">
                             <hgroup>
-                                <h3 class="text-lg">Palla antistress</h3>
-                                <p class="text-base">Categoria</p>
+                                <h3 class="text-lg"><?php echo $item["nome"];?></h3>
+                                <p class="text-base"><?php echo $item["categoria"];?></p>
                             </hgroup>
                             <dl>
                                 <div class="flex flex-row gap-x-1">
                                     <dt><abbr class="no-underline" title="Codice articolo">Cod.</abbr></dt>
-                                    <dd>123456</dd>
+                                    <dd><?php echo $item["prodottoID"];?></dd>
                                 </div>
                                 <div class="flex flex-row gap-x-1">
                                     <dt>Prezzo:</dt>
-                                    <dd><data value="10.53">10.53</data></dd>
+                                    <dd><data value="<?php echo $item["prezzo"];?>"><?php echo $item["prezzo"];?></data></dd>
                                 </div>
                             </dl>
                         </div>
                         <div class="flex flex-col h-full justify-start items-center p-2">
                             <abbr title="Quantità" class="no-underline">Qta</abbr>
-                            <data value="11">11</data>
+                            <data value="<?php echo $item["quantita"];?>"><?php echo $item["quantita"];?></data>
                         </div>
                     </article>
+                    <?php endforeach;?>
                 </section>
-                <button type="button" class="bg-blue text-white py-2 rounded flex flex-row min-w-min px-3 h-10 text-lg items-center ml-auto mr-0 mt-2" data-codice-ordine="1" onclick="tickReceived(this)">
+                <?php if($ordine["stato"] == 's') :?>
+                <button type="button" class="bg-blue text-white py-2 rounded flex flex-row min-w-min px-3 h-10 text-lg items-center ml-auto mr-0 mt-2" data-codice-ordine="<?php echo $ordine["ordineID"];?>" onclick="tickReceived(this)">
                     <svg class="h-full mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
                     Segna come ricevuto
                 </button>
+                <?php endif;?>
             </div>
         </article>
+        <?php endforeach;?>
     </section>
     <section class="hidden p-3" data-tab-name="notifiche">
         <h3 class="text-center mb-1">Notifiche</h3>
