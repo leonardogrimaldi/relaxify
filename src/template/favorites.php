@@ -21,9 +21,10 @@
             <?php endforeach; ?>
         </div>
     </section>
+    
     <?php require("suggestions.php"); ?>
 </div>
 
 <div class="w-full text-center my-2 sm:w-2/3">
-    <a href="carrello.php" class="text-2xl bg-teal-300 block p-3 mx-4 rounded-3xl">Vai al carrello</a>
+    <a href="carrello.php" class="text-2xl text-white bg-blue block p-3 mx-4 rounded-3xl">Vai al carrello</a>
 </div>

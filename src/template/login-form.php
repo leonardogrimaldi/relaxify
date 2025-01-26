@@ -21,7 +21,7 @@
                         <label for="password" class="block text-gray-700">Password:</label>
                         <input type="password" id="password" name="password" class="w-full border border-gray-300 rounded p-2" placeholder="Inserisci la tua password"/>
                     </div>
-                    <button type="submit" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600">Accedi</button>
+                    <button type="submit" class="w-full bg-blue text-white py-2 rounded hover:bg-darkBlue">Accedi</button>
                 </form>
             </section>
             <section class="hidden p-6" data-tab-name="registrati">
@@ -43,7 +43,7 @@
                         <label for="new-password" class="text-gray-700">Password:</label>
                         <input type="password" id="new-password" name="new-password" class="w-full border border-gray-300 rounded p-2" placeholder="Imposta una password"/>
                     </div>
-                    <button type="submit" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600">Registrati</button>
+                    <button type="submit" class="w-full bg-blue text-white py-2 rounded hover:bg-darkBlue">Registrati</button>
                 </form>
             </section>
         </div>

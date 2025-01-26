@@ -45,8 +45,8 @@
                     <label for="immagine">Immagine</label>
                     <input type="file" id="immagine" name="immagine" class="w-full border border-gray-300 rounded p-2" accept="image/*" />
                 </div>
-                <input class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" type="submit" value="Invia" name="nuovoProdotto" />
-                <button type="reset" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4">Esci</button>
+                <input class="w-full bg-blue text-white py-2 rounded hover:bg-darkBlue mt-4" type="submit" value="Invia" name="nuovoProdotto" />
+                <button type="reset" class="w-full bg-blue text-white py-2 rounded hover:bg-darkBlue mt-4">Esci</button>
             </form>
         </dialog>
         <!-- Elemento dialog per la modifica prodotto -->
@@ -87,13 +87,13 @@
                     <label for="modify-immagine">Immagine</label>
                     <input type="file" id="modify-immagine" name="modify-immagine" class="w-full border border-gray-300 rounded p-2" accept="image/*" />
                 </div>
-                <input class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" type="submit" value="Salva" name="salvaModifiche" />
-                <button type="reset" class="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-4" onclick="closeModifyDialog()">Esci</button>
-                <input type="submit" class="w-full bg-red-500 text-white py-2 rounded hover:bg-pink-600 mt-10" name="eliminaProdotto" value="Elimina" />
+                <input class="w-full bg-blue text-white py-2 rounded hover:bg-darkBlue mt-4" type="submit" value="Salva" name="salvaModifiche" />
+                <button type="reset" class="w-full bg-blue text-white py-2 rounded hover:bg-darkBlue mt-4" onclick="closeModifyDialog()">Esci</button>
+                <input type="submit" class="w-full bg-red-500 text-white py-2 rounded hover:bg-darkBlue mt-10" name="eliminaProdotto" value="Elimina" />
             </form>
         </dialog>
         <div class="text-center">
-            <button id="create" type="button" class="p-3 bg-pink-500 text-white rounded w-3/4">Crea un nuovo prodotto</button>
+            <button id="create" type="button" class="p-3 bg-blue text-white rounded w-3/4">Crea un nuovo prodotto</button>
         </div>
         <h3 class="text-center mt-4 mb-1">Prodotti presenti nello store</h3>
         <?php
@@ -206,7 +206,7 @@
         <template id="notification-template">
             <article class="border border-gray-300 p-2 rounded border-b-2">
                 <p></p>
-                <button type="button" class="bg-teal-500 text-white py-2 rounded flex flex-row min-w-min px-3 h-10 text-lg items-center ml-auto mr-0 mt-2" data-codice-articolo="1" onclick="tickSent(this)">
+                <button type="button" class="bg-blue text-white py-2 rounded flex flex-row min-w-min px-3 h-10 text-lg items-center ml-auto mr-0 mt-2" data-codice-articolo="1" onclick="tickSent(this)">
                     <svg class="h-full mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
@@ -216,7 +216,7 @@
         </template>
     </section>
 </div>
-<button onclick="window.location.href='logout.php';" type="submit" class="p-4 bg-pink-500 text-white py-2 rounded hover:bg-pink-600 mt-5">Log-out</button>
+<button onclick="window.location.href='logout.php';" type="submit" class="p-4 bg-blue text-white py-2 rounded hover:bg-darkBlue mt-5">Log-out</button>
 
 
 <script>

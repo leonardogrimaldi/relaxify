@@ -12,7 +12,7 @@ module.exports = {
 
         'darkPink': '#FF90BC',
         'pink': '#FFC0D9',
-        'yellow': '#F9F9EO',
+        'yellow': '#F9F9E0',
         'skyBlue': '#8ACDD7',
       },
     },
