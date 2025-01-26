@@ -6,9 +6,8 @@
             <div class="w-full flex justify-center items-center">
                 <div class="w-full aspect-square relative overflow-hidden">
                     <img class="absolute top-0 left-0 w-full h-full object-cover" 
-                        itemprop="image" 
-                        src="<?php echo IMG_ROOT . $prodotto["immagine"]; ?>" 
-                        alt="<?php echo $prodotto["nome"]; ?>">
+                        itemprop="image"  alt="<?php echo $prodotto["nome"]; ?>"
+                        src="<?php echo IMG_ROOT . $prodotto["immagine"]; ?>" >
                 </div>
             </div>
             <div class="text-center h-full flex flex-col">
