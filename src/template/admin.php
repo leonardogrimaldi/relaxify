@@ -205,12 +205,13 @@
         <h3 class="text-center mb-1">Notifiche</h3>
         <template id="notification-template">
             <article class="border border-gray-300 p-2 rounded border-b-2">
-                <p></p>
-                <button type="button" class="bg-blue text-white py-2 rounded flex flex-row min-w-min px-3 h-10 text-lg items-center ml-auto mr-0 mt-2" data-codice-articolo="1" onclick="tickSent(this)">
+                <p><slot name="data"></slot></p>
+                <p><slot name="text"></slot></p>
+                <button type="button" class="bg-blue text-white py-2 rounded flex flex-row min-w-min px-3 h-10 text-lg items-center ml-auto mr-0 mt-2" data-codice-notifica="" onclick="tickRead(this)">
                     <svg class="h-full mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
-                    Segna come letto
+                    Segna come letta
                 </button>
             </article>
         </template>
@@ -226,41 +227,53 @@
         stato = n.stato.toLowerCase();
         switch (stato) {
             case "p":
-                return `È stato ricevuto il pagamento dell'ordine ${n.numeroOrdine} dall'utente ${n.nomeUtente}`;
+                return `È stato ricevuto il pagamento dell'ordine ${n.ordineID} dall'utente ${n.nomeUtente}`;
             case "s":
-                return `L'ordine ${n.numeroOrdine} è stato spedito. Riceverai a breve gli articoli ordinati`;
+                return `L'ordine ${n.ordineID} è stato spedito. Riceverai a breve gli articoli ordinati`;
             case "r":
-                return `L'ordine ${n.numeroOrdine} è ricevuto dall'utente ${n.nomeUtente}`;
+                return `L'ordine ${n.ordineID} è ricevuto dall'utente ${n.nomeUtente}`;
             default:
                 return "Default text";
         }
     }
+    let loadedNotifications = [];
     const displayNotifications = () => {
-        const notifications = fetchNotifications();
-        if (notifications.length == 0) {
-            console.log("No notification");
-        } else {
-            notifications.forEach(n => {
-                const template = document.getElementById("notification-template").content.cloneNode(true);
-                template.querySelector("p").textContent = n.text;
-                const notificationSection = document.querySelector("section[data-tab-name='notifiche']");
-                // Insert notification after heading
-                notificationHeading.after(template);
-                
+        fetch(`/notifications.php`)
+            .then(response => response.json())
+            .then(notifications => {
+                if (notifications.length === 0) {
+                    console.log("Non ci sono notifiche");
+                } else {
+                    loadedNotifications = notifications;
+                    notifications.forEach(n => {
+                        n.text = notificationText(n);
+                        const template = document.getElementById("notification-template").content.cloneNode(true);
+                        template.querySelector("slot[name='data']").textContent = n.data;
+                        template.querySelector("slot[name='text']").textContent = n.text;
+                        template.querySelector("button").dataset.codiceNotifica = n.notificaID;
+                        if (n.letta) {
+                            template.querySelector("button").remove();
+                        }
+                        const notificationSection = document.querySelector("section[data-tab-name='notifiche']");
+                        // Insert notification after heading
+                        notificationHeading.after(template);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching notifications:', error);
             });
-        }
-        
-    }
-    
-    const fetchNotifications = () => {
-        const notification = {
-            numeroOrdine: 1234,
-            nomeUtente: "Leonardo Grimaldi",
-            stato: "p"
-        }
-        notification.text = notificationText(notification);
-        return [notification];
     }
 
+    const tickRead = (item) => {
+        if (item instanceof HTMLButtonElement) {
+            fetch(`/notifications.php?notificaID=${item.dataset.codiceNotifica}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                });
+            item.remove();
+        }
+    }
     displayNotifications();
 </script>

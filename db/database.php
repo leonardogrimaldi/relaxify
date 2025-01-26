@@ -290,4 +290,38 @@ class DatabaseHelper
 
         return $immagine['name'];
     }
+
+    public function getNotifications($user) {
+        if ($user == "utente") {
+            $stmt = $this->db->prepare(
+                "SELECT n.*, CONCAT(u.nome, ' ', u.cognome) AS nomeUtente
+                FROM notifica n
+                JOIN ordine o ON o.ordineID = n.ordineID
+                JOIN utente u ON o.utenteID = u.utenteID
+                WHERE n.stato == 's' ;"
+            );
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } elseif ($user == "admin") {
+            $stmt = $this->db->prepare(
+                "SELECT n.*, CONCAT(u.nome, ' ', u.cognome) AS nomeUtente
+                FROM notifica n
+                JOIN ordine o ON o.ordineID = n.ordineID
+                JOIN utente u ON o.utenteID = u.utenteID
+                WHERE n.stato != 's' ;"
+            );
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            throw new Exception("User is not logged in");
+        }
+    }
+
+    public function readNotification($notificaID) {
+        $stmt = $this->db->prepare("UPDATE notifica SET letta = TRUE WHERE notificaID = ?");
+        $stmt->bind_param('i', $notificaID);
+        $stmt->execute();
+    }
 }
