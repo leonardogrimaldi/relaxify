@@ -372,8 +372,8 @@ class DatabaseHelper
 
     public function addNewOrderedProduct($prodottoID, $ordineID, $utenteID, $quantita)
     {
-        $stmt = $this->db->prepare("INSERT INTO `prodotto_ordine`(`ordineID`,`utenteID`, `prodottoID`, `quantita`) VALUES (?,?,?,?)");
-        $stmt->bind_param('ssss', $prodottoID, $ordineID, $utenteID, $quantita);
+        $stmt = $this->db->prepare("INSERT INTO `prodotto_ordine`(`prodottoID`,`ordineID`, `utenteID`, `quantita`) VALUES (?,?,?,?)");
+        $stmt->bind_param('iiis', $prodottoID, $ordineID, $utenteID, $quantita);
         $stmt->execute();
     }
 

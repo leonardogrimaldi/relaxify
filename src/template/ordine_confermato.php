@@ -3,8 +3,4 @@
             <p class="text-lg text-gray-700 mb-4">
                 <strong>Ordine Confermato!</strong>
             </p>
-            <h3 class="text-2xl font-semibold text-pink-400 mt-6 mb-4">Dati Utente</h3>
-            <a href="https://github.com/leonardogrimaldi/relaxify"> <b>Prova</b></a>
-            <h3 class="text-2xl font-semibold text-pink-400 mt-6 mb-4">Prova</h3>
-            <p class="text-gray-700 mb-4"> prova ordine </p>
         </section>
