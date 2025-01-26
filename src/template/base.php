@@ -14,6 +14,9 @@
             <?php endif; ?> 
             src="<?php echo $templateParams["js"]; ?>"></script>
     <?php endif; ?>
+    <?php if(isset($templateParams["js1"])) : ?>
+        <script src="<?php echo $templateParams["js1"]; ?>"></script>
+    <?php endif; ?>
 </head>
 <body class="bg-gray-100 text-gray-800 flex items-center flex-col min-h-screen">
     
