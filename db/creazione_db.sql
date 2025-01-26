@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `ordine` (
   `utenteID` int(2) NOT NULL,
   `data` date NOT NULL,
   `stato` char(1) NOT NULL,
-  `totale` decimal(4,2) NOT NULL,
+  `totale` decimal(6,2) NOT NULL,
   PRIMARY KEY (`ordineID`),
   FOREIGN KEY (`utenteID`) REFERENCES `utente` (`utenteID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
