@@ -22,7 +22,7 @@ function isAdminLoggedIn(){
 }
 
 function isRealUserLoggedIn() {
-    !empty($_SESSION['utenteID']) && $_SESSION['tipo'] == 0;
+    return !empty($_SESSION['utenteID']) && $_SESSION['tipo'] == 0;
 }
 
 function isEmailPresent($input_email, $all_email){
