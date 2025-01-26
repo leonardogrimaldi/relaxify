@@ -14,4 +14,9 @@ if (isset($_POST["itemToAdd"])) {
     
 }
 
+if (isset($_POST["itemToDecrease"])) {
+    $prodottoID = $_POST["itemToDecrease"];
+    $dbh->decreaseCartProduct($prodottoID, $_SESSION["utenteID"]); 
+}
+
 ?>
