@@ -14,7 +14,7 @@ if (isset($_GET['notificaID'])) {
     echo json_encode($_GET['notificaID']);
     exit;
 }
-$notifications = $dbh->getNotifications($user = "admin");
+$notifications = $dbh->getNotifications($user = "utente");
 echo json_encode($notifications);
 exit;
 ?>

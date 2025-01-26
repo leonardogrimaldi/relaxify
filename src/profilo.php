@@ -10,7 +10,7 @@ $templateParams["nome"] = "profile.php";
 $templateParams["js"] = JS_ROOT.'tabs.js';
 $templateParams["module"] = "module";
 
-$templateParams["js"] = [new JSImport('tabs.js', true), new JSImport('dropdown.js', false)];
+$templateParams["js"] = [new JSImport('tabs.js', true), new JSImport('dropdown.js', false), new JSImport('notifications.js', false)];
 $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["prodotti"] = $dbh->getProducts();
 $prodotto = $templateParams["prodotti"][0];

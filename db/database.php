@@ -298,7 +298,7 @@ class DatabaseHelper
                 FROM notifica n
                 JOIN ordine o ON o.ordineID = n.ordineID
                 JOIN utente u ON o.utenteID = u.utenteID
-                WHERE n.stato == 's' ;"
+                WHERE n.stato = 's';"
             );
             $stmt->execute();
             $result = $stmt->get_result();
@@ -309,7 +309,7 @@ class DatabaseHelper
                 FROM notifica n
                 JOIN ordine o ON o.ordineID = n.ordineID
                 JOIN utente u ON o.utenteID = u.utenteID
-                WHERE n.stato != 's' ;"
+                WHERE n.stato != 's';"
             );
             $stmt->execute();
             $result = $stmt->get_result();
