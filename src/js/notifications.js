@@ -19,7 +19,7 @@ const displayNotifications = () => {
         .then(response => response.json())
         .then(notifications => {
             if (notifications.length === 0) {
-                console.log("Non ci sono notifiche");
+                console.log("No notifications");
             } else {
                 notifications.forEach(n => {
                     if (loadedNotifications.filter(id => id == n.notificaID).length == 0) {
