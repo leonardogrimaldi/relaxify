@@ -119,6 +119,12 @@ class DatabaseHelper
         $stmt->execute();
     }
 
+    public function decreaseCartProduct($prodottoID){
+        $stmt = $this->db->prepare("UPDATE `prodotto_carrello` SET `quantita` = `quantita` - 1 WHERE prodottoID = ?");
+        $stmt->bind_param('i', $prodottoID);
+        $stmt->execute();
+    }
+
     public function getProductsByCategory($id)
     {
         $query = "SELECT prodotto.prodottoID, prodotto.nome as prodottonome, prodotto.descrizione as prodottodescrizione, prodotto.prezzo, prodotto.immagine, prodotto.categoriaID, categoria.nome as categorianome, categoria.descrizione as categoriadescrizione FROM prodotto, categoria WHERE prodotto.categoriaID=categoria.categoriaID AND prodotto.categoriaID=?";

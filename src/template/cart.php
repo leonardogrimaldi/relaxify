@@ -11,7 +11,7 @@
                         <h2 class="text-lg font-semibold text-gray-700"><?php echo $prodottocarrello["nome"]; ?></h2>
                         <p class="text-gray-500"><?php echo $prodottocarrello["prezzo"]; ?>€</p>
                         <div class="flex items-center justify-evenly w-full">
-                            <button data-codice-articolo="1" onclick="decreaseQuantity(this)" type="button" class="bg-teal-500 text-white p-2 rounded-lg hover:bg-teal-600">
+                            <button data-prodotto-id="<?php echo $prodottocarrello["prodottoID"]; ?>" data-codice-articolo="1" onclick="decreaseQuantity(this)" type="button" class="decreaseFromCart bg-teal-500 text-white p-2 rounded-lg hover:bg-teal-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
                                 </svg>

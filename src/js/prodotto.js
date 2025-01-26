@@ -100,5 +100,34 @@ $(document).ready(function () {
         removeFromCart(e);
     });
 
+    function decreaseFromCart(e) {
+        e.preventDefault();
+        let button = $(e.target).closest("button");
+        let itemToDecrease = button.data("prodotto-id");
+
+        $.ajax({
+            url: "gestione_carrello.php",
+            type: "POST",
+            data: {
+                itemToDecrease: itemToDecrease
+            },
+            success: function () {
+                let button = $(e.target).closest("button");
+                console.log("Quantità decrementata con successo!");
+            },
+            error: function (xhr, status, error) {
+                // Mostra un messaggio in caso di errore
+                console.error("Errore nel decremento della quantità dal carrello:", error);
+                alert("Si è verificato un errore.");
+            }
+        });
+    }
+
+    $(document).on("click", ".decreaseFromCart", function(e){
+        decreaseFromCart(e);
+    });
+
+
+
 
 });
