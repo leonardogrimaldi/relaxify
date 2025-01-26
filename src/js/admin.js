@@ -1,10 +1,10 @@
 const createDialog = document.querySelector("dialog");
 const show = document.getElementById("create");
-const close = createDialog.querySelector("button");
+const closeButton = createDialog.querySelector("button");
 show.addEventListener("click", () => {
     createDialog.showModal();
 });
-close.addEventListener("click", () => {
+closeButton.addEventListener("click", () => {
     createDialog.close();
 });
 
@@ -25,7 +25,3 @@ const openModifyDialog = (item) => {
             .catch(error => console.error('Error fetching product data:', error));
 }
 const closeModifyDialog = () => { modifyDialog.close(); modifyDialog.querySelector("form").reset();};
-const deleteProduct = () => {
-    const codiceArticolo = document.getElementById("modify-codice").value;
-    // call function to delete product;
-}
