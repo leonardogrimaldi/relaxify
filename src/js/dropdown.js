@@ -16,16 +16,4 @@ const dropdownClicked = (item) => {
     }
 }
 
-const tickSent = (item) => {
-    if (item instanceof HTMLButtonElement) {
-        // segnaInviato(item.dataset.codiceArticolo);
-        item.remove();
-    }
-}
 
-const tickReceived = (item) => {
-    if (item instanceof HTMLButtonElement) {
-        // segnaInviato(item.dataset.codiceArticolo);
-        item.remove();
-    }
-}

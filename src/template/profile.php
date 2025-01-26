@@ -22,7 +22,7 @@
         </dl>
     </section>
     <section class="hidden p-3" data-tab-name="ordini">
-        <h3 class="sr-only">Ordini</h3>
+        <h3 class="text-center">Ordini</h3>
         <?php
         foreach($templateParams["ordini"] as $ordine): ?>
         <article class="border border-gray-300 p-2 rounded border-b-2 relative">

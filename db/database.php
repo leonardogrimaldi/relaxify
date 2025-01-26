@@ -95,7 +95,6 @@ class DatabaseHelper
 
     return $result->num_rows > 0;
     }
-
     
     public function addCartProduct($prodottoID, $utenteID)
     {
@@ -377,4 +376,15 @@ class DatabaseHelper
         $stmt->execute();
     }
 
+    public function createNotification($ordineID, $stato) {
+        $stmt = $this->db->prepare("INSERT INTO `notifica`(`data`, `ordineID`, `stato`) VALUES (NOW(), ?, ?)");
+        $stmt->bind_param('is', $ordineID, $stato);
+        $stmt->execute();
+    }
+
+    public function updateOrderState($ordineID, $stato) {
+        $stmt = $this->db->prepare("UPDATE ordine SET stato = ? WHERE ordineID = ?");
+        $stmt->bind_param('si', $stato, $ordineID);
+        $stmt->execute();
+    }
 }

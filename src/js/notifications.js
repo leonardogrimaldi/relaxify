@@ -42,6 +42,34 @@ const displayNotifications = () => {
             console.error('Error fetching notifications:', error);
         });
 }
+
+const tickSent = (item) => {
+    if (item instanceof HTMLButtonElement) {
+        const ordine = item.dataset.codiceOrdine;
+        const stato = "s";
+        fetch(`/create_notifications.php?ordineID=${ordine}&stato=${stato}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            });
+        item.remove();
+    }
+}
+
+const tickReceived = (item) => {
+    if (item instanceof HTMLButtonElement) {
+        const ordine = item.dataset.codiceOrdine;
+        const stato = "r";
+        fetch(`/create_notifications.php?ordineID=${ordine}&stato=${stato}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            });
+        item.remove();
+    }
+}
+
+
 const tickRead = (item) => {
     if (item instanceof HTMLButtonElement) {
         fetch(`/notifications.php?notificaID=${item.dataset.codiceNotifica}`)

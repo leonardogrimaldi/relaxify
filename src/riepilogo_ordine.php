@@ -26,6 +26,7 @@ if (isset($_POST["payed"])) {
         $dbh->addNewOrderedProduct($prodotto["prodottoID"], $idOrdine, $_SESSION["utenteID"], $prodotto["quantita"]);
     }
     $dbh->deleteCartProducts($_SESSION["utenteID"]);
+    $dbh->createNotification($idOrdine, 'p');
     sendEMail($dbh->getEmailById($_SESSION["utenteID"]),"Ordine Confermato","Il tuo ordine è stato confermato, complimenti! ");
 
 
