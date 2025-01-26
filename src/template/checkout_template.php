@@ -11,7 +11,6 @@
                                 <p class="text-gray-500"><?php echo $prodottocarrello["prezzo"]; ?>€</p>
                                 <p class="sr-only">Quantità:</p><span id="quantity-1" class="text-lg font-semibold"><?php echo $prodottocarrello["quantita"]; ?></span>
                             </div>
-                            
                         </article>
                     <?php endforeach; ?>
                 </section>

@@ -114,7 +114,7 @@ class DatabaseHelper
     }
 
     public function removeCartProduct($prodottoID){
-        $stmt = $this->db->prepare("DELETE FROM `prodotto_carrello` WHERE carrelloID = ?");
+        $stmt = $this->db->prepare("DELETE FROM `prodotto_carrello` WHERE prodottoID = ?");
         $stmt->bind_param('i', $prodottoID);
         $stmt->execute();
     }
