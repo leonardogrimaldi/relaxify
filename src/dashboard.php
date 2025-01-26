@@ -1,14 +1,4 @@
 <?php
-require_once("bootstrap.php");
-
-$templateParams["titolo"] = "Relaxify - Dashboard";
-$templateParams["nome"] = "admin.php";
-$templateParams["module"] = "module";
-$templateParams["js"] = [new JSImport('tabs.js', true), new JSImport('dropdown.js', false), new JSImport('admin.js', false), new JSImport('notifications.js', false)];
-$templateParams["categorie"] = $dbh->getCategories();
-$templateParams["prodotti"] = $dbh->getProducts();
-$prodotto = $templateParams["prodotti"][0];
-
 // https://mailtrap.io/blog/php-form-validation/
 class FormValidator
 {
@@ -59,6 +49,21 @@ class FormValidator
         return $clean_data;
     }
 }
+require_once("bootstrap.php");
+
+if (!isAdminLoggedIn()) {
+    header("location: login.php");
+    exit;
+}
+
+$templateParams["titolo"] = "Relaxify - Dashboard";
+$templateParams["nome"] = "admin.php";
+$templateParams["module"] = "module";
+$templateParams["js"] = [new JSImport('tabs.js', true), new JSImport('dropdown.js', false), new JSImport('admin.js', false), new JSImport('notifications.js', false)];
+$templateParams["categorie"] = $dbh->getCategories();
+$templateParams["prodotti"] = $dbh->getProducts();
+$prodotto = $templateParams["prodotti"][0];
+
 $requiredFields = ["nome", "categoriaID", "prezzo", "quantita", "descrizione"];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['nuovoProdotto'])) {
@@ -66,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             $validator->validate();
             $data = $validator->getCleanData();
+            print_r($data);
             $imageName = DatabaseHelper::saveImage($_FILES['immagine']);
             $dbh->newProduct($data, $imageName);
         } catch (Exception $e) {
@@ -87,7 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $dbh->deleteProduct($prodottoID);
         }
     }
-    // Redirect to the same page (or another page)
     header("Location: " . $_SERVER['PHP_SELF']);
     exit();
 }

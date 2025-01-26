@@ -8,8 +8,21 @@ function registerLoggedUser($user){
     $_SESSION["email"] = $user["email"];
 }
 
+/**
+ * Deprecated. Use new functions isAdminLoggedIn or isRealUserLoggedIn.
+ * Consider refactoring isRealUserLoggedIn to isUserLoggedIn.
+ */
+
 function isUserLoggedIn(){
     return !empty($_SESSION['utenteID']);
+}
+
+function isAdminLoggedIn(){
+    return !empty($_SESSION['utenteID']) && $_SESSION['tipo'] == 1;
+}
+
+function isRealUserLoggedIn() {
+    !empty($_SESSION['utenteID']) && $_SESSION['tipo'] == 0;
 }
 
 function isEmailPresent($input_email, $all_email){
