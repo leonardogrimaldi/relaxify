@@ -12,8 +12,10 @@ export const removeClass = (e, classes) => {
 const menu = document.querySelector("main menu");
 const buttons = menu.querySelectorAll("li button");
 const activeStyle = "border-4 border-lightBlue text-blue";
-let active = 0;
-addClass(buttons[0], activeStyle);
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+let active = urlParams.has('notifications') ? 2 : 0;
+addClass(buttons[active], activeStyle);
 document.querySelector(`menu ~ *[data-tab-name="${buttons[active].getAttribute("data-tab-name")}"]`).classList.remove("hidden");
 
 buttons.forEach((b, i) => {
