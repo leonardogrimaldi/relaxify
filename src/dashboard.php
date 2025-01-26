@@ -81,6 +81,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
         $dbh->editProduct($clean_data, $_FILES['modify-immagine']);
+    } else if (isset($_POST['eliminaProdotto'])) {
+        if (!empty($_POST["modify-prodottoID"])) {
+            $prodottoID = FormValidator::testInput($_POST["modify-prodottoID"]);
+            $dbh->deleteProduct($prodottoID);
+        }
     }
     // Redirect to the same page (or another page)
     header("Location: " . $_SERVER['PHP_SELF']);
