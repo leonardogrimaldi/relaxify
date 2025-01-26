@@ -220,6 +220,8 @@
 
 
 <script>
+    const notificationSection = document.querySelector("section[data-tab-name='notifiche']");
+    const notificationHeading = notificationSection.querySelector("h3");
     const notificationText = (n) => {
         stato = n.stato.toLowerCase();
         switch (stato) {
@@ -234,17 +236,18 @@
         }
     }
     const displayNotifications = () => {
-        const n = fetchNotifications();
-        if (n.length == 0) {
+        const notifications = fetchNotifications();
+        if (notifications.length == 0) {
             console.log("No notification");
         } else {
-            const template = document.getElementById("notification-template").content.cloneNode(true);
-            template.querySelector("p").textContent = n.text;
-            const notificationSection = document.querySelector("section[data-tab-name='notifiche']");
-            // Insert notification after heading
-            notificationSection.append(template);
-            console.log(template);
-            notificationSection.querySelector("h3").after(template);
+            notifications.forEach(n => {
+                const template = document.getElementById("notification-template").content.cloneNode(true);
+                template.querySelector("p").textContent = n.text;
+                const notificationSection = document.querySelector("section[data-tab-name='notifiche']");
+                // Insert notification after heading
+                notificationHeading.after(template);
+                
+            });
         }
         
     }
@@ -256,7 +259,7 @@
             stato: "p"
         }
         notification.text = notificationText(notification);
-        return notification
+        return [notification];
     }
 
     displayNotifications();
