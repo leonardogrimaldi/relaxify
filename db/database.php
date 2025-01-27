@@ -37,6 +37,15 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getPresentProducts() {
+        $query = "SELECT prodotto.*, categoria.nome AS 'categoria' FROM prodotto, categoria WHERE prodotto.categoriaID = categoria.categoriaID AND prodotto.eliminato = FALSE";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function checkLogin($email, $input_pwd)
     {
         $stmt = $this->db->prepare("SELECT * FROM utente WHERE email = ? ");
