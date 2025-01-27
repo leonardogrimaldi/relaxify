@@ -4,7 +4,7 @@
                 <section class="sm:w-3/5 sm:border-r sm:pr-4">
                     <h3 class="text-center">Prodotti selezionati</h3>
                     <?php foreach($templateParams["prodotticarrello"] as $prodottocarrello): ?>
-                        <article data-codice-articolo="1" class="flex justify-between sm:justify-evenly border-2 p-1 rounded-md">
+                        <article data-codice-articolo="<?php echo $prodottocarrello["prodottoID"] ?>" class="flex justify-between sm:justify-evenly border-2 p-1 rounded-md">
                             <img class="aspect-square rounded-lg" width="100" height="100" src="<?php echo IMG_ROOT . $prodottocarrello["immagine"] ?>" alt="<?php echo $prodottocarrello["nome"]; ?>">
                             <div class="flex flex-col justify-center items-center gap-y-2">
                                 <h2 class="text-lg font-semibold text-gray-700"><?php echo $prodottocarrello["nome"]; ?></h2>

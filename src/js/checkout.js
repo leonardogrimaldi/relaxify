@@ -20,13 +20,15 @@ $(document).ready(function () {
 
 const updateTotal = () => {
     let total = 0;
-    const items = document.querySelectorAll("article");
+    const items = document.querySelectorAll("section:first-child article");
     items.forEach(item => {
         const price = parseFloat(item.querySelector("div p").textContent, 10);
         const quantity = parseInt(item.querySelector("div span").textContent, 10);
         total += price * quantity;
     });
     document.getElementById("totale-prodotti").textContent = total.toFixed(2) + "€";
+    const totaleConSpedizione = total + 10;
+    document.getElementById("totale").textContent = totaleConSpedizione.toFixed(2) + "€";
 }
 
 updateTotal();
