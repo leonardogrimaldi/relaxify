@@ -9,7 +9,7 @@
                             <div class="flex flex-col justify-center items-center gap-y-2">
                                 <h2 class="text-lg font-semibold text-gray-700"><?php echo $prodottocarrello["nome"]; ?></h2>
                                 <p class="text-gray-500"><?php echo $prodottocarrello["prezzo"]; ?>€</p>
-                                <p class="sr-only">Quantità:</p><span id="quantity-1" class="text-lg font-semibold"><?php echo $prodottocarrello["quantita"]; ?></span>
+                                <p class="sr-only">Quantità:</p><span class="text-lg font-semibold"><?php echo $prodottocarrello["quantita"]; ?></span>
                             </div>
                         </article>
                     <?php endforeach; ?>
@@ -80,7 +80,7 @@
                         </dl>
                         <dl class="flex justify-between text-lg mt-4">
                             <dt class="font-bold">TOTALE:</dt>
-                            <dd id="totale" class="font-semibold">0.00€</dd>
+                            <dd id="totale" class="font-semibold">10.00€</dd>
                         </dl>
                         <button type="submit" class="mt-4 w-full bg-teal-500 text-white py-3 rounded-lg hover:bg-teal-600">Paga ora</button>
                         <input type="hidden" id="payed" name="payed" value="1">
