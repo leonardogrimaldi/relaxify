@@ -67,24 +67,24 @@
                         </form>
                     </article>
                 </section>
-                <form action="riepilogo_ordine.php" method="POST" id="checkout-form" class="needs-validation" novalidate="">
                 <section class="mt-2 sm:mt-0 p-4 sm:mb-4 sm:mr-4 bg-gray-100 border-t sm:border-t-0 rounded-b-lg sm:rounded-t-lg shadow-md sm:w-2/5 sm:ml-4 h-min sm:self-start">
-                    <h3 class="text-xl font-bold text-gray-700">Riepilogo</h3>
-                    <dl class="flex justify-between text-lg mt-4">
-                        <dt>Totale prodotti:</dt>
-                        <dd id="totale-prodotti" class="font-semibold">0.00€</dd>
-                    </dl>
-                    <dl class="flex justify-between text-lg mt-4">
-                        <dt>Totale spedizione:</dt>
-                        <dd id="totale-spedizione" class="font-semibold">5.00€</dd>
-                    </dl>
-                    <dl class="flex justify-between text-lg mt-4">
-                        <dt class="font-bold">TOTALE:</dt>
-                        <dd id="totale" class="font-semibold">0.00€</dd>
-                    </dl>
-                    <button type="submit" class="mt-4 w-full bg-teal-500 text-white py-3 rounded-lg hover:bg-teal-600">Paga ora</button>
-                    <input type="hidden" id="payed" name="payed" value="1">
+                    <form action="riepilogo_ordine.php" method="POST" id="checkout-form" class="needs-validation" novalidate="">
+                        <h3 class="text-xl font-bold text-gray-700">Riepilogo</h3>
+                        <dl class="flex justify-between text-lg mt-4">
+                            <dt>Totale prodotti:</dt>
+                            <dd id="totale-prodotti" class="font-semibold">0.00€</dd>
+                        </dl>
+                        <dl class="flex justify-between text-lg mt-4">
+                            <dt>Totale spedizione:</dt>
+                            <dd id="totale-spedizione" class="font-semibold">10.00€</dd>
+                        </dl>
+                        <dl class="flex justify-between text-lg mt-4">
+                            <dt class="font-bold">TOTALE:</dt>
+                            <dd id="totale" class="font-semibold">0.00€</dd>
+                        </dl>
+                        <button type="submit" class="mt-4 w-full bg-teal-500 text-white py-3 rounded-lg hover:bg-teal-600">Paga ora</button>
+                        <input type="hidden" id="payed" name="payed" value="1">
+                    </form>
                 </section>
-                </form>
             </div>
         </div>
