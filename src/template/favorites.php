@@ -15,6 +15,7 @@
                     </div>
                     <div class="flex flex-col h-full justify-around items-center mr-2">
                         <data value="<?php echo $prodottopreferito["prezzo"] ?>"><?php echo $prodottopreferito["prezzo"] ?>€</data>
+                        <button class="addToCart mt-2 px-4 py-2 bg-blue text-white rounded-lg hover:bg-blue-600" data-prodotto-id="<?php echo $prodottopreferito["prodottoID"]; ?>"">Aggiungi al carrello</button>
                     </div>
                 </article> 
                 </a> 

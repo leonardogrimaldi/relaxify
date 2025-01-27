@@ -9,6 +9,7 @@ if (!isRealUserLoggedIn()) {
 $templateParams["titolo"] = "Relaxify - Preferiti";
 $templateParams["nome"] = "favorites.php";
 $templateParams["js"] = JS_ROOT . 'preferred.js';
+$templateParams["js1"] = JS_ROOT . 'prodotto.js';
 $templateParams["module"] = "module";
 
 $templateParams["categorie"] = $dbh->getCategories();
