@@ -1,8 +1,11 @@
 <div class="grow flex flex-col lg:flex-row">
     <div class="invisible w-1/4"></div>
-    <section class="flex flex-col lg:w-2/4 lg:items-center">
+    <section class="flex flex-col lg:items-center lg:w-2/4">
         <h2 class="text-center text-xl py-3 w-full">Preferiti</h2>
-        <div class="grow flex flex-col bg-white rounded-lg lg:max-w-md shadow-md">
+        <div class="grow flex flex-col bg-white rounded-lg shadow-md w-full">
+            <?php if (empty($templateParams["prodottipreferiti"])):?>
+            <p class="p-4 text-center">Non hai prodotti preferiti. <a href="./index.php" class="font-medium text-darkBlue underline hover:no-underline">Torna alla homepage</a> per scegliere un articolo preferito premendo sul pulsante 'Cuore' oppure selezionane uno dai suggerimenti!</p> 
+            <?php else:?>
             <?php foreach ($templateParams["prodottipreferiti"] as $prodottopreferito): ?>
                 <a href="prodotto.php?id=<?php echo $prodottopreferito['prodottoID'] ?>">
                 <article class="flex flex-row items-center m-2 mt-1 rounded-sm h-32">
@@ -20,9 +23,9 @@
                 </article> 
                 </a> 
             <?php endforeach; ?>
+            <?php endif;?>
         </div>
-    </section>
-    
+    </section>  
     <?php require("suggestions.php"); ?>
 </div>
 

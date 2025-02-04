@@ -27,6 +27,9 @@ if(isUserLoggedIn()){
 }
 
 $prodotto = $templateParams["prodotti"][0];
+if (empty($templateParams["prodottoid"])) {
+    header("location: index.php");
+}
 $templateParams["prodottisuggeriti"] = $dbh->getRandomProducts(2);
-require("template/base.php")
+require("template/base.php");
 ?>
