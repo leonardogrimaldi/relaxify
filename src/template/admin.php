@@ -3,12 +3,19 @@
     <menu class="flex border-b">
         <li class="w-full"><button class="w-full h-full py-3 text-center font-semibold text-gray-500 rounded-t-md" data-tab-name="prodotti">Prodotti</button></li>
         <li class="w-full"><button class="w-full h-full py-3 text-center font-semibold text-gray-500 rounded-t-md" data-tab-name="ordini">Ordini</button></li>
-        <li class="w-2/5 border-l-2"><button class="w-full h-full py-3 text-center font-semibold text-gray-500 rounded-t-md flex justify-center items-center" data-tab-name="notifiche">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-                </svg>
+        <li class="w-2/5 border-l-2">
+            <button class="w-full h-full py-3 text-center font-semibold text-gray-500 rounded-t-md flex justify-center items-center" data-tab-name="notifiche">
+                <div class="relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+                    </svg>
+                    <svg id="notificationCircle" class="absolute top-0 right-0 hidden" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="5" cy="5" r="5" fill="red" />
+                    </svg>
+                </div>
                 <span class="sr-only">Notifiche</span>
-            </button></li>
+            </button>
+        </li>
     </menu>
     <section class="hidden p-3" data-tab-name="prodotti">
         <!-- Elemento dialog per la creazione di nuovi prodotti -->

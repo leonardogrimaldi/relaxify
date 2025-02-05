@@ -23,7 +23,7 @@ class DatabaseHelper
 
     public function getProducts($n = -1)
     {
-        $query = "SELECT prodotto.*, categoria.nome AS 'categoria' FROM prodotto, categoria WHERE prodotto.categoriaID = categoria.categoriaID";
+        $query = "SELECT prodotto.*, categoria.nome AS 'categoria' FROM prodotto, categoria WHERE prodotto.categoriaID = categoria.categoriaID AND prodotto.eliminato = FALSE";
         if ($n > 0) {
             $query = $query . " LIMIT ?";
         }
@@ -87,7 +87,7 @@ class DatabaseHelper
 
     public function getCartProducts($utenteID)
     {
-        $stmt = $this->db->prepare("SELECT * FROM prodotto_carrello, prodotto WHERE prodotto_carrello.prodottoID=prodotto.prodottoID AND utenteID = ? ");
+        $stmt = $this->db->prepare("SELECT * FROM prodotto_carrello, prodotto WHERE prodotto_carrello.prodottoID=prodotto.prodottoID AND utenteID = ? AND prodotto.eliminato = FALSE ");
         $stmt->bind_param('i', $utenteID);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -152,7 +152,7 @@ class DatabaseHelper
 
     public function getProductById($id)
     {
-        $stmt = $this->db->prepare("SELECT prodottoID, nome, descrizione, prezzo, immagine, categoriaID FROM prodotto WHERE prodottoID=?");
+        $stmt = $this->db->prepare("SELECT prodottoID, nome, descrizione, prezzo, immagine, categoriaID FROM prodotto WHERE prodottoID=? AND prodotto.eliminato = FALSE");
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -161,7 +161,7 @@ class DatabaseHelper
 
     public function getRandomProducts($n)
     {
-        $stmt = $this->db->prepare("SELECT * FROM prodotto ORDER BY RAND() LIMIT ? ");
+        $stmt = $this->db->prepare("SELECT * FROM prodotto WHERE prodotto.eliminato = FALSE ORDER BY RAND() LIMIT ? ");
         $stmt->bind_param("i", $n);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -235,8 +235,9 @@ class DatabaseHelper
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $productID);
         $stmt->execute();
+        $this->removeCartProduct($productID);
     }
-
+    
     public function getOrders($utenteID) {
         $query = "SELECT * FROM ordine WHERE utenteID = ?";
         $stmt = $this->db->prepare($query);
@@ -337,15 +338,16 @@ class DatabaseHelper
         return $immagine['name'];
     }
 
-    public function getNotifications($user) {
+    public function getNotifications($user, $userID) {
         if ($user == "utente") {
             $stmt = $this->db->prepare(
                 "SELECT n.*, CONCAT(u.nome, ' ', u.cognome) AS nomeUtente
                 FROM notifica n
                 JOIN ordine o ON o.ordineID = n.ordineID
                 JOIN utente u ON o.utenteID = u.utenteID
-                WHERE n.stato = 's';"
+                WHERE n.stato = 's' AND u.utenteID = ?;"
             );
+            $stmt->bind_param('i', $userID);
             $stmt->execute();
             $result = $stmt->get_result();
             return $result->fetch_all(MYSQLI_ASSOC);
@@ -356,6 +358,35 @@ class DatabaseHelper
                 JOIN ordine o ON o.ordineID = n.ordineID
                 JOIN utente u ON o.utenteID = u.utenteID
                 WHERE n.stato != 's';"
+            );
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            throw new Exception("User is not logged in");
+        }
+    }
+
+    public function newNotificationCount($user, $userID) {
+        if ($user == "utente" && !empty($userID)) {
+            $stmt = $this->db->prepare(
+                "SELECT COUNT(n.notificaID) AS 'numeroNotifiche'
+                FROM notifica n
+                JOIN ordine o ON o.ordineID = n.ordineID
+                JOIN utente u ON o.utenteID = u.utenteID
+                WHERE n.stato = 's' AND u.utenteID = ? AND n.letta = FALSE;"
+            );
+            $stmt->bind_param('i', $userID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } elseif ($user == "admin") {
+            $stmt = $this->db->prepare(
+                "SELECT COUNT(n.notificaID) AS 'numeroNotifiche'
+                FROM notifica n
+                JOIN ordine o ON o.ordineID = n.ordineID
+                JOIN utente u ON o.utenteID = u.utenteID
+                WHERE n.stato != 's' AND n.letta = FALSE;"
             );
             $stmt->execute();
             $result = $stmt->get_result();

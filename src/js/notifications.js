@@ -78,11 +78,32 @@ const tickRead = (item) => {
                 console.log(data);
             });
         item.remove();
+        displayNotificationCount();
     }
 }
 
+const displayNotificationCount = () => {
+    fetch(`/notifications.php?count`)
+        .then(response => response.json())
+        .then(notifications => {
+            let n = notifications['numeroNotifiche'];
+            if (n <= 0) {
+                console.log("No notifications");
+                document.getElementById("notificationCircle").classList.add("hidden");
+            } else {
+                console.log(notifications);
+                document.getElementById("notificationCircle").classList.remove("hidden");  
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching notifications:', error);
+        });
+}
+
 displayNotifications();
+displayNotificationCount();
 setInterval(() => {
     displayNotifications();
+    displayNotificationCount();
     console.log("Displaying notifications.");
 }, 5000);
