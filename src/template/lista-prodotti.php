@@ -2,22 +2,23 @@
 <div class="grid grid-cols-2 md:grid-cols-3 gap-x-1 gap-y-2 max-w-screen-lg">
     <?php foreach($templateParams["prodotti"] as $prodotto): ?>
         <article itemscope itemtype="https://schema.org/Product" class="bg-white rounded-lg flex flex-col overflow-hidden shadow-md">
-            <a href="prodotto.php?id=<?php echo $prodotto['prodottoID'] ?>">
-            <div class="w-full flex justify-center items-center">
-                <div class="w-full aspect-square relative overflow-hidden">
-                    <img class="absolute top-0 left-0 w-full h-full object-cover" 
-                        itemprop="image"  alt="<?php echo $prodotto["nome"]; ?>"
-                        src="<?php echo IMG_ROOT . $prodotto["immagine"]; ?>" >
+            <a href="prodotto.php?id=<?php echo $prodotto['prodottoID'] ?>" class="block">
+                <div class="w-full flex justify-center items-center">
+                    <div class="w-full aspect-square relative overflow-hidden">
+                        <img class="absolute top-0 left-0 w-full h-full object-cover" 
+                            itemprop="image" alt="<?php echo $prodotto["nome"]; ?>"
+                            src="<?php echo IMG_ROOT . $prodotto["immagine"]; ?>" >
+                    </div>
                 </div>
-            </div>
-            <div class="text-center h-full flex flex-col">
-                <header>
+                <header class="text-center">
                     <h3 itemprop="name" class="text-lg font-medium text-gray-700 mt-2"><?php echo $prodotto["nome"]; ?></h3>
-                    <a class="sr-only" href="prodotto.php">Vai alla pagina del prodotto</a>
                 </header>
+            </a>
+            <div class="text-center h-full flex flex-col">
                 <p itemprop="description" class="mx-2 line-clamp-2 text-gray-600 my-2 grow"><?php echo $prodotto["descrizione"]; ?></p>
                 <span class="sr-only">Prezzo: <?php echo $prodotto["prezzo"]; ?> €</span>
                 <div class="flex flex-row justify-center items-center gap-x-2 py-2">
+                    <!-- Bottoni preferiti e carrello restano fuori dal <a> -->
                     <?php if(isUserLoggedIn()): ?>
                         <?php if(!in_array($prodotto["prodottoID"], $templateParams["lista_preferiti"])): ?>
                             <button type="button" class="addToPreferred w-10 flex justify-center bg-blue text-white p-2 rounded hover:bg-darkBlue">
@@ -62,9 +63,6 @@
 
                 </div>
             </div>
-        </a>
         </article>
     <?php endforeach; ?>
 </div>
-
-
