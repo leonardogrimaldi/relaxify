@@ -1,7 +1,7 @@
 <div class="grow flex flex-col lg:flex-row">
     <div class="invisible w-1/4"></div>
     <section class="flex flex-col lg:items-center lg:w-2/4">
-        <h2 class="text-center text-xl py-3 w-full">Preferiti</h2>
+        <h2 class="text-center text-lg py-3 w-full">Prodotti preferiti</h2>
         <div class="grow flex flex-col bg-white rounded-lg shadow-md w-full">
             <?php if (empty($templateParams["prodottipreferiti"])):?>
             <p class="p-4 text-center">Non hai prodotti preferiti. <a href="./index.php" class="font-medium text-darkBlue underline hover:no-underline">Torna alla homepage</a> per scegliere un articolo preferito premendo sul pulsante 'Cuore' oppure selezionane uno dai suggerimenti!</p> 

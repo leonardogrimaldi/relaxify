@@ -1,9 +1,11 @@
 <div class="grow flex flex-col lg:flex-row items-center lg:items-start">
     <div class="invisible w-1/4"></div>
     <!-- Prodotto -->
-    <article class="flex flex-col sm:flex-row items-center justify-center rounded-md p-5 shadow-md bg-white h-min w-full max-w-xs sm:max-w-xl">
+    <section class="flex flex-col lg:items-center lg:w-2/4">
+        <h2 class="text-center text-lg py-3 w-full">Prodotto</h2>
+        <article class="flex flex-col sm:flex-row items-center justify-center rounded-md p-5 shadow-md bg-white h-min w-full max-w-xs sm:max-w-xl">
         <?php foreach ($templateParams["prodottoid"] as $prodottoid): ?>
-            <img width="300" height="300"
+            <img class="aspect-square" width="300" height="300"
                 itemprop="image" alt="<?php echo $prodottoid["nome"]; ?>"
                 src="<?php echo IMG_ROOT . $prodottoid["immagine"]; ?>">
             <div class="text-center w-full sm:ml-2">
@@ -46,5 +48,7 @@
                 </div>
             </div>
     </article>
+    </section>  
+    
     <?php require("suggestions.php"); ?>
 </div>
