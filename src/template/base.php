@@ -8,15 +8,18 @@
     <title><?php echo $templateParams["titolo"] ?> </title>
     <link rel="stylesheet" href="./css/output.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <?php if (isset($templateParams["js"])) : ?>
-        <script <?php if (isset($templateParams["module"])) : ?> 
-            type="<?php echo $templateParams["module"]; ?>" 
-            <?php endif; ?> 
-            src="<?php echo $templateParams["js"]; ?>"></script>
+    <?php if (isset($templateParams["js"]) && is_string($templateParams["js"])) : ?>
+    <script
+        <?php if (isset($templateParams["module"])) : ?> 
+        type="<?php echo htmlspecialchars($templateParams["module"], ENT_QUOTES, 'UTF-8'); ?>" 
+        <?php endif; ?> 
+        src="<?php echo htmlspecialchars($templateParams["js"], ENT_QUOTES, 'UTF-8'); ?>"></script>
     <?php endif; ?>
-    <?php if(isset($templateParams["js1"])) : ?>
-        <script src="<?php echo $templateParams["js1"]; ?>"></script>
+
+    <?php if (isset($templateParams["js1"]) && is_string($templateParams["js1"])) : ?>
+        <script src="<?php echo htmlspecialchars($templateParams["js1"], ENT_QUOTES, 'UTF-8'); ?>"></script>
     <?php endif; ?>
+
 </head>
 <body class="bg-gray-100 text-gray-800 flex items-center flex-col min-h-screen">
     
