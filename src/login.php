@@ -1,11 +1,6 @@
 <?php
 require_once("bootstrap.php");
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-
 if(isset($_GET["action"])) {
     if($_GET["action"] == "login"){
         if(isset($_POST["email"]) && isset($_POST["password"])){

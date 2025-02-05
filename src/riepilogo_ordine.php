@@ -1,11 +1,6 @@
 <?php
 require_once 'bootstrap.php';
 
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 if (isset($_POST["payed"])) {
     $templateParams["titolo"] = "Relaxify - Ordine Confermato";
     $templateParams["nome"] = "ordine_confermato.php";
