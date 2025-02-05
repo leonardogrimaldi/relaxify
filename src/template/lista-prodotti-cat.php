@@ -2,23 +2,25 @@
 <div class="grid grid-cols-2 md:grid-cols-3 gap-x-1 gap-y-2 max-w-screen-lg">
     <?php foreach($templateParams["prodotticat"] as $prodottocat): ?>
         <article itemscope itemtype="https://schema.org/Product" class="bg-white rounded-lg flex flex-col overflow-hidden shadow-md">
-            <a href="prodotto.php?id=<?php echo $prodottocat['prodottoID'] ?>">    
             <div class="w-full flex justify-center items-center">
                 <div class="w-full aspect-square relative overflow-hidden">
-                    <img class="absolute top-0 left-0 w-full h-full object-cover" 
+                    <a href="prodotto.php?id=<?php echo $prodottocat['prodottoID'] ?>">
+                        <img class="absolute top-0 left-0 w-full h-full object-cover" 
                         itemprop="image" alt="<?php echo $prodottocat["prodottonome"]; ?>"
                         src="<?php echo IMG_ROOT . $prodottocat["immagine"]; ?>">
+                    </a>
                 </div>
             </div>
             <div class="text-center h-full flex flex-col">
                 <header>
-                    <h3 itemprop="name" class="text-lg font-medium text-gray-700 mt-2"><?php echo $prodottocat["prodottonome"]; ?></h3>
-                    <a class="sr-only" href="product.html">Vai alla pagina del prodotto</a>
+                    <h3 itemprop="name" class="text-lg font-medium text-gray-700 mt-2">
+                        <a href="prodotto.php?id=<?php echo $prodottocat['prodottoID'] ?>"><?php echo $prodottocat["prodottonome"]; ?></a>
+                    </h3>
                 </header>
                 <p itemprop="description" class="mx-2 line-clamp-2 text-gray-600 my-2 grow"><?php echo $prodottocat["prodottodescrizione"]; ?></p>
                 <span class="sr-only">Prezzo: <?php echo $prodottocat["prezzo"]; ?> €</span>
                 <div class="flex flex-row justify-center items-center gap-x-2 py-2">
-                <?php if(isUserLoggedIn()): ?>
+                    <?php if(isUserLoggedIn()): ?>
                         <?php if(!in_array($prodottocat["prodottoID"], $templateParams["lista_preferiti"])): ?>
                             <button type="button" class="addToPreferred w-10 flex justify-center bg-blue text-white p-2 rounded hover:bg-darkBlue">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -61,7 +63,6 @@
                     </button>
                 </div>
             </div>
-            </a>
         </article>
     <?php endforeach; ?>
 </div>
