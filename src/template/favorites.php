@@ -9,7 +9,9 @@
             <?php foreach ($templateParams["prodottipreferiti"] as $prodottopreferito): ?>
                 <article class="flex flex-row items-center m-2 mt-1 rounded-sm h-32">
                     <a href="prodotto.php?id=<?php echo $prodottopreferito['prodottoID'] ?>">
-                    <img class="aspect-square rounded" height="300" width="300" src="<?php echo IMG_ROOT . $prodottopreferito["immagine"] ?>" alt="<?php echo $prodottopreferito["nome"] ?>">
+                        <img class="aspect-square rounded" height="300" width="300" src="<?php echo IMG_ROOT . $prodottopreferito["immagine"] ?>" alt="<?php echo $prodottopreferito["nome"] ?>">
+                    </a>
+                    <a href="prodotto.php?id=<?php echo $prodottopreferito['prodottoID'] ?>">
                         <div class="flex flex-col h-full grow ml-2">
                             <hgroup>
                                 <h3 class="text-lg"><?php echo $prodottopreferito["nome"] ?></h3>

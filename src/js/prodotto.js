@@ -54,9 +54,15 @@ $(document).ready(function () {
                 itemToAdd: itemToAdd
             },
             success: function () {
-                let button = $(e.target).closest("button");
                 console.log("Prodotto aggiunto con successo!");
-                alert("Prodotto aggiunto al carrello!");
+    
+                // Mostra il messaggio
+                $("#cartMessage").removeClass("hidden").addClass("flex");
+    
+                // Nasconde il messaggio dopo 3 secondi
+                setTimeout(function () {
+                    $("#cartMessage").addClass("hidden");
+                }, 3000);
             },
             error: function (xhr, status, error) {
                 console.error("Errore nell'aggiunta al carrello:", error);
@@ -99,13 +105,17 @@ $(document).ready(function () {
                 itemToDelete: itemToDelete
             },
             success: function () {
-                let button = $(e.target).closest("button");
-                console.log("Prodotto rimosso con successo!");
-                alert("Prodotto rimosso dal carrello!");
+                console.log("Prodotto aggiunto con successo!");
+
+                $("#cartRemoveMessage").removeClass("hidden").addClass("flex");
+    
+                setTimeout(function () {
+                    $("#cartRemoveMessage").addClass("hidden");
+                }, 3000);
             },
             error: function (xhr, status, error) {
-                console.error("Errore nella rimozione dal carrello:", error);
-                alert("Si è verificato un errore durante l'aggiunta al carrello.");
+                console.error("Errore nell'aggiunta al carrello:", error);
+                alert("Si è verificato un errore durante la rimozione dal carrello.");
             }
         });
     }
