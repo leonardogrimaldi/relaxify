@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     function addToListapreferiti(e) {
         e.preventDefault();
         let itemToAdd = $(e.target).closest("button").find("input.prodottoID").val();
@@ -60,7 +59,6 @@ $(document).ready(function () {
                 alert("Prodotto aggiunto al carrello!");
             },
             error: function (xhr, status, error) {
-                // Mostra un messaggio in caso di errore
                 console.error("Errore nell'aggiunta al carrello:", error);
                 alert("Si è verificato un errore durante l'aggiunta al carrello.");
             }
@@ -83,7 +81,6 @@ $(document).ready(function () {
                 console.log("Prodotto aggiunto con successo!");
             },
             error: function (xhr, status, error) {
-                // Mostra un messaggio in caso di errore
                 console.error("Errore nell'aggiunta al carrello:", error);
                 alert("Si è verificato un errore durante l'aggiunta al carrello.");
             }
@@ -107,7 +104,6 @@ $(document).ready(function () {
                 alert("Prodotto rimosso dal carrello!");
             },
             error: function (xhr, status, error) {
-                // Mostra un messaggio in caso di errore
                 console.error("Errore nella rimozione dal carrello:", error);
                 alert("Si è verificato un errore durante l'aggiunta al carrello.");
             }
@@ -143,7 +139,6 @@ $(document).ready(function () {
                 console.log("Quantità decrementata con successo!");
             },
             error: function (xhr, status, error) {
-                // Mostra un messaggio in caso di errore
                 console.error("Errore nel decremento della quantità dal carrello:", error);
                 alert("Si è verificato un errore.");
             }
@@ -153,8 +148,5 @@ $(document).ready(function () {
     $(document).on("click", ".decreaseFromCart", function(e){
         decreaseFromCart(e);
     });
-
-
-
 
 });
