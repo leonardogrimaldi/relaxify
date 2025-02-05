@@ -1,6 +1,6 @@
 <header class="bg-darkBlue text-white flex items-center w-full">
     <!-- Button sidebar -->
-     <div class="sm:w-1/3">
+    <div class="sm:w-1/3">
         <button onclick="toggleBarra()" class="px-3 flex items-center text-white hover:bg-blue">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <title>Tab</title>
@@ -8,8 +8,8 @@
             </svg>
             <span class="sr-only">Apri la barra laterale</span>
         </button>
-     </div>
-    
+    </div>
+
 
     <!-- Title -->
     <a class="text-4xl py-5 font-bold w-full flex sm:w-1/3" href="./index.php">
@@ -19,16 +19,16 @@
     <!-- Icone preferiti login carrello -->
     <nav class="py-5 max-w-min sm:w-1/3 sm:max-w-full mr-3">
         <ul class="flex flex-row items-center justify-end gap-x-1 md:gap-x-4">
-            <?php if(!isAdminLoggedIn()) : ?>
-            <li>
-                <a href="./preferiti.php">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-9">
-                        <title>Preferiti</title>
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                    </svg>
-                    <span class="sr-only">Lista preferiti</span>
-                </a>
-            </li>
+            <?php if (!isAdminLoggedIn()) : ?>
+                <li>
+                    <a href="./preferiti.php">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-9">
+                            <title>Preferiti</title>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                        </svg>
+                        <span class="sr-only">Lista preferiti</span>
+                    </a>
+                </li>
             <?php endif; ?>
             <li>
                 <a href="./login.php">
@@ -39,16 +39,16 @@
                     <span class="sr-only">Area personale</span>
                 </a>
             </li>
-            <?php if(!isAdminLoggedIn()) : ?>
-            <li>
-                <a href="./carrello.php">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-9">
-                        <title>Carrello</title>
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                    </svg>
-                    <span class="sr-only">Carrello</span>
-                </a>
-            </li>
+            <?php if (!isAdminLoggedIn()) : ?>
+                <li>
+                    <a href="./carrello.php">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-9">
+                            <title>Carrello</title>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                        </svg>
+                        <span class="sr-only">Carrello</span>
+                    </a>
+                </li>
             <?php endif; ?>
         </ul>
     </nav>
@@ -56,9 +56,12 @@
     <!-- Sidebar -->
     <div id="barra" class="absolute top-0 left-0 w-64 h-auto bg-white shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-50">
         <div class="p-6 flex flex-col space-y-4">
-            <button onclick="toggleBarra()" class="self-end text-gray-500 hover:text-gray-800">
-            </button>
+            <button onclick="toggleBarra()" class="text-gray-500 hover:text-gray-800 max-w-min">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
 
+            </button>
             <!-- Sezione home preferiti login carrello -->
             <div class="space-y-4">
                 <a href="index.php" class="flex items-center text-gray-800 hover:text-blue">
@@ -67,12 +70,12 @@
                     </svg>
                     <span>Listino Prodotti</span>
                 </a>
-                <?php if(!isAdminLoggedIn()) : ?>
+                <?php if (!isAdminLoggedIn()) : ?>
                     <a href="preferiti.php" class="flex items-center text-gray-800 hover:text-blue">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                    </svg>
-                    <span>Preferiti</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                        </svg>
+                        <span>Preferiti</span>
                     </a>
                 <?php endif; ?>
                 <a href="login.php" class="flex items-center text-gray-800 hover:text-blue">
@@ -81,13 +84,13 @@
                     </svg>
                     <span>Area Personale</span>
                 </a>
-                <?php if(!isAdminLoggedIn()) : ?>
-                <a href="carrello.php" class="flex items-center text-gray-800 hover:text-blue">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                    </svg>
-                    <span>Carrello</span>
-                </a>
+                <?php if (!isAdminLoggedIn()) : ?>
+                    <a href="carrello.php" class="flex items-center text-gray-800 hover:text-blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                        </svg>
+                        <span>Carrello</span>
+                    </a>
                 <?php endif; ?>
             </div>
 
@@ -119,7 +122,7 @@
     <script src="./js/barra.js"></script>
 </header>
 <menu class="w-full flex gap-x-3 overflow-x-auto whitespace-nowrap">
-    <?php foreach ($templateParams["categorie"] as $key=>$categoria): ?>
+    <?php foreach ($templateParams["categorie"] as $key => $categoria): ?>
         <li class="py-2 flex-none">
             <button onclick="window.location.href='prodotti.php?id=<?php echo $categoria['categoriaID'] ?>'" type="button" class="w-32 text-blue hover:text-darkBlue font-semibold border-4 border-lightBlue py-1 rounded-full">
                 <?php echo $categoria["nome"]; ?>
