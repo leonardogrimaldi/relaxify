@@ -72,14 +72,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             $validator->validate();
             $data = $validator->getCleanData();
-            print_r($data);
-            $imageName = DatabaseHelper::saveImage($_FILES['immagine']);
+            $imageName = DatabaseHelper::saveImage($_FILES['immagine'], $data["nome"]);
             $dbh->newProduct($data, $imageName);
         } catch (Exception $e) {
             echo $e->getMessage();
         }
     } else if (isset($_POST['salvaModifiche'])) {
-        $fields = ["prodottoID", "nome", "categoriaID", "prezzo", "quantita", "descrizione"];
+        $fields = ["prodottoID", "nome", "categoriaID", "prezzo", "descrizione"];
         $clean_data = array();
         foreach($fields as $field) {
             $field_name = "modify-".$field;

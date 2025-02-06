@@ -210,13 +210,13 @@ class DatabaseHelper
                 }
                 $row = $result->fetch_assoc();
                 $old_image_name = $row['immagine'];
+                // Save new image
+                $newImageName = DatabaseHelper::saveImage($image);
                 // Update image path in database
                 $setNewImage = "UPDATE prodotto SET immagine = ? WHERE prodottoID = ?;";
                 $stmt = $this->db->prepare($setNewImage);
-                $stmt->bind_param("si", $image['name'], $data["prodottoID"]);
+                $stmt->bind_param("si", $newImageName, $data["prodottoID"]);
                 $stmt->execute();
-                // Save new image
-                DatabaseHelper::saveImage($image);
                 // Delete old image
                 $oldImagePath = IMG_ROOT . "/" . $old_image_name;
                 if ($old_image_name != $image['name']) {
@@ -323,11 +323,14 @@ class DatabaseHelper
         if (!in_array($filetype, array_keys($allowedTypes))) {
             throw new Exception("File not allowed.");
         }
-        $filename = basename($immagine['name']);
+        // Generate unique file name
+        $tempFile = tempnam(IMG_ROOT, ""); // Using this function just to generate a unique name
+        unlink($tempFile);  // delete temporary file created
+        $filename = pathinfo($tempFile, PATHINFO_FILENAME);
         $extension = $allowedTypes[$filetype];
-
-        $newFilepath = IMG_ROOT . "/" . $filename;
-        if (file_exists(IMG_ROOT . "" . $filename)) {
+        $filenameWithExtension = $filename . "." . $extension;
+        $newFilepath = IMG_ROOT . $filenameWithExtension;
+        if (file_exists($newFilepath)) {
             throw new Exception("File already exists");
         }
         if (!copy($filepath, $newFilepath)) { // Copy the file, returns false if failed
@@ -335,7 +338,7 @@ class DatabaseHelper
         }
         unlink($filepath);
 
-        return $immagine['name'];
+        return $filenameWithExtension;
     }
 
     public function getNotifications($user, $userID) {
