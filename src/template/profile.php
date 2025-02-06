@@ -5,14 +5,14 @@
         <li class="w-full"><button class="w-full h-full py-3 text-center font-semibold text-gray-500 rounded-t-md" data-tab-name="ordini">Ordini</button></li>
         <li class="w-2/5 border-l-2">
             <button class="w-full h-full py-3 text-center font-semibold text-gray-500 rounded-t-md flex justify-center items-center" data-tab-name="notifiche">
-                <div class="relative">
+                <span class="relative">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
                     </svg>
                     <svg id="notificationCircle" class="absolute top-0 right-0 hidden" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="5" cy="5" r="5" fill="red" />
                     </svg>
-                </div>
+                </span>
                 <span class="sr-only">Notifiche</span>
             </button>
         </li>
@@ -108,8 +108,8 @@
                 </section>
                 <?php if($ordine["stato"] == 's') :?>
                 <button type="button" class="bg-blue text-white py-2 rounded flex flex-row min-w-min px-3 h-10 text-lg items-center ml-auto mr-0 mt-2" data-codice-ordine="<?php echo $ordine["ordineID"];?>" onclick="tickReceived(this)">
-                    <svg class="h-full mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    <svg class="h-full mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
                     Segna come ricevuto
                 </button>
