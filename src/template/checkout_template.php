@@ -9,7 +9,7 @@
                             <div class="flex flex-col justify-center items-center gap-y-2">
                                 <h2 class="text-lg font-semibold text-gray-700"><?php echo $prodottocarrello["nome"]; ?></h2>
                                 <p class="text-gray-500"><?php echo $prodottocarrello["prezzo"]; ?>€</p>
-                                <p class="sr-only">Quantità:</p><span class="text-lg font-semibold"><?php echo $prodottocarrello["quantita"]; ?></span>
+                                <p class="sr-only">Quantità:</p><span class="text-lg">qnt: <strong><?php echo $prodottocarrello["quantita"]; ?></strong></span>
                             </div>
                         </article>
                     <?php endforeach; ?>

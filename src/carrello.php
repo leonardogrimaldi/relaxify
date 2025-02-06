@@ -16,5 +16,10 @@ if(isUserLoggedIn()){
     $templateParams["prodotticarrello"] = getCartProducts(); 
 }
 
+if (!isRealUserLoggedIn()) {
+    header("location: login.php");
+    exit;
+}
+
 require("template/base.php")
 ?>

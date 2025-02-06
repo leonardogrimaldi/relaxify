@@ -56,17 +56,14 @@ $(document).ready(function () {
             success: function () {
                 console.log("Prodotto aggiunto con successo!");
     
-                // Mostra il messaggio
                 $("#cartMessage").removeClass("hidden").addClass("flex");
     
-                // Nasconde il messaggio dopo 3 secondi
                 setTimeout(function () {
                     $("#cartMessage").addClass("hidden");
                 }, 3000);
             },
             error: function (xhr, status, error) {
                 console.error("Errore nell'aggiunta al carrello:", error);
-                alert("Si è verificato un errore durante l'aggiunta al carrello.");
             }
         });
     }
@@ -88,7 +85,6 @@ $(document).ready(function () {
             },
             error: function (xhr, status, error) {
                 console.error("Errore nell'aggiunta al carrello:", error);
-                alert("Si è verificato un errore durante l'aggiunta al carrello.");
             }
         });
     }
@@ -115,7 +111,6 @@ $(document).ready(function () {
             },
             error: function (xhr, status, error) {
                 console.error("Errore nell'aggiunta al carrello:", error);
-                alert("Si è verificato un errore durante la rimozione dal carrello.");
             }
         });
     }
@@ -150,7 +145,6 @@ $(document).ready(function () {
             },
             error: function (xhr, status, error) {
                 console.error("Errore nel decremento della quantità dal carrello:", error);
-                alert("Si è verificato un errore.");
             }
         });
     }

@@ -7,25 +7,25 @@
             <?php foreach($templateParams["prodotticarrello"] as $prodottocarrello): ?>
                 <article data-codice-articolo="<?php echo $prodottocarrello["prodottoID"]; ?>" class="flex justify-between sm:justify-evenly border-2 p-1 rounded-md">
                     <img class="aspect-square rounded-lg" width="100" height="100" src="<?php echo IMG_ROOT . $prodottocarrello["immagine"] ?>" alt="<?php echo $prodottocarrello["nome"]; ?>">
-                    <a href="prodotto.php?id=<?php echo $prodottocarrello['prodottoID'] ?>" class="block">
-                        <div class="flex flex-col justify-center items-center gap-y-2 w-full">
+                    <div class="flex flex-col justify-center items-center gap-y-2 w-full">
+                        <a href="prodotto.php?id=<?php echo $prodottocarrello['prodottoID'] ?>" class="block">
                             <h2 class="text-lg font-semibold text-gray-700"><?php echo $prodottocarrello["nome"]; ?></h2>
                             <p class="text-gray-500"><?php echo $prodottocarrello["prezzo"]; ?>€</p>
-                            <div class="flex items-center justify-center gap-x-4 w-full">
-                                <button data-prodotto-id="<?php echo $prodottocarrello["prodottoID"]; ?>" data-codice-articolo="<?php echo $prodottocarrello["prodottoID"]; ?>" onclick="decreaseQuantity(this)" type="button" class="decreaseFromCart bg-blue text-white p-2 rounded-lg hover:bg-darkBlue">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
-                                    </svg>
-                                </button>
-                                <p class="sr-only">Quantità:</p><span class="text-lg font-semibold"><?php echo $prodottocarrello["quantita"];?></span>
-                                <button data-prodotto-id="<?php echo $prodottocarrello["prodottoID"]; ?>" data-codice-articolo="<?php echo $prodottocarrello["prodottoID"]; ?>" onclick="incrementQuantity(this)" type="button" class="increaseProductCart bg-blue text-white p-2 rounded-lg hover:bg-darkBlue">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                                    </svg>
-                                </button>
-                            </div>
+                        </a>
+                        <div class="flex items-center justify-center gap-x-4 w-full">
+                            <button data-prodotto-id="<?php echo $prodottocarrello["prodottoID"]; ?>" data-codice-articolo="<?php echo $prodottocarrello["prodottoID"]; ?>" onclick="decreaseQuantity(this)" type="button" class="decreaseFromCart bg-blue text-white p-2 rounded-lg hover:bg-darkBlue">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                                </svg>
+                            </button>
+                            <p class="sr-only">Quantità:</p><span class="text-lg font-semibold"><?php echo $prodottocarrello["quantita"];?></span>
+                            <button data-prodotto-id="<?php echo $prodottocarrello["prodottoID"]; ?>" data-codice-articolo="<?php echo $prodottocarrello["prodottoID"]; ?>" onclick="incrementQuantity(this)" type="button" class="increaseProductCart bg-blue text-white p-2 rounded-lg hover:bg-darkBlue">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                            </button>
                         </div>
-                    </a>
+                    </div>
                     <div class="flex items-center">
                         <button data-prodotto-id="<?php echo $prodottocarrello["prodottoID"]; ?>" data-codice-articolo="<?php echo $prodottocarrello["prodottoID"]; ?>" onclick="removeItem(this)" type="button" class="removeFromCart bg-red-500 text-white p-2 rounded-lg hover:bg-red-600 flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
