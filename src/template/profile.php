@@ -43,7 +43,7 @@
                 </div>
                 <div class="flex flex-row gap-x-1">
                     <dt>Stato:</dt>
-                    <dd>
+                    <dd data-codice-ordine="<?php echo $ordine["ordineID"];?>">
                         <?php
                         switch($ordine["stato"]) {
                             case "s": 

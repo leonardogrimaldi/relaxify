@@ -53,6 +53,7 @@ const tickSent = (item) => {
                 console.log(data);
             });
         item.remove();
+        updateOrderStates();
     }
 }
 
@@ -66,6 +67,7 @@ const tickReceived = (item) => {
                 console.log(data);
             });
         item.remove();
+        
     }
 }
 
@@ -100,10 +102,41 @@ const displayNotificationCount = () => {
         });
 }
 
+const updateOrderStates = () => {
+    fetch(`/order_states.php`)
+        .then(response => response.json())
+        .then(order_states => {
+            console.log(order_states);
+            order_states.forEach(order => {
+                const id = order['ordineID'];
+                const stato = order['stato'];
+                const dd = document.querySelector(`dd[data-codice-ordine='${id}'`);
+                switch(stato) {
+                    case "s": 
+                        dd.textContent = "Spedito";
+                        break;
+                    case "p": 
+                        dd.textContent = "Pagato";
+                        break;
+                    case "r": 
+                        dd.textContent = "Ricevuto";
+                        break;
+                    default: dd.textContent = "N/A";
+                }
+            })
+        })
+        .catch(error => {
+            console.error('Error fetching order states:', error);
+        });
+}
+
 displayNotifications();
 displayNotificationCount();
+updateOrderStates();
 setInterval(() => {
     displayNotifications();
     displayNotificationCount();
     console.log("Displaying notifications.");
+    updateOrderStates();
+    console.log("Updating order states");
 }, 5000);
