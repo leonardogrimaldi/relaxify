@@ -3,9 +3,9 @@
     <div id="prodotti" class="grid grid-cols-2 lg:grid-cols-1 gap-x-3 gap-y-3 m-2 lg:m-0 grow content-start sm:w-1/2 lg:w-3/4">
         <?php foreach($templateParams["prodottisuggeriti"] as $prodottosuggerito): ?>
         <article class="bg-white rounded-lg flex flex-col overflow-hidden shadow-md">
-            <img class="h-full aspect-square" onclick="window.location.href='prodotto.php?id=<?php echo $prodottosuggerito['prodottoID'] ?>'" src="<?php echo IMG_ROOT . $prodottosuggerito["immagine"]; ?>"
-            alt="<?php echo $prodottosuggerito["nome"]; ?>">
-            <section onclick="window.location.href='prodotto.php?id=<?php echo $prodottosuggerito['prodottoID'] ?>'" 
+            <a href="prodotto.php?id=<?php echo $prodottosuggerito['prodottoID'] ?>'"><img class="h-full aspect-square" onclick="window.location.href='prodotto.php?id=<?php echo $prodottosuggerito['prodottoID'] ?>'" src="<?php echo IMG_ROOT . $prodottosuggerito["immagine"]; ?>"
+            alt="<?php echo $prodottosuggerito["nome"]; ?>"></a>
+            <section 
                 class="text-center flex flex-col" 
                 itemscope itemtype="https://schema.org/Product">
                 <h2 class="text-lg font-medium text-gray-700" itemprop="name">
