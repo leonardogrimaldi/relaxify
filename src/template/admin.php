@@ -24,11 +24,11 @@
             <form action="../dashboard.php" method="post" class="flex flex-col" enctype="multipart/form-data">
                 <div class="mb-1">
                     <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome" class="w-full border border-gray-300 rounded p-2" />
+                    <input type="text" name="nome" id="nome" class="w-full border border-gray-300 rounded p-2" required/>
                 </div>
                 <div class="mb-1">
                     <label for="categoriaID">Categoria</label>
-                    <select name="categoriaID" id="categoriaID" class="w-full border border-gray-300 rounded p-2">
+                    <select name="categoriaID" id="categoriaID" class="w-full border border-gray-300 rounded p-2" required>
                         <option label=" "></option>
                         <?php foreach ($templateParams["categorie"] as $categoria):
                         ?>
@@ -38,19 +38,19 @@
                 </div>
                 <div class="mb-1">
                     <label for="prezzo">Prezzo</label>
-                    <input type="number" name="prezzo" id="prezzo" class="w-full border border-gray-300 rounded p-2" />
+                    <input type="number" name="prezzo" id="prezzo" class="w-full border border-gray-300 rounded p-2" required/>
                 </div>
                 <div class="mb-1">
                     <label for="quantita">Quantità</label>
-                    <input type="number" name="quantita" id="quantita" class="w-full border border-gray-300 rounded p-2" />
+                    <input type="number" name="quantita" id="quantita" class="w-full border border-gray-300 rounded p-2" required/>
                 </div>
                 <div class="mb-1">
                     <label for="descrizione">Descrizione</label>
-                    <textarea name="descrizione" id="descrizione" class="w-full border border-gray-300 rounded p-2"></textarea>
+                    <textarea name="descrizione" id="descrizione" class="w-full border border-gray-300 rounded p-2" required></textarea>
                 </div>
                 <div class="mb-1">
                     <label for="immagine">Immagine</label>
-                    <input type="file" id="immagine" name="immagine" class="w-full border border-gray-300 rounded p-2" accept="image/*" />
+                    <input type="file" id="immagine" name="immagine" class="w-full border border-gray-300 rounded p-2" accept="image/*" required/>
                 </div>
                 <input class="w-full bg-blue text-white py-2 rounded hover:bg-darkBlue mt-4" type="submit" value="Invia" name="nuovoProdotto" />
                 <button type="reset" class="w-full bg-blue text-white py-2 rounded hover:bg-darkBlue mt-4">Esci</button>
