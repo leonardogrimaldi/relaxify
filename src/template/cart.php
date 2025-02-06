@@ -42,9 +42,15 @@
                 <dt class="font-bold">TOTALE PRODOTTI:</dt>
                 <dd id="totale" class="font-semibold">0.00€</dd>
             </dl>
-            <button onclick="window.location.href='checkout.php'" type="button" class="mt-4 w-full bg-blue text-white py-3 rounded-lg hover:bg-darkBlue">
-                Procedi all'ordine
-            </button>
+            <?php if(!empty($templateParams["prodotticarrello"])): ?>
+                <button onclick="window.location.href='checkout.php'" type="button" class="mt-4 w-full bg-blue text-white py-3 rounded-lg hover:bg-darkBlue">
+                    Procedi all'ordine
+                </button>
+            <?php else: ?>
+                <button onclick="window.location.href='index.php'" type="button" class="mt-4 w-full bg-blue text-white py-3 rounded-lg hover:bg-darkBlue"">
+                Aggiungi prodotti al carrello prima di procedere al checkout!
+                </button>
+            <?php endif; ?>
         </section>
     </div>
 </div>
