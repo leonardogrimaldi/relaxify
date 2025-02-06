@@ -52,6 +52,6 @@
     
     <?php require("suggestions.php"); ?>
 </div>
-<div id="cartMessage" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-darkPink text-white text-center py-2 px-4 rounded shadow-lg hidden">
-    Prodotto aggiunto al carrello!
+<div id="cartMessage" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-blue text-white text-center py-2 px-4 rounded shadow-lg hidden">
+    Aggiunto al carrello!
 </div>

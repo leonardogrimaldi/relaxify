@@ -48,6 +48,6 @@
         </section>
     </div>
 </div>
-<div id="cartRemoveMessage" class="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-darkPink text-white text-center py-2 px-4 rounded shadow-lg hidden">
-    Prodotto rimosso dal carrello!
+<div id="cartRemoveMessage" class="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-blue text-white text-center py-2 px-4 rounded shadow-lg hidden">
+    Rimosso dal carrello!
 </div>
