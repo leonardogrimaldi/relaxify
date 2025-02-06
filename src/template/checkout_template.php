@@ -82,7 +82,7 @@
                             <dt class="font-bold">TOTALE:</dt>
                             <dd id="totale" class="font-semibold">10.00€</dd>
                         </dl>
-                        <button type="submit" class="mt-4 w-full bg-teal-500 text-white py-3 rounded-lg hover:bg-teal-600">Paga ora</button>
+                        <button type="submit" class="mt-4 w-full bg-blue text-white py-3 rounded-lg hover:bg-darkBlue">Paga ora</button>
                         <input type="hidden" id="payed" name="payed" value="1">
                     </form>
                 </section>
