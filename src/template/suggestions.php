@@ -9,7 +9,7 @@
                     alt="<?php echo $prodottosuggerito["nome"]; ?>" 
                     itemprop="image">
             </a>
-            <section class="text-center flex flex-col">
+            <div class="text-center flex flex-col">
                 <h2 class="text-lg font-medium text-gray-700" itemprop="name">
                     <?php echo $prodottosuggerito["nome"]; ?>
                 </h2>
@@ -21,7 +21,7 @@
                     </div>
                 </div>
 
-            </section>
+            </div>
         </article>
         <?php endforeach; ?>
     </div>

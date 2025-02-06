@@ -33,6 +33,7 @@
         <?php
         foreach($templateParams["ordini"] as $ordine): ?>
         <article class="border border-gray-300 p-2 rounded border-b-2 relative">
+            <h4 class="sr-only">Numero ordine: <?php echo $ordine["ordineID"];?></h4>
             <dl>
                 <div class="flex flex-row gap-x-1">
                     <dt>Ordine:</dt>
