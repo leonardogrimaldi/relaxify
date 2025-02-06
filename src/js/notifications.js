@@ -52,7 +52,7 @@ const tickSent = (item) => {
             .then(data => {
                 console.log(data);
             });
-        item.remove();
+        item.classList.add("hidden");
         updateOrderStates();
     }
 }
@@ -66,8 +66,7 @@ const tickReceived = (item) => {
             .then(data => {
                 console.log(data);
             });
-        item.remove();
-        
+        item.classList.add("hidden");
     }
 }
 

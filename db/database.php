@@ -430,4 +430,20 @@ class DatabaseHelper
         $stmt->bind_param('si', $stato, $ordineID);
         $stmt->execute();
     }
+
+    public function getOrderStates($userID) {
+        if (empty($userID)) {
+            $stmt = $this->db->prepare("SELECT ordineID, stato FROM ordine;");
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            $stmt = $this->db->prepare("SELECT ordineID, stato FROM ordine WHERE utenteID = ?;");
+            $stmt->bind_param('i', $userID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+    }
 }
