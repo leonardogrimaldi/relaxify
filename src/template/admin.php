@@ -1,4 +1,4 @@
-<h2 class="text-xl my-2">Dashboard Admin <?php echo $_SESSION["nome"] ?></h2>
+<h2 class="text-xl my-2" itemprop="name">Dashboard Admin <?php echo $_SESSION["nome"] ?></h2>
 <div class="bg-white shadow-md rounded-md w-full max-w-lg">
     <menu class="flex border-b">
         <li class="w-full"><button class="w-full h-full py-3 text-center font-semibold text-gray-500 rounded-t-md" data-tab-name="prodotti">Prodotti</button></li>

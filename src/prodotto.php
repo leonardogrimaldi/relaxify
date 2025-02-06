@@ -9,6 +9,7 @@ $templateParams["module"] = "module";
 $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["prodotti"] = $dbh->getProducts();
 $templateParams["prodottoid"] = $dbh->getProductById($_GET["id"]);
+$templateParams["pageType"] = "https://schema.org/ItemPage";
 if (isset($_GET['fetch']) && $_GET['fetch'] === 'true') {
     header('Content-Type: application/json');
     echo json_encode($templateParams["prodottoid"]);

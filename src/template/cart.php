@@ -1,5 +1,5 @@
 <div class="max-w-xs sm:max-w-2xl bg-white shadow-md rounded-lg sm:ml-auto sm:mr-auto w-full">
-    <h2 class="text-xl font-bold text-gray-700 mb-6 text-center pt-3">Carrello</h2>
+    <h2 class="text-xl font-bold text-gray-700 mb-6 text-center pt-3" itemprop="name">Carrello</h2>
     <div class="flex flex-col sm:flex-row sm:mb-4">
         <p class="text-center hidden mb-4" id="emptyText">Il tuo carrello Relaxify è vuoto. Vai alla <a class="font-medium text-darkBlue underline hover:no-underline" href="./index.php">homepage</a> per visualizzare gli articoli presenti nello store!</p>
         <section class="sm:w-3/5 sm:border-r sm:px-4 mx-1 flex flex-col">

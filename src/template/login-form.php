@@ -1,3 +1,4 @@
+<meta itemprop="name" content="Login">
 <h2 class="py-4 text-lg">Effettua l'accesso al tuo account</h2>
         <div class="bg-white shadow-md rounded-md w-full max-w-lg">
             <menu class="flex border-b">

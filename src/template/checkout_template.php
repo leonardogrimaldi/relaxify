@@ -1,5 +1,5 @@
 <div class="max-w-4xl bg-white shadow-md rounded-lg mt-2 mx-1 sm:ml-auto sm:mr-auto">
-            <h2 class="text-xl font-bold text-gray-700 mb-6 text-center pt-3">Checkout</h2>
+            <h2 class="text-xl font-bold text-gray-700 mb-6 text-center pt-3" itemprop="name">Checkout</h2>
             <div class="flex flex-col sm:flex-row ">
                 <section class="sm:w-3/5 sm:border-r sm:pr-4">
                     <h3 class="text-center">Prodotti selezionati</h3>

@@ -1,4 +1,4 @@
-<h2 class="py-4 text-lg">Area personale</h2>
+<h2 class="py-4 text-lg" itemprop="name">Area personale</h2>
 <div class="bg-white shadow-md rounded-md w-full max-w-lg">
     <menu class="flex border-b">
         <li class="w-full"><button class="w-full h-full py-3 text-center font-semibold text-gray-500 rounded-t-md" data-tab-name="dati">Dati personali</button></li>

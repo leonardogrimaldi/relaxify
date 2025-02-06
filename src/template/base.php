@@ -21,8 +21,15 @@
     <?php endif; ?>
 
 </head>
-<body class="bg-gray-100 text-gray-800 flex items-center flex-col min-h-screen">
-    
+<body class="bg-gray-100 text-gray-800 flex items-center flex-col min-h-screen" 
+    itemscope 
+    itemtype="<?php if (!empty($templateParams["pageType"])) {
+        echo $templateParams["pageType"];
+    } else {
+        echo 'https://schema.org/WebPage';
+    }?>">
+    <meta itemprop="inLanguage" content="it-IT">
+    <meta itemprop="author" content="Relaxify">
     <!-- Header -->
     <?php
         if (isset($templateParams["header"])) {
