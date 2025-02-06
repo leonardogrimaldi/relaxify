@@ -39,3 +39,6 @@
 <div class="w-full text-center my-2 sm:w-2/3">
     <a href="carrello.php" class="text-2xl text-white bg-blue block p-3 mx-4 rounded-3xl">Vai al carrello</a>
 </div>
+<div id="cartMessage" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-darkBlue text-white text-center py-2 px-4 rounded shadow-lg hidden">
+    Aggiunto al carrello!
+</div>
