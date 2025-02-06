@@ -113,7 +113,7 @@
                 <div class="flex flex-col h-full grow ml-2">
                     <hgroup>
                         <h4 class="text-lg"><?php echo $prodotto["nome"]; ?></h4>
-                        <p class="text-base"><?php echo $prodotto["categoria"]; ?></p>
+                        <p class="text-base"><abbr title="Categoria" class="no-underline">Cat.</abbr> <?php echo $prodotto["categoria"]; ?></p>
                     </hgroup>
                     <dl>
                         <div class="flex flex-row gap-x-1">
@@ -123,10 +123,6 @@
                         <div class="flex flex-row gap-x-1">
                             <dt>Prezzo:</dt>
                             <dd><data value="<?php echo $prodotto["prezzo"]; ?>"><?php echo $prodotto["prezzo"]; ?></data>€</dd>
-                        </div>
-                        <div class="flex flex-row gap-x-1">
-                            <dt>Quantità:</dt>
-                            <dd><data value="11">11</data></dd>
                         </div>
                     </dl>
                 </div>
